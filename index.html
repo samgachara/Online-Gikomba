@@ -3,271 +3,201 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Online Gikomba | Premium Thrift Market</title>
+    <title>Original Gikomba Drip | Same-Day Delivery Nairobi</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        /* --- 1. PREMIUM BLACK & GOLD THEME --- */
         :root {
-            --bg-dark: #0a0a0a;
-            --bg-card: #1c1c1c;
-            --gold: #D4AF37;
-            --gold-hover: #b4942d;
-            --text-main: #f0f0f0;
-            --text-muted: #a0a0a0;
-            --mpesa-green: #25D366; 
+            --gold: #D4AF37; --dark: #0a0a0a; --card: #161616; --mpesa: #25D366; --red: #e74c3c;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Helvetica Neue', sans-serif; scroll-behavior: smooth; }
+        body { background: var(--dark); color: white; line-height: 1.6; }
+
+        /* URGENCY BAR */
+        .urgency-bar {
+            background: var(--red); color: white; text-align: center; padding: 10px;
+            font-weight: bold; position: fixed; top: 0; width: 100%; z-index: 2000; font-size: 0.9rem;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
-        
-        body { background-color: var(--bg-dark); color: var(--text-main); }
-
-        /* --- 2. NAVIGATION --- */
+        /* NAVIGATION */
         nav {
-            background: rgba(10, 10, 10, 0.95);
-            padding: 1rem 2rem;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            border-bottom: 2px solid var(--gold);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            background: #000; padding: 15px 5%; display: flex; justify-content: space-between;
+            align-items: center; border-bottom: 1px solid var(--gold); position: sticky; top: 40px; z-index: 1000;
         }
-        .logo { font-size: 1.5rem; font-weight: bold; color: var(--gold); letter-spacing: 2px; text-transform: uppercase; }
-        .nav-links button {
-            background: transparent;
-            border: 1px solid var(--gold);
-            color: var(--gold);
-            padding: 8px 15px;
-            margin-left: 10px;
-            cursor: pointer;
-            border-radius: 4px;
-            transition: 0.3s;
-        }
-        .nav-links button:hover { background: var(--gold); color: #000; }
-        
-        /* --- 3. HERO SECTION (SEASONAL) --- */
+        .nav-links a { color: white; text-decoration: none; margin-left: 20px; font-weight: bold; font-size: 0.85rem; text-transform: uppercase; }
+        .badge-hot { background: var(--red); padding: 2px 6px; border-radius: 3px; font-size: 0.7rem; margin-left: 3px; }
+
+        /* HERO SECTION */
         .hero {
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1544642899-f0d6e5f6ed6f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
-            background-size: cover;
-            background-position: center;
-            height: 60vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 20px;
+            height: 85vh;
+            background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), url('https://images.unsplash.com/photo-1489987707025-afc232f7ea0f?auto=format&fit=crop&w=1350&q=80');
+            background-size: cover; background-position: center;
+            display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 20px;
         }
-        .hero h1 { font-size: 3rem; color: var(--gold); margin-bottom: 10px; }
-        .hero p { font-size: 1.2rem; margin-bottom: 20px; }
-        .season-badge { background: var(--gold); color: black; padding: 5px 15px; font-weight: bold; text-transform: uppercase; border-radius: 20px; margin-bottom: 10px; }
+        .hero h1 { font-size: 3.5rem; color: var(--gold); font-weight: 900; line-height: 1.1; margin-bottom: 15px; }
+        .hero p { font-size: 1.3rem; margin-bottom: 30px; max-width: 650px; color: #eee; }
+        .cta-btn { background: var(--gold); color: black; padding: 18px 45px; font-weight: bold; text-decoration: none; font-size: 1.2rem; border-radius: 5px; text-transform: uppercase; transition: 0.3s; }
+        .cta-btn:hover { background: #fff; transform: scale(1.05); }
 
-        /* --- 4. CATEGORY TABS --- */
-        .category-tabs { display: flex; justify-content: center; gap: 10px; padding: 2rem; flex-wrap: wrap; }
-        .tab-btn {
-            background: var(--bg-card);
-            color: var(--text-muted);
-            border: none;
-            padding: 10px 25px;
-            font-size: 1.1rem;
-            cursor: pointer;
-            border-bottom: 3px solid transparent;
+        /* TRUST BAR */
+        .trust-bar { background: #111; padding: 20px 5%; text-align: center; font-size: 0.9rem; color: var(--gold); border-bottom: 1px solid #222; letter-spacing: 1px; }
+
+        /* CATEGORY TABS */
+        .category-nav { display: flex; justify-content: center; gap: 10px; padding: 30px 5% 10px; flex-wrap: wrap; }
+        .tab { background: #222; border: 1px solid #444; color: white; padding: 8px 20px; border-radius: 20px; cursor: pointer; text-decoration: none; font-size: 0.9rem; }
+        .tab:hover, .tab.active { border-color: var(--gold); color: var(--gold); }
+
+        /* PRODUCT GRID */
+        .section-title { padding: 40px 5% 10px; font-size: 1.8rem; color: var(--gold); text-transform: uppercase; letter-spacing: 2px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; padding: 0 5% 50px; }
+        .product-card { background: var(--card); border: 1px solid #333; border-radius: 8px; overflow: hidden; position: relative; transition: 0.3s; }
+        .product-card:hover { border-color: var(--gold); }
+        .product-card img { width: 100%; height: 380px; object-fit: cover; }
+        .tag { position: absolute; top: 15px; left: 15px; background: var(--red); color: white; padding: 5px 12px; font-size: 0.75rem; font-weight: bold; border-radius: 3px; }
+        
+        .card-body { padding: 20px; }
+        .card-body h3 { font-size: 1.2rem; margin-bottom: 10px; color: #fff; }
+        .price-row { display: flex; align-items: center; gap: 10px; margin-bottom: 15px; }
+        .price { font-size: 1.5rem; color: var(--gold); font-weight: bold; }
+        .old-price { text-decoration: line-through; color: #666; font-size: 0.9rem; }
+        
+        .buy-now { display: block; background: var(--mpesa); color: white; text-align: center; padding: 14px; text-decoration: none; border-radius: 5px; font-weight: bold; transition: 0.3s; }
+        .buy-now:hover { opacity: 0.9; transform: translateY(-2px); }
+
+        /* INFO BOXES */
+        .info-box { background: #111; padding: 60px 5%; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; border-top: 1px solid #222; }
+        .info-box h2 { color: var(--gold); margin-bottom: 25px; text-transform: uppercase; font-size: 1.5rem; }
+        .step { margin-bottom: 20px; display: flex; gap: 15px; align-items: flex-start; }
+        .step i { color: var(--gold); font-size: 1.4rem; margin-top: 5px; }
+
+        /* ABOUT SECTION */
+        .about { padding: 60px 5%; text-align: center; background: #000; border-top: 1px solid #222; }
+        .founders { display: flex; justify-content: center; gap: 40px; margin-top: 30px; flex-wrap: wrap; }
+        .founder-card h4 { color: var(--gold); font-size: 1.2rem; }
+
+        /* FOOTER */
+        footer { background: #000; padding: 50px 5%; border-top: 1px solid #222; color: #777; text-align: center; }
+        .social-links { margin-bottom: 20px; }
+        .social-links a { color: #fff; font-size: 1.5rem; margin: 0 15px; transition: 0.3s; }
+        .social-links a:hover { color: var(--gold); }
+
+        /* FLOATING WHATSAPP */
+        .float-wa { position: fixed; bottom: 30px; right: 30px; background: var(--mpesa); color: white; width: 65px; height: 65px; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 35px; z-index: 3000; box-shadow: 0 4px 15px rgba(0,0,0,0.5); text-decoration: none; }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.2rem; }
+            nav { top: 44px; }
         }
-        .tab-btn.active { color: var(--gold); border-bottom: 3px solid var(--gold); }
-
-        /* --- 5. PRODUCT GRID --- */
-        .gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            padding: 2rem 5%;
-        }
-        .card {
-            background: var(--bg-card);
-            border-radius: 10px;
-            overflow: hidden;
-            transition: transform 0.3s;
-            border: 1px solid #333;
-        }
-        .card:hover { transform: translateY(-5px); border-color: var(--gold); }
-        .card img { width: 100%; height: 300px; object-fit: cover; }
-        .card-info { padding: 15px; }
-        .card-cat { color: var(--gold); font-size: 0.8rem; text-transform: uppercase; }
-        .card-title { font-size: 1.2rem; margin: 5px 0; }
-        .card-price { font-size: 1.3rem; font-weight: bold; color: white; }
-        .seller-info { font-size: 0.9rem; color: var(--text-muted); margin-top: 5px; display: flex; justify-content: space-between; }
-        .rating { color: #f1c40f; }
-
-        .btn-buy {
-            display: block;
-            width: 100%;
-            background: var(--mpesa-green);
-            color: white;
-            text-align: center;
-            padding: 12px;
-            margin-top: 15px;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: bold;
-        }
-
-        /* --- 6. ABOUT & FOUNDERS --- */
-        .about-section { background: var(--bg-card); padding: 4rem 2rem; text-align: center; margin-top: 2rem; }
-        .founders { display: flex; justify-content: center; gap: 3rem; margin-top: 2rem; flex-wrap: wrap; }
-        .founder-card h3 { color: var(--gold); margin-bottom: 5px; }
-
-        /* --- 7. HOW IT WORKS (Replaced Payment) --- */
-        .process-info {
-            border: 1px solid #333;
-            padding: 30px;
-            margin: 20px auto;
-            max-width: 800px;
-            text-align: center;
-            border-radius: 10px;
-            background: rgba(255,255,255,0.05);
-        }
-        .process-steps { display: flex; justify-content: space-around; flex-wrap: wrap; gap: 20px; margin-top: 20px; }
-        .step i { font-size: 2rem; color: var(--gold); margin-bottom: 10px; }
-
-        footer { text-align: center; padding: 2rem; background: black; color: var(--text-muted); border-top: 1px solid #333; }
-
     </style>
 </head>
 <body>
 
-    <nav>
-        <div class="logo"><i class="fas fa-crown"></i> Online Gikomba</div>
-        <div class="nav-links">
-            <button onclick="alert('Buyer registration coming soon!')">Sign Up (Buyer)</button>
-            <button style="background:var(--gold); color:black;" onclick="window.location.href='https://wa.me/254736906440?text=I%20want%20to%20register%20as%20a%20Seller'">Seller Portal</button>
-        </div>
-    </nav>
+<div class="urgency-bar">🔥 TODAY’S DROP — Prices Reset at Midnight ⏳</div>
 
-    <section class="hero">
-        <span class="season-badge">New Season Drop</span>
-        <h1>Streetwear & Vintage</h1>
-        <p>The hardest fits from Gikomba, verified and delivered.</p>
-        <div style="margin-top:20px;">
-            <i class="fas fa-shield-alt" style="color:var(--gold)"></i> Verified Sellers Only
-        </div>
-    </section>
-
-    <div class="category-tabs">
-        <button class="tab-btn active">All</button>
-        <button class="tab-btn">Men's Fits</button>
-        <button class="tab-btn">Women's Collection</button>
-        <button class="tab-btn">Kids & Baby</button>
-        <button class="tab-btn">Shoes (Kicks)</button>
+<nav>
+    <div style="font-weight:900; color:var(--gold); font-size: 1.5rem; letter-spacing: 1px;">GIKOMBA.SHOP</div>
+    <div class="nav-links">
+        <a href="#under1000">Under 1,000 <span class="badge-hot">HOT</span></a>
+        <a href="#how">How It Works</a>
+        <a href="https://wa.me/254736906440" style="color: var(--mpesa);">Chat</a>
     </div>
+</nav>
 
-    <div class="gallery">
-        
-        <div class="card">
-            <img src="https://images.unsplash.com/photo-1542272617-08f08630329e?auto=format&fit=crop&w=800&q=80" alt="Baggy Jeans">
-            <div class="card-info">
-                <span class="card-cat">Men • Vintage</span>
-                <div class="card-title">Baggy Carpenter Jeans</div>
-                <div class="card-price">KSh 1,200</div>
-                <div class="seller-info">
-                    <span>Seller: Gikomba King</span>
-                    <span class="rating"><i class="fas fa-star"></i> 4.8</span>
-                </div>
-                <a href="https://wa.me/254736906440?text=Hi,%20I%20want%20to%20buy%20the%20Baggy%20Jeans%20for%201200" class="btn-buy">
-                    <i class="fab fa-whatsapp"></i> Chat with Seller
-                </a>
-            </div>
-        </div>
+<header class="hero">
+    <h1>Original Gikomba Drip<br>Delivered Across Nairobi 🇰🇪</h1>
+    <p>Premium handpicked thrift from 500 KES. One-piece stock only. Pay on delivery. Same-day shipping.</p>
+    <a href="#under1000" class="cta-btn">Shop The Drop</a>
+</header>
 
-        <div class="card">
-            <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=800&q=80" alt="Oversized Sweater">
-            <div class="card-info">
-                <span class="card-cat">Women • Tops</span>
-                <div class="card-title">Oversized Graphic Tee</div>
-                <div class="card-price">KSh 800</div>
-                <div class="seller-info">
-                    <span>Seller: Nairobi Thrift</span>
-                    <span class="rating"><i class="fas fa-star"></i> 5.0</span>
-                </div>
-                <a href="https://wa.me/254736906440?text=Hi,%20I%20want%20to%20buy%20the%20Graphic%20Tee%20for%20800" class="btn-buy">
-                    <i class="fab fa-whatsapp"></i> Chat with Seller
-                </a>
-            </div>
-        </div>
+<div class="trust-bar">
+    <i class="fas fa-star"></i> TRUSTED BY NAIROBI THRIFT BUYERS | <i class="fas fa-truck"></i> SAME-DAY DELIVERY | <i class="fas fa-check-circle"></i> GRADE 1 QUALITY
+</div>
 
-        <div class="card">
-            <img src="https://images.unsplash.com/photo-1560769629-975e13f0c470?auto=format&fit=crop&w=800&q=80" alt="Jordan 1s">
-            <div class="card-info">
-                <span class="card-cat">Shoes • Kicks</span>
-                <div class="card-title">Vintage High Tops (Size 42)</div>
-                <div class="card-price">KSh 3,500</div>
-                <div class="seller-info">
-                    <span>Seller: Kicks 254</span>
-                    <span class="rating"><i class="fas fa-star"></i> 4.5</span>
-                </div>
-                <a href="https://wa.me/254736906440?text=Hi,%20I%20want%20to%20buy%20the%20High%20Tops%20for%203500" class="btn-buy">
-                    <i class="fab fa-whatsapp"></i> Chat with Seller
-                </a>
-            </div>
-        </div>
+<div class="category-nav">
+    <a href="#under1000" class="tab active">All Drops</a>
+    <a href="#" class="tab">Men's Fits</a>
+    <a href="#" class="tab">Ladies' Wear</a>
+    <a href="#" class="tab">Shoes/Kicks</a>
+    <a href="#" class="tab">Kids</a>
+</div>
 
-        <div class="card">
-            <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=800&q=80" alt="Sweatpants">
-            <div class="card-info">
-                <span class="card-cat">Unisex • Bottoms</span>
-                <div class="card-title">Grey Buggy Sweatpants</div>
-                <div class="card-price">KSh 900</div>
-                <div class="seller-info">
-                    <span>Seller: The Plug</span>
-                    <span class="rating"><i class="fas fa-star"></i> 4.9</span>
-                </div>
-                <a href="https://wa.me/254736906440?text=Hi,%20I%20want%20to%20buy%20the%20Grey%20Sweatpants%20for%20900" class="btn-buy">
-                    <i class="fab fa-whatsapp"></i> Chat with Seller
-                </a>
+<h2 class="section-title" id="under1000">🔥 Budget Drip — Everything Under 1,000 KES</h2>
+<div class="grid">
+    <div class="product-card">
+        <div class="tag">ONLY 1 LEFT</div>
+        <img src="https://images.unsplash.com/photo-1552839880-03227d575f02?auto=format&fit=crop&w=500&q=80" alt="Hoodie">
+        <div class="card-body">
+            <h3>Vintage Graphic Hoodie</h3>
+            <p style="color:#aaa; font-size:0.85rem; margin-bottom:10px;">Condition: 9/10 | Size: Medium</p>
+            <div class="price-row">
+                <span class="price">KES 899</span>
+                <span class="old-price">KES 1,200</span>
             </div>
-        </div>
-
-    </div>
-
-    <div class="process-info">
-        <h3 style="color:var(--gold)">How It Works</h3>
-        <div class="process-steps">
-            <div class="step">
-                <i class="fas fa-search"></i>
-                <p><strong>1. Browse</strong><br>Find your unique fit.</p>
-            </div>
-            <div class="step">
-                <i class="fab fa-whatsapp"></i>
-                <p><strong>2. Contact Seller</strong><br>Click to chat & confirm availability.</p>
-            </div>
-            <div class="step">
-                <i class="fas fa-handshake"></i>
-                <p><strong>3. Pay & Receive</strong><br>Agree on payment (MPESA/Cash) & Delivery.</p>
-            </div>
+            <a href="https://wa.me/254736906440?text=I%20want%20to%20order%20the%20Graphic%20Hoodie%20for%20899" class="buy-now">Order Now (WhatsApp)</a>
         </div>
     </div>
 
-    <section class="about-section">
-        <h2 style="color:var(--gold)">About Online Gikomba</h2>
-        <p style="max-width: 700px; margin: 10px auto; color: #ccc;">
-            We are digitizing the spirit of Gikomba. A secure, verified platform connecting you to the best thrift sellers in Nairobi. No scams, just quality fits.
-        </p>
-        
-        <div class="founders">
-            <div class="founder-card">
-                <h3>Sam Gachara</h3>
-                <p>Co-Founder & Tech Lead</p>
+    <div class="product-card">
+        <div class="tag">HOT DEAL</div>
+        <img src="https://images.unsplash.com/photo-1596755094514-f87e34085b2c?auto=format&fit=crop&w=500&q=80" alt="Shirt">
+        <div class="card-body">
+            <h3>Summer Button-Up Shirt</h3>
+            <p style="color:#aaa; font-size:0.85rem; margin-bottom:10px;">Condition: 10/10 | Size: Small/Medium</p>
+            <div class="price-row">
+                <span class="price">KES 650</span>
             </div>
-            <div class="founder-card">
-                <h3>Isaac Mwathi</h3>
-                <p>Co-Founder & Operations</p>
-            </div>
+            <a href="https://wa.me/254736906440?text=I%20want%20to%20order%20the%20Summer%20Shirt%20for%20650" class="buy-now">Order Now (WhatsApp)</a>
         </div>
-    </section>
+    </div>
 
-    <footer>
-        <p>&copy; 2026 Online Gikomba. All Rights Reserved.</p>
-    </footer>
+    <div class="product-card">
+        <div class="tag">ONLY 1 LEFT</div>
+        <img src="https://images.unsplash.com/photo-1542272617-08f08630329e?auto=format&fit=crop&w=500&q=80" alt="Jeans">
+        <div class="card-body">
+            <h3>Baggy Carpenter Jeans</h3>
+            <p style="color:#aaa; font-size:0.85rem; margin-bottom:10px;">Condition: 8/10 | Size: 32</p>
+            <div class="price-row">
+                <span class="price">KES 950</span>
+            </div>
+            <a href="https://wa.me/254736906440?text=I%20want%20to%20order%20the%20Carpenter%20Jeans%20for%20950" class="buy-now">Order Now (WhatsApp)</a>
+        </div>
+    </div>
+</div>
+
+<div class="info-box" id="how">
+    <div>
+        <h2>How To Buy</h2>
+        <div class="step"><i class="fas fa-shopping-cart"></i><p><strong>Choose your item:</strong> Items are one-piece only. If it’s gone, it’s gone.</p></div>
+        <div class="step"><i class="fab fa-whatsapp"></i><p><strong>WhatsApp Us:</strong> Click the "Order Now" button to confirm stock instantly.</p></div>
+        <div class="step"><i class="fas fa-motorcycle"></i><p><strong>Delivery:</strong> Pay via MPESA or Cash on delivery. We deliver to your doorstep.</p></div>
+    </div>
+    <div>
+        <h2>🚚 Delivery Information</h2>
+        <p style="margin-bottom:15px;"><strong>Nairobi:</strong> Same-day delivery for orders before 2:00 PM. Next-day for later orders.</p>
+        <p style="margin-bottom:15px;"><strong>Outside Nairobi:</strong> 1-3 working days via G4S, Fargo Courier, or Easy Coach.</p>
+        <p style="color:var(--gold); font-weight:bold;">* Delivery fees apply based on your location.</p>
+    </div>
+</div>
+
+<section class="about">
+    <h2>About Gikomba.shop</h2>
+    <p style="max-width:800px; margin: 15px auto; color:#ccc;">We are digitizing the spirit of Gikomba. No scams, no bale gambling—just the hardest, handpicked Grade 1 pieces delivered directly to your door.</p>
+    <div class="founders">
+        <div class="founder-card"><h4>Sam Gachara</h4><p>Co-Founder / Tech</p></div>
+        <div class="founder-card"><h4>Isaac Mwathi</h4><p>Co-Founder / Ops</p></div>
+    </div>
+</section>
+
+<footer>
+    <div class="social-links">
+        <a href="https://www.tiktok.com/@onlinegikomba"><i class="fab fa-tiktok"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+    </div>
+    <p style="margin-bottom:10px;">Payments: MPESA & Cash on Delivery (Nairobi Only)</p>
+    <p>Returns: Thrift items sold as-is. Check quality upon delivery.</p>
+    <p style="margin-top:20px;">&copy; 2026 Gikomba.shop | Powered by MPESA</p>
+</footer>
+
+<a href="https://wa.me/254736906440" class="float-wa"><i class="fab fa-whatsapp"></i></a>
 
 </body>
 </html>
