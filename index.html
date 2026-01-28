@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Original Gikomba Drip — Delivered Across Nairobi. Quality handpicked thrift wear from 500 KES. One-piece only items.">
-    <title>GIKOMBA.SHOP | Original Gikomba Drip — Delivered Across Nairobi 🇰🇪</title>
+    <meta name="description" content="Original Gikomba Drip from Nairobi's best sellers. Quality thrift wear from KES 50. Direct WhatsApp ordering.">
+    <title>GIKOMBA.SHOP | Original Gikomba Drip — Direct From Sellers 🇰🇪</title>
     <style>
         /* ===== MOBILE-FIRST CSS (Optimized for low-end Android) ===== */
         :root {
@@ -19,6 +19,10 @@
             --border-radius: 8px;
             --box-shadow: 0 4px 12px rgba(0,0,0,0.25);
             --transition: all 0.2s ease;
+            --seller-blue: #2563eb;
+            --buyer-green: #047857;
+            --warning-yellow: #FFC107;
+            --warning-bg: rgba(255, 193, 7, 0.15);
         }
         
         * {
@@ -101,6 +105,7 @@
             letter-spacing: -0.5px;
             display: flex;
             align-items: center;
+            cursor: pointer;
         }
         
         .logo span { color: var(--off-white); }
@@ -108,14 +113,14 @@
         .nav-links {
             display: flex;
             align-items: center;
-            gap: 24px;
+            gap: 16px;
         }
         
         .nav-link {
             color: var(--light-gray);
             text-decoration: none;
             font-weight: 500;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             position: relative;
             padding: 4px 0;
             transition: var(--transition);
@@ -125,18 +130,22 @@
             color: var(--gold);
         }
         
-        .hot-badge {
-            background: var(--urgency-red);
-            color: white;
-            font-size: 0.65rem;
+        .signup-btn {
+            background: var(--gold);
+            color: var(--black);
+            border: none;
             font-weight: 700;
-            padding: 2px 6px;
-            border-radius: 10px;
-            margin-left: 4px;
-            position: absolute;
-            top: -8px;
-            right: -12px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+            padding: 8px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-size: 0.95rem;
+            box-shadow: 0 2px 8px rgba(212, 175, 55, 0.3);
+        }
+        
+        .signup-btn:hover {
+            background: #c19d2a;
+            transform: translateY(-1px);
         }
         
         .whatsapp-nav {
@@ -153,6 +162,7 @@
             flex-shrink: 0;
             box-shadow: 0 2px 10px rgba(30, 140, 30, 0.4);
             transition: var(--transition);
+            margin-left: 8px;
         }
         
         .whatsapp-nav:hover {
@@ -187,43 +197,71 @@
         }
         
         .hero h1 {
-            font-size: 2.5rem; /* 40px */
+            font-size: 2.3rem; /* 37px */
             margin-bottom: 16px;
             text-shadow: 0 2px 10px rgba(0,0,0,0.5);
             letter-spacing: -0.03em;
         }
         
         .hero p {
-            font-size: 1.25rem; /* 20px */
+            font-size: 1.2rem; /* 19px */
             max-width: 600px;
             margin: 0 auto 28px;
             color: var(--light-gray);
             font-weight: 300;
         }
         
+        .cta-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+            width: 100%;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+        
         .cta-button {
             background: var(--mpesa-green);
             color: white;
             border: none;
-            font-size: 1.25rem;
+            font-size: 1.2rem;
             font-weight: 700;
-            padding: 16px 45px;
+            padding: 16px 30px;
             border-radius: 50px;
             cursor: pointer;
             transition: var(--transition);
             box-shadow: 0 4px 15px rgba(30, 140, 30, 0.45);
             display: inline-block;
             text-decoration: none;
-            margin: 10px 0;
             letter-spacing: -0.5px;
             width: 100%;
-            max-width: 320px;
         }
         
         .cta-button:hover {
             background: #1a7a1a;
             transform: translateY(-2px);
             box-shadow: 0 6px 18px rgba(30, 140, 30, 0.6);
+        }
+        
+        .signup-options {
+            display: flex;
+            gap: 12px;
+            width: 100%;
+        }
+        
+        .buyer-btn {
+            background: var(--buyer-green);
+            flex: 1;
+            padding: 14px;
+            font-weight: 600;
+        }
+        
+        .seller-btn {
+            background: var(--seller-blue);
+            flex: 1;
+            padding: 14px;
+            font-weight: 600;
         }
         
         .trust-strip {
@@ -255,12 +293,12 @@
         
         /* ===== SECTION STYLING ===== */
         section {
-            padding: 60px 20px;
+            padding: 50px 20px;
         }
         
         .section-title {
             text-align: center;
-            margin-bottom: 40px;
+            margin-bottom: 35px;
         }
         
         .section-title h2 {
@@ -271,7 +309,7 @@
         .products-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 28px;
+            gap: 25px;
             max-width: 1400px;
             margin: 0 auto;
         }
@@ -294,7 +332,7 @@
         
         .product-image {
             width: 100%;
-            height: 280px;
+            height: 260px;
             object-fit: cover;
             display: block;
             background: var(--dark-gray);
@@ -315,24 +353,49 @@
             box-shadow: 0 2px 6px rgba(0,0,0,0.3);
         }
         
+        .seller-badge {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            background: var(--seller-blue);
+            color: white;
+            font-weight: 600;
+            padding: 3px 8px;
+            border-radius: 15px;
+            font-size: 0.75rem;
+            z-index: 10;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+        
         .product-info {
-            padding: 18px;
+            padding: 16px;
         }
         
         .product-name {
-            font-size: 1.25rem;
-            margin-bottom: 8px;
+            font-size: 1.2rem;
+            margin-bottom: 6px;
             display: -webkit-box;
             -webkit-line-clamp: 2;
             -webkit-box-orient: vertical;
             overflow: hidden;
         }
         
+        .product-description {
+            font-size: 0.85rem;
+            color: #aaa;
+            margin: 8px 0 12px;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            line-height: 1.4;
+        }
+        
         .product-meta {
             display: flex;
             justify-content: space-between;
             color: var(--light-gray);
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             margin: 6px 0;
         }
         
@@ -345,16 +408,16 @@
         }
         
         .price {
-            font-size: 1.5rem;
+            font-size: 1.45rem;
             font-weight: 800;
             color: var(--mpesa-green);
-            margin: 8px 0;
+            margin: 8px 0 12px;
         }
         
         .old-price {
             text-decoration: line-through;
             color: #888;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             margin-left: 6px;
         }
         
@@ -363,17 +426,18 @@
             color: white;
             border: none;
             width: 100%;
-            padding: 14px;
+            padding: 13px;
             border-radius: 50px;
             font-weight: 700;
-            font-size: 1.05rem;
-            margin-top: 10px;
+            font-size: 1rem;
+            margin-top: 8px;
             cursor: pointer;
             transition: var(--transition);
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 8px;
+            box-shadow: 0 3px 10px rgba(30, 140, 30, 0.3);
         }
         
         .whatsapp-btn:hover {
@@ -385,16 +449,16 @@
         .steps-container {
             display: flex;
             flex-direction: column;
-            gap: 30px;
+            gap: 25px;
             max-width: 800px;
             margin: 0 auto;
         }
         
         .step {
             display: flex;
-            gap: 20px;
+            gap: 18px;
             background: var(--near-black);
-            padding: 24px;
+            padding: 22px;
             border-radius: var(--border-radius);
             box-shadow: var(--box-shadow);
             border-left: 3px solid var(--gold);
@@ -403,25 +467,384 @@
         .step-number {
             background: var(--gold);
             color: var(--black);
-            min-width: 36px;
-            height: 36px;
+            min-width: 34px;
+            height: 34px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             font-weight: 800;
-            font-size: 1.25rem;
+            font-size: 1.2rem;
             flex-shrink: 0;
             margin-top: 4px;
         }
         
         .step-content h3 {
-            font-size: 1.5rem;
+            font-size: 1.45rem;
             margin-bottom: 8px;
             color: var(--gold);
         }
         
-        /* ===== DELIVERY & TRUST ===== */
+        /* ===== SELLER DASHBOARD ===== */
+        .seller-dashboard {
+            background: linear-gradient(rgba(15,25,45,0.9), rgba(10,10,20,0.95)), url('https://images.unsplash.com/photo-1552581234-26160f608093?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');
+            background-size: cover;
+            background-position: center;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            margin: 40px auto;
+            max-width: 1200px;
+            border: 1px solid rgba(37, 99, 235, 0.3);
+        }
+        
+        .dashboard-header {
+            background: rgba(25, 35, 65, 0.95);
+            padding: 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        .dashboard-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--gold);
+        }
+        
+        .dashboard-tabs {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .tab-btn {
+            background: rgba(37, 99, 235, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--light-gray);
+            padding: 8px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+        
+        .tab-btn.active {
+            background: var(--seller-blue);
+            color: white;
+            border-color: var(--seller-blue);
+        }
+        
+        .dashboard-content {
+            padding: 25px;
+        }
+        
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+        
+        .dashboard-card {
+            background: rgba(30, 40, 70, 0.8);
+            border-radius: var(--border-radius);
+            padding: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        
+        .dashboard-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: var(--gold);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .stat-value {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--gold);
+            margin: 5px 0;
+        }
+        
+        .stat-label {
+            color: var(--light-gray);
+            font-size: 0.95rem;
+        }
+        
+        .action-btn {
+            background: var(--seller-blue);
+            color: white;
+            border: none;
+            width: 100%;
+            padding: 12px;
+            border-radius: 50px;
+            font-weight: 600;
+            margin-top: 15px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .action-btn:hover {
+            background: #1d4ed8;
+            transform: translateY(-1px);
+        }
+        
+        .warning-box {
+            background: var(--warning-bg);
+            border-left: 4px solid var(--warning-yellow);
+            padding: 15px;
+            border-radius: 0 var(--border-radius) var(--border-radius) 0;
+            margin: 20px 0;
+            color: #fff;
+            font-weight: 500;
+        }
+        
+        .warning-box svg {
+            width: 20px;
+            height: 20px;
+            vertical-align: middle;
+            margin-right: 8px;
+            fill: var(--urgency-red);
+        }
+        
+        .product-form {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 15px;
+        }
+        
+        .form-group {
+            margin-bottom: 15px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--light-gray);
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 14px;
+            background: rgba(30,30,40,0.8);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 8px;
+            color: var(--off-white);
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: var(--gold);
+            box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.2);
+        }
+        
+        textarea.form-control {
+            min-height: 100px;
+            resize: vertical;
+        }
+        
+        .image-preview {
+            width: 100%;
+            height: 200px;
+            background: var(--dark-gray);
+            border-radius: var(--border-radius);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 10px;
+            border: 2px dashed rgba(255,255,255,0.2);
+            color: var(--light-gray);
+            font-size: 0.9rem;
+            text-align: center;
+            padding: 15px;
+        }
+        
+        .image-preview img {
+            max-width: 100%;
+            max-height: 100%;
+            display: none;
+        }
+        
+        /* ===== MODAL STYLES ===== */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.85);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 5000;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+        }
+        
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .modal {
+            background: var(--near-black);
+            width: 95%;
+            max-width: 550px;
+            border-radius: var(--border-radius);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            overflow: hidden;
+            transform: translateY(20px);
+            transition: transform 0.3s ease;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+        }
+        
+        .modal-overlay.active .modal {
+            transform: translateY(0);
+        }
+        
+        .modal-header {
+            padding: 20px;
+            text-align: center;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            background: rgba(20,20,30,0.9);
+        }
+        
+        .modal-title {
+            font-size: 1.75rem;
+            margin-bottom: 8px;
+            color: var(--gold);
+        }
+        
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            background: none;
+            border: none;
+            color: var(--light-gray);
+            font-size: 1.5rem;
+            cursor: pointer;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+        
+        .close-modal:hover {
+            background: rgba(255,255,255,0.1);
+            color: var(--urgency-red);
+        }
+        
+        .modal-body {
+            padding: 25px;
+        }
+        
+        .submit-btn {
+            background: var(--mpesa-green);
+            color: white;
+            border: none;
+            width: 100%;
+            padding: 16px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: var(--transition);
+            margin-top: 10px;
+            box-shadow: 0 4px 10px rgba(30, 140, 30, 0.3);
+        }
+        
+        .submit-btn:hover {
+            background: #1a7a1a;
+            transform: translateY(-2px);
+        }
+        
+        .role-selector {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+        
+        .role-btn {
+            flex: 1;
+            padding: 15px;
+            border: 2px solid rgba(255,255,255,0.1);
+            border-radius: 12px;
+            background: rgba(30,30,40,0.7);
+            color: var(--light-gray);
+            font-weight: 600;
+            font-size: 1.05rem;
+            cursor: pointer;
+            transition: var(--transition);
+            text-align: center;
+        }
+        
+        .role-btn.buyer {
+            border-color: var(--buyer-green);
+        }
+        
+        .role-btn.seller {
+            border-color: var(--seller-blue);
+        }
+        
+        .role-btn.active {
+            border-color: var(--gold);
+            background: rgba(40,40,50,0.9);
+            color: var(--gold);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+        
+        .role-btn.buyer.active {
+            border-color: var(--buyer-green);
+            color: white;
+            background: var(--buyer-green);
+        }
+        
+        .role-btn.seller.active {
+            border-color: var(--seller-blue);
+            color: white;
+            background: var(--seller-blue);
+        }
+        
+        .divider {
+            text-align: center;
+            position: relative;
+            margin: 25px 0;
+        }
+        
+        .divider:after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: rgba(255,255,255,0.1);
+            z-index: 0;
+        }
+        
+        .divider span {
+            background: var(--black);
+            padding: 0 15px;
+            position: relative;
+            z-index: 1;
+            color: var(--light-gray);
+            font-weight: 500;
+        }
+        
+        /* ===== DELIVERY & SELLER CTA ===== */
         .delivery-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -445,60 +868,56 @@
             color: var(--gold);
         }
         
-        .founders {
+        .seller-cta {
             text-align: center;
-            max-width: 700px;
-            margin: 0 auto;
-            padding: 25px;
-            background: rgba(30, 30, 30, 0.7);
+            background: linear-gradient(rgba(25,35,65,0.9), rgba(15,20,40,0.95)), url('https://images.unsplash.com/photo-1543269664-76bc3997d9ea?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');
+            background-size: cover;
+            background-position: center;
             border-radius: var(--border-radius);
-            border: 1px solid rgba(212, 175, 55, 0.2);
+            padding: 50px 20px;
+            max-width: 900px;
+            margin: 0 auto;
+            box-shadow: var(--box-shadow);
+            border: 1px solid rgba(37, 99, 235, 0.4);
         }
         
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin-top: 20px;
+        .seller-cta h2 {
+            color: white;
+            margin-bottom: 20px;
         }
         
-        .social-link {
-            width: 48px;
-            height: 48px;
-            border-radius: 50%;
-            background: var(--dark-gray);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--gold);
-            font-size: 1.5rem;
-            text-decoration: none;
-            transition: var(--transition);
-            border: 2px solid transparent;
+        .seller-cta h2:after {
+            background: var(--seller-blue);
         }
         
-        .social-link:hover {
-            background: var(--black);
-            transform: translateY(-3px);
-            border-color: var(--gold);
+        .seller-cta p {
+            color: var(--light-gray);
+            max-width: 650px;
+            margin: 0 auto 30px;
+            font-size: 1.1rem;
         }
         
-        .testimonial {
-            background: rgba(30, 30, 30, 0.8);
-            border-left: 3px solid var(--gold);
-            padding: 20px;
-            border-radius: 0 var(--border-radius) var(--border-radius) 0;
-            margin: 25px auto;
-            max-width: 700px;
-            font-style: italic;
-        }
-        
-        .testimonial-author {
+        .seller-cta-btn {
+            background: var(--seller-blue);
+            color: white;
+            border: none;
+            font-size: 1.25rem;
             font-weight: 700;
-            color: var(--gold);
-            display: block;
-            margin-top: 8px;
-            font-style: normal;
+            padding: 16px 45px;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: 0 4px 15px rgba(37, 99, 235, 0.4);
+            display: inline-block;
+            text-decoration: none;
+            letter-spacing: -0.5px;
+            margin-top: 10px;
+        }
+        
+        .seller-cta-btn:hover {
+            background: #1d4ed8;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(37, 99, 235, 0.6);
         }
         
         /* ===== FOOTER ===== */
@@ -507,6 +926,7 @@
             padding: 35px 20px 25px;
             text-align: center;
             border-top: 1px solid rgba(212, 175, 55, 0.25);
+            margin-top: 30px;
         }
         
         .footer-logo {
@@ -526,12 +946,32 @@
             font-size: 0.95rem;
         }
         
+        .buyer-warning {
+            background: var(--warning-bg);
+            border-left: 4px solid var(--warning-yellow);
+            padding: 15px;
+            border-radius: 0 var(--border-radius) var(--border-radius) 0;
+            margin: 25px auto;
+            max-width: 700px;
+            font-weight: 500;
+            color: #fff;
+        }
+        
+        .buyer-warning svg {
+            width: 20px;
+            height: 20px;
+            vertical-align: middle;
+            margin-right: 8px;
+            fill: var(--urgency-red);
+        }
+        
         .copyright {
-            color: #777;
+            color: #888;
             font-size: 0.9rem;
             margin-top: 20px;
             padding-top: 15px;
             border-top: 1px solid rgba(255,255,255,0.08);
+            line-height: 1.5;
         }
         
         /* ===== FLOATING WHATSAPP BUTTON ===== */
@@ -567,6 +1007,121 @@
             transform: scale(0.95);
         }
         
+        /* ===== ADMIN CUSTOMIZATION PANEL ===== */
+        .admin-panel {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(5, 5, 15, 0.97);
+            z-index: 10000;
+            display: none;
+            flex-direction: column;
+            padding: 20px;
+            overflow-y: auto;
+        }
+        
+        .admin-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 20px;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+            margin-bottom: 30px;
+        }
+        
+        .admin-title {
+            font-size: 2rem;
+            color: var(--gold);
+        }
+        
+        .close-admin {
+            background: var(--urgency-red);
+            color: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 1.2rem;
+        }
+        
+        .admin-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .admin-card {
+            background: rgba(30, 30, 50, 0.8);
+            border-radius: var(--border-radius);
+            padding: 25px;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+        }
+        
+        .admin-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 20px;
+            color: var(--gold);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .color-preview {
+            display: inline-block;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            margin-left: 10px;
+            vertical-align: middle;
+            border: 2px solid var(--off-white);
+        }
+        
+        .admin-form {
+            display: grid;
+            gap: 20px;
+        }
+        
+        .color-picker {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .color-option {
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            cursor: pointer;
+            border: 3px solid transparent;
+            transition: var(--transition);
+        }
+        
+        .color-option.active {
+            border-color: var(--off-white);
+            transform: scale(1.1);
+        }
+        
+        .color-option.gold { background: #D4AF37; }
+        .color-option.blue { background: #2563eb; }
+        .color-option.green { background: #1E8C1E; }
+        .color-option.purple { background: #8b5cf6; }
+        .color-option.red { background: #EF4444; }
+        
+        .preview-box {
+            background: var(--near-black);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: var(--border-radius);
+            padding: 15px;
+            margin-top: 15px;
+            min-height: 60px;
+        }
+        
         /* ===== HELPERS & UTILITIES ===== */
         .container {
             width: 100%;
@@ -577,10 +1132,6 @@
         
         .text-center {
             text-align: center;
-        }
-        
-        .mb-40 {
-            margin-bottom: 40px;
         }
         
         .gold-accent {
@@ -597,22 +1148,40 @@
             font-weight: 700;
         }
         
+        .badge {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 15px;
+            font-weight: 600;
+            font-size: 0.85rem;
+        }
+        
+        .badge.buyer {
+            background: rgba(4, 120, 87, 0.2);
+            color: #6ee7b7;
+        }
+        
+        .badge.seller {
+            background: rgba(37, 99, 235, 0.2);
+            color: #93c5fd;
+        }
+        
         /* ===== RESPONSIVE ADJUSTMENTS ===== */
         @media (min-width: 768px) {
             .hero h1 {
-                font-size: 3.2rem; /* 52px */
+                font-size: 2.9rem; /* 46px */
             }
             
             .hero p {
-                font-size: 1.5rem; /* 24px */
+                font-size: 1.4rem; /* 22px */
             }
             
             .nav-links {
-                gap: 32px;
+                gap: 25px;
             }
             
             section {
-                padding: 80px 20px;
+                padding: 70px 20px;
             }
             
             .step {
@@ -620,34 +1189,31 @@
             }
             
             .step-number {
-                min-width: 44px;
-                height: 44px;
-                font-size: 1.5rem;
+                min-width: 42px;
+                height: 42px;
+                font-size: 1.45rem;
+            }
+            
+            .signup-options {
+                flex-direction: row;
             }
         }
         
         @media (max-width: 480px) {
             .hero h1 {
-                font-size: 2.1rem; /* 34px */
+                font-size: 2.05rem; /* 33px */
             }
             
             .hero p {
-                font-size: 1.15rem; /* 18px */
+                font-size: 1.12rem; /* 18px */
             }
             
             .nav-links {
-                gap: 15px;
+                gap: 12px;
             }
             
             .nav-link {
-                font-size: 0.85rem;
-            }
-            
-            .hot-badge {
-                top: -6px;
-                right: -10px;
-                padding: 1px 5px;
-                font-size: 0.6rem;
+                font-size: 0.82rem;
             }
             
             .products-grid {
@@ -666,14 +1232,22 @@
                 bottom: 25px;
                 right: 20px;
             }
+            
+            .signup-options {
+                flex-direction: column;
+            }
+            
+            .role-selector {
+                flex-direction: column;
+            }
+            
+            .dashboard-tabs {
+                width: 100%;
+                justify-content: center;
+            }
         }
         
         /* ===== PERFORMANCE OPTIMIZATIONS ===== */
-        /* Critical CSS inlined, no render-blocking resources */
-        /* Minimal animations (only transforms/opacity) for low-end devices */
-        /* No heavy libraries - pure CSS/JS */
-        /* System fonts for fastest rendering */
-        /* Reduced motion preference */
         @media (prefers-reduced-motion: reduce) {
             * {
                 transition: none !important;
@@ -685,15 +1259,16 @@
 <body>
     <!-- ===== NAVIGATION BAR ===== -->
     <nav class="navbar">
-        <a href="#" class="logo">GIKOMBA<span>.SHOP</span></a>
+        <a href="#" class="logo" id="adminTrigger">GIKOMBA<span>.SHOP</span></a>
         <div class="nav-links">
-            <a href="#products" class="nav-link active">Under 1,000 KES<span class="hot-badge">HOT</span></a>
+            <a href="#products" class="nav-link active">Fits From KES 50</a>
             <a href="#how-it-works" class="nav-link">How It Works</a>
+            <button class="signup-btn" id="openSignupModal">Sign Up</button>
         </div>
         <a href="https://wa.me/254736906440?text=Hello%20GIKOMBA.SHOP!%20I%20need%20help%20with%20my%20order." 
            class="whatsapp-nav" 
            aria-label="Chat on WhatsApp">
-           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
              <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
            </svg>
         </a>
@@ -702,9 +1277,15 @@
     <!-- ===== HERO SECTION ===== -->
     <section class="hero">
         <div class="hero-overlay"></div>
-        <h1>Original Gikomba Drip — Delivered Across Nairobi 🇰🇪</h1>
-        <p>Quality handpicked thrift wear from 500 KES. One-piece only items. Once it's gone, it's gone.</p>
-        <a href="#products" class="cta-button">Shop Now</a>
+        <h1>Original Gikomba Drip — Direct From Sellers 🇰🇪</h1>
+        <p>Quality handpicked thrift wear from KES 50. One-piece only items. Chat directly with sellers via WhatsApp.</p>
+        <div class="cta-container">
+            <a href="#products" class="cta-button">Shop Now</a>
+            <div class="signup-options">
+                <button class="cta-button buyer-btn" id="buyerSignupBtn">Sign Up as Buyer</button>
+                <button class="cta-button seller-btn" id="sellerSignupBtn">Sign Up as Seller</button>
+            </div>
+        </div>
         <div class="trust-strip">
             <div class="trust-item">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -716,7 +1297,7 @@
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
-                Same-Day Delivery
+                Direct From Sellers
             </div>
             <div class="trust-item">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -727,24 +1308,69 @@
         </div>
     </section>
 
+    <!-- ===== HOW IT WORKS ===== -->
+    <section id="how-it-works" class="how-it-works" style="background: rgba(15,15,20,0.9);">
+        <div class="container">
+            <div class="section-title">
+                <h2>How It Works</h2>
+                <p style="color: var(--light-gray); max-width: 650px; margin: 15px auto 0;">No carts. No accounts needed to browse. Just fire drip from real sellers.</p>
+            </div>
+            
+            <div class="steps-container">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Choose Your Item</h3>
+                        <p>Browse one-of-a-kind thrift drops from verified Gikomba sellers. Every piece is handpicked and photographed.</p>
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Chat on WhatsApp</h3>
+                        <p>Tap "Order via WhatsApp" to chat directly with the seller. Confirm availability, size, and delivery details instantly.</p>
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Pay & Get Delivered</h3>
+                        <p>Pay via <span class="mpesa-text">MPESA</span> or Cash on Delivery as agreed with your seller. Nairobi: Often same-day delivery.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="buyer-warning">
+                <svg viewBox="0 0 24 24">
+                    <path d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm0-2a8 8 0 1 0 0-16 8 8 0 0 0 0 16zm-1-5h2v2h-2v-2zm0-8h2v6h-2V7z"/>
+                </svg>
+                <strong>Buyer Protection Tip:</strong> Be clear and respectful in your WhatsApp messages. Time-wasting inquiries may be ignored by sellers. Always confirm item availability and delivery terms before making payment.
+            </div>
+        </div>
+    </section>
+
     <!-- ===== PRODUCT SECTION ===== -->
     <section id="products" class="products-section">
         <div class="container">
             <div class="section-title">
                 <h2>Today's Fire Picks</h2>
-                <p class="urgency-text"><strong>One piece only per item • Once sold, removed forever</strong></p>
+                <p class="urgency-text"><strong>One piece only per item • Prices from KES 50</strong></p>
             </div>
             
             <div class="products-grid">
                 <!-- PRODUCT CARD 1 -->
                 <div class="product-card">
+                    <div class="seller-badge">Seller: GikoKing</div>
                     <div class="urgency-badge">ONLY 1 LEFT</div>
-                    <img src="https://images.unsplash.com/photo-1591047139829-8d1b0d86994c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
+                    <img src="https://placehold.co/600x600/121212/D4AF37?text=Vintage+Denim+Jacket" 
                          alt="Vintage Denim Jacket - Grade 1" 
                          class="product-image"
                          loading="lazy">
                     <div class="product-info">
                         <h3 class="product-name">Vintage Denim Jacket</h3>
+                        <p class="product-description">Classic 90s denim jacket with distressed details. Perfect condition with minimal wear. Looks fire with jeans or over a hoodie.</p>
                         <div class="product-meta">
                             <span>Condition: <span class="condition">9/10</span></span>
                             <span>Size: L</span>
@@ -757,9 +1383,9 @@
                             <span class="price">KES 1,200</span>
                             <span class="old-price">KES 2,500</span>
                         </div>
-                        <a href="https://wa.me/254736906440?text=I%20want%20the%20Vintage%20Denim%20Jacket%20for%20KES%201200.%20Is%20it%20available?" 
+                        <a href="https://wa.me/254712345678?text=I%20want%20the%20Vintage%20Denim%20Jacket%20for%20KES%201200.%20Is%20it%20available?" 
                            class="whatsapp-btn">
-                           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                              <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
                            </svg>
                            Order via WhatsApp
@@ -769,13 +1395,15 @@
                 
                 <!-- PRODUCT CARD 2 -->
                 <div class="product-card">
+                    <div class="seller-badge">Seller: ThriftQueen</div>
                     <div class="urgency-badge">HOT DEAL</div>
-                    <img src="https://images.unsplash.com/photo-1591696205602-2f950c417a1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
+                    <img src="https://placehold.co/600x600/121212/D4AF37?text=Olive+Cargo+Pants" 
                          alt="Cargo Pants Streetwear - Grade 1" 
                          class="product-image"
                          loading="lazy">
                     <div class="product-info">
                         <h3 class="product-name">Olive Cargo Pants</h3>
+                        <p class="product-description">Trendy cargo pants with multiple pockets. Perfect for streetwear fits. Slightly tapered leg for modern look. Barely worn.</p>
                         <div class="product-meta">
                             <span>Condition: <span class="condition">8.5/10</span></span>
                             <span>Size: 32</span>
@@ -788,9 +1416,9 @@
                             <span class="price">KES 850</span>
                             <span class="old-price">KES 1,800</span>
                         </div>
-                        <a href="https://wa.me/254736906440?text=I%20want%20the%20Olive%20Cargo%20Pants%20for%20KES%20850.%20Is%20it%20available?" 
+                        <a href="https://wa.me/254723456789?text=I%20want%20the%20Olive%20Cargo%20Pants%20for%20KES%20850.%20Is%20it%20available?" 
                            class="whatsapp-btn">
-                           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                              <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
                            </svg>
                            Order via WhatsApp
@@ -798,17 +1426,19 @@
                     </div>
                 </div>
                 
-                <!-- PRODUCT CARD 3 -->
+                <!-- PRODUCT CARD 3 - LOW PRICE -->
                 <div class="product-card">
-                    <div class="urgency-badge">ONLY 1 LEFT</div>
-                    <img src="https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
+                    <div class="seller-badge">Seller: DripMaster</div>
+                    <div class="urgency-badge">KES 50!</div>
+                    <img src="https://placehold.co/600x600/121212/D4AF37?text=Retro+Graphic+Tee" 
                          alt="Graphic Print T-Shirt - Grade 1" 
                          class="product-image"
                          loading="lazy">
                     <div class="product-info">
                         <h3 class="product-name">Retro Graphic Tee</h3>
+                        <p class="product-description">Vintage 90s band tee with faded print. 100% cotton, super soft feel. Perfect for layering or wearing alone on hot Nairobi days.</p>
                         <div class="product-meta">
-                            <span>Condition: <span class="condition">9.5/10</span></span>
+                            <span>Condition: <span class="condition">8/10</span></span>
                             <span>Size: M</span>
                         </div>
                         <div class="product-meta">
@@ -816,11 +1446,11 @@
                             <span>Nairobi</span>
                         </div>
                         <div>
-                            <span class="price">KES 550</span>
+                            <span class="price">KES 50</span>
                         </div>
-                        <a href="https://wa.me/254736906440?text=I%20want%20the%20Retro%20Graphic%20Tee%20for%20KES%20550.%20Is%20it%20available?" 
+                        <a href="https://wa.me/254734567890?text=I%20want%20the%20Retro%20Graphic%20Tee%20for%20KES%2050.%20Is%20it%20available?" 
                            class="whatsapp-btn">
-                           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                              <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
                            </svg>
                            Order via WhatsApp
@@ -830,13 +1460,15 @@
                 
                 <!-- PRODUCT CARD 4 -->
                 <div class="product-card">
+                    <div class="seller-badge">Seller: VintageVault</div>
                     <div class="urgency-badge">LAST CHANCE</div>
-                    <img src="https://images.unsplash.com/photo-1598554747436-c9293d6a588f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
+                    <img src="https://placehold.co/600x600/121212/D4AF37?text=Vintage+Leather+Boots" 
                          alt="Leather Boots - Grade 1" 
                          class="product-image"
                          loading="lazy">
                     <div class="product-info">
                         <h3 class="product-name">Vintage Leather Boots</h3>
+                        <p class="product-description">Genuine leather boots with minimal scuffing. Broken in perfectly with comfortable sole. Adds instant drip to any outfit. Limited size available.</p>
                         <div class="product-meta">
                             <span>Condition: <span class="condition">8/10</span></span>
                             <span>Size: 42</span>
@@ -849,9 +1481,9 @@
                             <span class="price">KES 1,800</span>
                             <span class="old-price">KES 3,500</span>
                         </div>
-                        <a href="https://wa.me/254736906440?text=I%20want%20the%20Vintage%20Leather%20Boots%20for%20KES%201800.%20Is%20it%20available?" 
+                        <a href="https://wa.me/254745678901?text=I%20want%20the%20Vintage%20Leather%20Boots%20for%20KES%201800.%20Is%20it%20available?" 
                            class="whatsapp-btn">
-                           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                              <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
                            </svg>
                            Order via WhatsApp
@@ -862,36 +1494,93 @@
         </div>
     </section>
 
-    <!-- ===== HOW IT WORKS ===== -->
-    <section id="how-it-works" class="how-it-works" style="background: linear-gradient(rgba(18,18,18,0.9), rgba(10,10,10,0.95)), url('https://images.unsplash.com/photo-1542838132-92c53300491e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80'); background-size: cover; background-position: center;">
+    <!-- ===== SELLER DASHBOARD PREVIEW ===== -->
+    <section class="seller-dashboard-section">
         <div class="container">
             <div class="section-title">
-                <h2>How It Works</h2>
-                <p style="color: var(--light-gray); max-width: 650px; margin: 15px auto 0;">No carts. No accounts. Just fire drip delivered fast.</p>
+                <h2>Seller Dashboard</h2>
+                <p style="color: var(--light-gray); max-width: 700px; margin: 15px auto 0;">Manage your inventory, track orders, and connect with buyers - all from your seller dashboard</p>
             </div>
             
-            <div class="steps-container">
-                <div class="step">
-                    <div class="step-number">1</div>
-                    <div class="step-content">
-                        <h3>Choose Your Item</h3>
-                        <p>Browse one-of-a-kind thrift drops. Every piece is handpicked and photographed. What you see is what you get.</p>
+            <div class="seller-dashboard">
+                <div class="dashboard-header">
+                    <div class="dashboard-title">Seller Dashboard</div>
+                    <div class="dashboard-tabs">
+                        <button class="tab-btn active">Add Product</button>
+                        <button class="tab-btn">My Listings</button>
+                        <button class="tab-btn">Orders</button>
                     </div>
                 </div>
-                
-                <div class="step">
-                    <div class="step-number">2</div>
-                    <div class="step-content">
-                        <h3>Order via WhatsApp</h3>
-                        <p>Tap "Order via WhatsApp", send the pre-filled message. We'll confirm availability within 15 minutes.</p>
-                    </div>
-                </div>
-                
-                <div class="step">
-                    <div class="step-number">3</div>
-                    <div class="step-content">
-                        <h3>Delivery & Payment</h3>
-                        <p>Pay via <span class="mpesa-text">MPESA</span> or Cash on Delivery. Nairobi: Same-day delivery. Outside Nairobi: 1-3 days.</p>
+                <div class="dashboard-content">
+                    <div class="dashboard-grid">
+                        <div class="dashboard-card">
+                            <h3>
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                                </svg>
+                                Add New Product
+                            </h3>
+                            <form class="product-form" id="addProductForm">
+                                <div class="form-group">
+                                    <label for="productName">Product Name *</label>
+                                    <input type="text" id="productName" class="form-control" placeholder="e.g., Vintage Denim Jacket" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="productDesc">Description *</label>
+                                    <textarea id="productDesc" class="form-control" placeholder="Describe condition, fit, style, and any flaws" required></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label for="productPrice">Price (KES) *</label>
+                                    <input type="number" id="productPrice" class="form-control" placeholder="50" min="50" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="productCondition">Condition *</label>
+                                    <select id="productCondition" class="form-control" required>
+                                        <option value="">Select condition</option>
+                                        <option value="10/10">10/10 (Like New)</option>
+                                        <option value="9/10">9/10 (Excellent)</option>
+                                        <option value="8/10">8/10 (Very Good)</option>
+                                        <option value="7/10">7/10 (Good)</option>
+                                        <option value="6/10">6/10 (Fair)</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="productSize">Size *</label>
+                                    <input type="text" id="productSize" class="form-control" placeholder="e.g., M, L, 32, 42" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="productImage">Product Image URL *</label>
+                                    <input type="url" id="productImage" class="form-control" placeholder="https://placehold.co/600x600/121212/D4AF37?text=Your+Item" required>
+                                    <div class="image-preview">
+                                        <img id="imagePreview" src="" alt="Product preview">
+                                        <span id="previewPlaceholder">Image preview will appear here when you enter a URL</span>
+                                    </div>
+                                </div>
+                                <button type="submit" class="action-btn">Add Product to Marketplace</button>
+                            </form>
+                        </div>
+                        <div class="dashboard-card">
+                            <h3>
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                </svg>
+                                Seller Protection
+                            </h3>
+                            <div class="warning-box">
+                                <svg viewBox="0 0 24 24">
+                                    <path d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm0-2a8 8 0 1 0 0-16 8 8 0 0 0 0 16zm-1-5h2v2h-2v-2zm0-8h2v6h-2V7z"/>
+                                </svg>
+                                <strong>Fraud Warning:</strong> GIKOMBA.SHOP has zero tolerance for counterfeit or misrepresented items. Violators will be permanently banned and reported to authorities. Only list items you physically possess and have photographed yourself.
+                            </div>
+                            <p style="margin: 15px 0;">As a seller, you agree to:</p>
+                            <ul style="padding-left: 20px; margin-bottom: 20px;">
+                                <li style="margin-bottom: 8px;">✅ Provide accurate descriptions and real photos</li>
+                                <li style="margin-bottom: 8px;">✅ Honor the prices and conditions you list</li>
+                                <li style="margin-bottom: 8px;">✅ Respond to buyer inquiries within 24 hours</li>
+                                <li>✅ Package items securely for delivery</li>
+                            </ul>
+                            <button class="action-btn" style="background: #dc2626;">Report Suspicious Activity</button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -903,78 +1592,44 @@
         <div class="container">
             <div class="section-title">
                 <h2>Delivery Details</h2>
-                <p class="urgency-text"><strong>No surprises. Clear pricing. Fast delivery.</strong></p>
+                <p class="urgency-text"><strong>Delivery terms set by each seller • Typically fast in Nairobi</strong></p>
             </div>
             
             <div class="delivery-grid">
                 <div class="delivery-card">
-                    <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <svg width="55" height="55" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                         <path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
-                    <h3>Nairobi</h3>
-                    <p>Same-day delivery if ordered before 2 PM. Next-day delivery for later orders. Delivery fee: KES 100-200 depending on location.</p>
+                    <h3>From Sellers</h3>
+                    <p>Each seller sets their own delivery terms. Most Nairobi sellers offer same-day or next-day delivery.</p>
                 </div>
                 
                 <div class="delivery-card">
-                    <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                        <path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    <svg width="55" height="55" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M3 12l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
-                    <h3>Outside Nairobi</h3>
-                    <p>1-3 business days via reliable courier partners. Delivery fee calculated at confirmation (typically KES 300-600).</p>
+                    <h3>Delivery Fees</h3>
+                    <p>Fees vary by seller and location. Typically KES 100-200 in Nairobi, KES 300-600 outside Nairobi.</p>
                 </div>
                 
                 <div class="delivery-card">
-                    <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <svg width="55" height="55" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                         <path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
                     <h3>Payment Options</h3>
-                    <p><span class="mpesa-text">MPESA</span> (STK Push) or Cash on Delivery. No payment needed until your item is confirmed available.</p>
+                    <p>Pay via <span class="mpesa-text">MPESA</span> or Cash on Delivery as agreed directly with your seller.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ===== TRUST SIGNALS ===== -->
-    <section class="trust-section" style="background: rgba(15,15,15,0.95);">
+    <!-- ===== SELLER CTA SECTION ===== -->
+    <section class="seller-cta-section">
         <div class="container">
-            <div class="section-title">
-                <h2>Why Trust Us?</h2>
-            </div>
-            
-            <div class="founders">
-                <p>Founded by <strong>Sam Gachara & Isaac Mwathi</strong> — two Nairobi hustlers who got tired of fake Gikomba sellers online. We handpick every item ourselves from the Gikomba market floors.</p>
-                <p style="margin-top: 12px;"><span class="gold-accent">✓</span> We verify quality before listing<br>
-                <span class="gold-accent">✓</span> Real photos of actual items<br>
-                <span class="gold-accent">✓</span> WhatsApp support: <a href="https://wa.me/254736906440" style="color:var(--mpesa-green); text-decoration:underline">+254 736 906 440</a><br>
-                <span class="gold-accent">✓</span> Email: <a href="mailto:gikomba.orders@gmail.com" style="color:var(--gold); text-decoration:underline">gikomba.orders@gmail.com</a></p>
-            </div>
-            
-            <div class="testimonial">
-                "Ordered a vintage denim jacket at 11 AM, paid via MPESA at 1 PM, and was wearing it to campus by 5 PM. No stress, no fake items. GIKOMBA.SHOP is the real deal!" 
-                <span class="testimonial-author">- Brian, University of Nairobi</span>
-            </div>
-            
-            <div class="testimonial">
-                "As a seller in Gikomba market, I respect how they're digitizing our hustle properly. They pay fairly and promote real Grade 1 items. Support local!" 
-                <span class="testimonial-author">- Mama Njeri, Gikomba Seller (12 years)</span>
-            </div>
-            
-            <div class="social-links">
-                <a href="#" class="social-link" aria-label="Instagram">
-                    <svg viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-                    </svg>
-                </a>
-                <a href="#" class="social-link" aria-label="TikTok">
-                    <svg viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M19.589 7.587c-.037-.378-.192-.737-.437-1.028a1.875 1.875 0 0 0-1.048-.705c-.484-.09-1.139-.03-1.897.172a8.125 8.125 0 0 0-6.536 8.042v4.75a3.75 3.75 0 0 1-7.5 0v-3.5a.75.75 0 0 1 1.5 0v3.5c0 .621.25 1.217.696 1.664.447.447 1.043.696 1.664.696h4.75a3.75 3.75 0 0 1 0 7.5h-3.5a.75.75 0 0 1 0-1.5h3.5c.621 0 1.217-.25 1.664-.696.447-.447.696-1.043.696-1.664v-4.75a6.625 6.625 0 0 1 6.44-6.618c.482.27.998.486 1.534.642.483.14 1.143.123 1.868-.082.475-.134.86-.368 1.118-.673a1.875 1.875 0 0 0 .489-1.226c-.008-.484-.188-.944-.507-1.293a2.625 2.625 0 0 0-1.898-.912c-.494-.01-1.058.077-1.684.258a8.867 8.867 0 0 0-1.492.571l-.198-.98c.213-.09.434-.172.662-.245.848-.272 1.853-.377 2.928-.217 1.288.192 2.35.747 3.073 1.602.77 1.047.997 2.408.608 3.678-.344 1.124-1.075 2.032-2.056 2.603a6.623 6.623 0 0 1-2.443.828c-.077.006-.154.01-.232.01h-.003c-.539 0-1.064-.055-1.57-.162a.75.75 0 0 1-.594-.882.75.75 0 0 1 .882-.594 5.127 5.127 0 0 0 1.218.132h.003c.06 0 .119-.002.178-.007a5.125 5.125 0 0 0 4.78-3.728c.348-1.133.16-2.374-.528-3.318-.642-.88-1.644-1.403-2.778-1.448a3.375 3.375 0 0 0-2.454 1.048c-.24.284-.378.64-.387 1.012a.75.75 0 0 1-1.498-.075l.003-.044z"/>
-                    </svg>
-                </a>
-                <a href="#" class="social-link" aria-label="Twitter">
-                    <svg viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M22.46,6C21.69,6.35 20.86,6.58 20,6.69C20.88,6.16 21.56,5.32 21.88,4.31C21.05,4.81 20.13,5.16 19.16,5.36C18.37,4.5 17.26,4 16,4C13.65,4 11.73,5.92 11.73,8.29C11.73,8.63 11.77,8.96 11.84,9.27C8.28,9.09 5.11,7.38 3,4.79C2.63,5.42 2.42,6.16 2.42,6.94C2.42,8.43 3.17,9.75 4.33,10.5C3.62,10.5 2.96,10.3 2.38,9.94C2.38,9.96 2.38,9.99 2.38,10.01C2.38,12.11 3.86,13.85 5.82,14.24C5.46,14.34 5.08,14.39 4.69,14.39C4.42,14.39 4.15,14.36 3.89,14.31C4.43,16 6,17.26 7.89,17.29C6.43,18.45 4.58,19.13 2.56,19.13C2.22,19.13 1.88,19.11 1.54,19.07C3.44,20.29 5.7,21 8.12,21C16,21 20.33,14.46 20.33,8.79C20.33,8.6 20.33,8.42 20.32,8.23C21.16,7.63 21.88,6.87 22.46,6Z" />
-                    </svg>
-                </a>
+            <div class="seller-cta">
+                <h2>Sell Your Gikomba Drip</h2>
+                <p>Are you a seller at Gikomba market? List your items on GIKOMBA.SHOP and reach thousands of buyers across Kenya. No commission on your first 10 sales!</p>
+                <button class="seller-cta-btn" id="sellerCtaBtn">Become a Seller Today</button>
             </div>
         </div>
     </section>
@@ -982,14 +1637,20 @@
     <!-- ===== FOOTER ===== -->
     <footer>
         <span class="footer-logo">GIKOMBA<span>.SHOP</span></span>
-        <p class="footer-desc">Premium handpicked thrift. Secure payments. Fast delivery across Kenya. No fake items. No stress.</p>
+        <p class="footer-desc">Premium handpicked thrift. Direct from sellers. Secure payments. Fast delivery across Kenya.</p>
         <p style="margin: 15px 0; font-size: 0.95rem;">
-            WhatsApp: <a href="https://wa.me/254736906440" style="color:var(--mpesa-green); text-decoration:underline">+254 736 906 440</a> | 
+            WhatsApp Support: <a href="https://wa.me/254736906440" style="color:var(--mpesa-green); text-decoration:underline">+254 736 906 440</a> | 
             Email: <a href="mailto:gikomba.orders@gmail.com" style="color:var(--gold); text-decoration:underline">gikomba.orders@gmail.com</a>
         </p>
+        <div class="buyer-warning" style="max-width: 800px; margin: 20px auto;">
+            <svg viewBox="0 0 24 24">
+                <path d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm0-2a8 8 0 1 0 0-16 8 8 0 0 0 0 16zm-1-5h2v2h-2v-2zm0-8h2v6h-2V7z"/>
+            </svg>
+            <strong>Remember:</strong> GIKOMBA.SHOP is a marketplace connecting buyers and sellers. We verify sellers but transactions happen directly between you and the seller. Always confirm item details before payment.
+        </div>
         <p class="copyright">
             &copy; 2026 GIKOMBA.SHOP. Founded by Sam Gachara & Isaac Mwathi. All rights reserved.<br>
-            Premium handpicked thrift wear from Gikomba Market, Nairobi.
+            Connecting buyers with authentic Gikomba sellers across Kenya.
         </p>
     </footer>
 
@@ -997,23 +1658,321 @@
     <a href="https://wa.me/254736906440?text=Hello%20GIKOMBA.SHOP!%20I%20saw%20your%20site%20and%20want%20to%20order%20some%20drip!" 
        class="whatsapp-float" 
        aria-label="Order on WhatsApp">
-       <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+       <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
          <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
        </svg>
     </a>
+
+    <!-- ===== SIGNUP MODAL ===== -->
+    <div class="modal-overlay" id="signupModal">
+        <div class="modal">
+            <button class="close-modal" id="closeModal">&times;</button>
+            <div class="modal-header">
+                <h2 class="modal-title">Join GIKOMBA.SHOP</h2>
+                <p style="color: var(--light-gray); margin-top: 5px;">Connect with Kenya's best thrift sellers</p>
+            </div>
+            <div class="modal-body">
+                <div class="role-selector">
+                    <button class="role-btn buyer active" data-role="buyer">I'm a Buyer</button>
+                    <button class="role-btn seller" data-role="seller">I'm a Seller</button>
+                </div>
+                
+                <div class="buyer-form">
+                    <div class="form-group">
+                        <label for="buyerName">Full Name (Optional)</label>
+                        <input type="text" id="buyerName" class="form-control" placeholder="e.g., Brian Otieno">
+                    </div>
+                    <div class="form-group">
+                        <label for="buyerPhone">Phone Number <span style="color: var(--urgency-red);">*</span></label>
+                        <input type="tel" id="buyerPhone" class="form-control" placeholder="+2547XXXXXXXX" required>
+                        <p style="font-size: 0.8rem; color: #888; margin-top: 5px;">Used for order notifications and seller communication</p>
+                    </div>
+                    <div class="form-group">
+                        <label for="buyerLocation">Location <span style="color: var(--urgency-red);">*</span></label>
+                        <select id="buyerLocation" class="form-control" required>
+                            <option value="">Select your area</option>
+                            <option value="nairobi">Nairobi</option>
+                            <option value="kiambu">Kiambu</option>
+                            <option value="machakos">Machakos</option>
+                            <option value="kajiado">Kajiado</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <button class="submit-btn">Sign Up as Buyer</button>
+                </div>
+                
+                <div class="seller-form" style="display: none;">
+                    <div class="form-group">
+                        <label for="sellerBusiness">Business/Store Name <span style="color: var(--urgency-red);">*</span></label>
+                        <input type="text" id="sellerBusiness" class="form-control" placeholder="e.g., GikoKing Thrift" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="sellerEmail">Email Address <span style="color: var(--urgency-red);">*</span></label>
+                        <input type="email" id="sellerEmail" class="form-control" placeholder="your@email.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="sellerPhone">WhatsApp Number <span style="color: var(--urgency-red);">*</span></label>
+                        <input type="tel" id="sellerPhone" class="form-control" placeholder="+2547XXXXXXXX" required>
+                        <p style="font-size: 0.8rem; color: #888; margin-top: 5px;">This is how buyers will contact you</p>
+                    </div>
+                    <div class="form-group">
+                        <label for="sellerLocation">Your Location <span style="color: var(--urgency-red);">*</span></label>
+                        <select id="sellerLocation" class="form-control" required>
+                            <option value="">Select your market area</option>
+                            <option value="gikomba">Gikomba Market</option>
+                            <option value="eastleigh">Eastleigh</option>
+                            <option value="maddox">Maddox Market</option>
+                            <option value="other">Other Nairobi Market</option>
+                        </select>
+                    </div>
+                    <div class="warning-box" style="margin-top: 15px;">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm0-2a8 8 0 1 0 0-16 8 8 0 0 0 0 16zm-1-5h2v2h-2v-2zm0-8h2v6h-2V7z"/>
+                        </svg>
+                        By signing up as a seller, you agree to our <strong>Seller Code of Conduct</strong>. Fraudulent listings will result in permanent bans and possible legal action.
+                    </div>
+                    <button class="submit-btn" style="background: var(--seller-blue);">Sign Up as Seller</button>
+                </div>
+                
+                <div class="divider">
+                    <span>or continue with</span>
+                </div>
+                
+                <div style="display: flex; gap: 15px;">
+                    <button style="flex:1; background: #3b5998; color: white; border: none; padding: 14px; border-radius: 50px; font-weight: 600;">
+                        <svg width="20" height="20" viewBox="0 0 24 24" style="vertical-align: middle; margin-right: 8px;">
+                            <path fill="white" d="M24 12c0-6.627-5.373-12-12-12S0 5.373 0 12c0 5.99 4.388 10.954 10.125 11.852V15.467h-2.957v-3.271h2.957V9.578c0-2.914 1.742-4.518 4.418-4.518 1.287 0 2.633.229 2.633.229v2.89h-1.475c-1.45 0-1.898.902-1.898 1.832v2.15h3.238l-.512 3.271h-2.726v8.396C19.612 22.954 24 17.99 24 12z"/>
+                        </svg>
+                        Facebook
+                    </button>
+                    <button style="flex:1; background: #dd4b39; color: white; border: none; padding: 14px; border-radius: 50px; font-weight: 600;">
+                        <svg width="20" height="20" viewBox="0 0 24 24" style="vertical-align: middle; margin-right: 8px;">
+                            <path fill="white" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" />
+                            <path fill="white" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" />
+                            <path fill="white" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" />
+                            <path fill="white" d="M12 5.38c1.62 0 3.06.56 4.21 1.64v-1.88h-3.57c-1.78 0-3.29 1.21-3.83 2.87H5.84v1.88c0 1.98 1.48 3.66 3.47 4.07l2.69-2.08c-.76-.21-1.46-.64-1.98-1.24-.52-.6-.84-1.37-.84-2.21s.32-1.61.84-2.21c.52-.6 1.22-1.03 1.98-1.24l.01-.01z" />
+                        </svg>
+                        Google
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== ADMIN CUSTOMIZATION PANEL ===== -->
+    <div class="admin-panel" id="adminPanel">
+        <div class="admin-header">
+            <h2 class="admin-title">GIKOMBA.SHOP Customization Panel</h2>
+            <button class="close-admin" id="closeAdminPanel">&times;</button>
+        </div>
+        <div class="admin-grid">
+            <div class="admin-card">
+                <h3>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                    </svg>
+                    Site Appearance
+                </h3>
+                <div class="admin-form">
+                    <div class="form-group">
+                        <label>Primary Accent Color</label>
+                        <div class="color-picker">
+                            <div class="color-option gold active" data-color="#D4AF37"></div>
+                            <div class="color-option blue" data-color="#2563eb"></div>
+                            <div class="color-option green" data-color="#1E8C1E"></div>
+                            <div class="color-option purple" data-color="#8b5cf6"></div>
+                            <div class="color-option red" data-color="#EF4444"></div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Hero Section Text</label>
+                        <input type="text" class="form-control" id="heroText" value="Original Gikomba Drip — Direct From Sellers 🇰🇪">
+                    </div>
+                    <div class="form-group">
+                        <label>Announcement Banner (Leave blank to hide)</label>
+                        <input type="text" class="form-control" placeholder="Free delivery on orders over KES 2000!">
+                    </div>
+                    <button class="action-btn" id="applyAppearance">Apply Changes</button>
+                </div>
+            </div>
+            
+            <div class="admin-card">
+                <h3>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    Product Management
+                </h3>
+                <div class="admin-form">
+                    <div class="form-group">
+                        <label>Minimum Product Price (KES)</label>
+                        <input type="number" class="form-control" value="50" min="1">
+                    </div>
+                    <div class="form-group">
+                        <label>Default Product Condition</label>
+                        <select class="form-control">
+                            <option>9/10 (Excellent)</option>
+                            <option>8/10 (Very Good)</option>
+                            <option>7/10 (Good)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Enable Pre-Orders</label>
+                        <select class="form-control">
+                            <option>Yes</option>
+                            <option selected>No</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Seller Verification Level</label>
+                        <select class="form-control">
+                            <option>Basic (Phone only)</option>
+                            <option selected>Standard (Phone + ID)</option>
+                            <option>Strict (Phone + ID + Market Stall Photo)</option>
+                        </select>
+                    </div>
+                    <button class="action-btn" style="background: #047857;">Save Product Settings</button>
+                </div>
+            </div>
+            
+            <div class="admin-card">
+                <h3>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 12v6m0 0v6m0-6h6m-6 0H6" />
+                    </svg>
+                    Trust & Safety
+                </h3>
+                <div class="admin-form">
+                    <div class="form-group">
+                        <label>Buyer Warning Message</label>
+                        <textarea class="form-control" rows="3">Be clear and respectful in your WhatsApp messages. Time-wasting inquiries may be ignored by sellers. Always confirm item availability and delivery terms before making payment.</textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Seller Fraud Warning</label>
+                        <textarea class="form-control" rows="3">GIKOMBA.SHOP has zero tolerance for counterfeit or misrepresented items. Violators will be permanently banned and reported to authorities. Only list items you physically possess and have photographed yourself.</textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Support WhatsApp Number</label>
+                        <input type="tel" class="form-control" value="+254736906440">
+                    </div>
+                    <button class="action-btn" style="background: #dc2626;">Update Safety Settings</button>
+                </div>
+            </div>
+            
+            <div class="admin-card">
+                <h3>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M3 12l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    Preview Changes
+                </h3>
+                <div class="preview-box">
+                    <h4 style="margin-bottom: 10px; color: var(--gold);">Hero Section Preview</h4>
+                    <p id="previewText">Original Gikomba Drip — Direct From Sellers 🇰🇪</p>
+                    <div style="margin-top: 15px; padding: 10px; background: rgba(30,30,40,0.7); border-radius: 8px;">
+                        <strong>Current Accent Color:</strong> 
+                        <span class="color-preview" id="currentColorPreview" style="background: #D4AF37;"></span>
+                        <span id="currentColorValue">#D4AF37</span>
+                    </div>
+                </div>
+                <button class="action-btn" style="margin-top: 15px; background: #64748b;">Reset to Default</button>
+                <button class="action-btn" style="margin-top: 10px; background: var(--mpesa-green);">Publish Changes</button>
+                <p style="font-size: 0.85rem; color: #888; margin-top: 15px;">
+                    <strong>Note:</strong> In a production environment, these changes would be saved to your database and applied site-wide. This demo shows the customization interface only.
+                </p>
+            </div>
+        </div>
+    </div>
 
     <!-- ===== PERFORMANCE OPTIMIZATIONS ===== -->
     <script>
         // Minimal JS for performance: Only critical interactions
         document.addEventListener('DOMContentLoaded', () => {
-            // Smooth scrolling for anchor links (lightweight)
+            // Modal functionality
+            const signupModal = document.getElementById('signupModal');
+            const openModalBtns = document.querySelectorAll('#openSignupModal, #buyerSignupBtn, #sellerSignupBtn, #sellerCtaBtn');
+            const closeModalBtn = document.getElementById('closeModal');
+            const roleBtns = document.querySelectorAll('.role-btn');
+            const buyerForm = document.querySelector('.buyer-form');
+            const sellerForm = document.querySelector('.seller-form');
+            
+            // Open modal
+            openModalBtns.forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    signupModal.classList.add('active');
+                    
+                    // Set active form based on which button was clicked
+                    if (e.target.id === 'sellerSignupBtn' || e.target.id === 'sellerCtaBtn') {
+                        document.querySelector('.role-btn.buyer').classList.remove('active');
+                        document.querySelector('.role-btn.seller').classList.add('active');
+                        buyerForm.style.display = 'none';
+                        sellerForm.style.display = 'block';
+                    } else {
+                        document.querySelector('.role-btn.buyer').classList.add('active');
+                        document.querySelector('.role-btn.seller').classList.remove('active');
+                        buyerForm.style.display = 'block';
+                        sellerForm.style.display = 'none';
+                    }
+                });
+            });
+            
+            // Close modal
+            closeModalBtn.addEventListener('click', () => {
+                signupModal.classList.remove('active');
+            });
+            
+            // Close modal when clicking outside
+            signupModal.addEventListener('click', (e) => {
+                if (e.target === signupModal) {
+                    signupModal.classList.remove('active');
+                }
+            });
+            
+            // Role selection
+            roleBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    // Update active state
+                    roleBtns.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    
+                    // Show appropriate form
+                    if (btn.dataset.role === 'buyer') {
+                        buyerForm.style.display = 'block';
+                        sellerForm.style.display = 'none';
+                    } else {
+                        buyerForm.style.display = 'none';
+                        sellerForm.style.display = 'block';
+                    }
+                });
+            });
+            
+            // Form submissions (demo only - would connect to backend in production)
+            document.querySelectorAll('.submit-btn').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const isSeller = sellerForm.style.display !== 'none';
+                    const role = isSeller ? 'Seller' : 'Buyer';
+                    
+                    // Show success message (in real app, this would submit to server)
+                    alert(`Thank you for signing up as a ${role}! We'll send you a confirmation message shortly. You can start using GIKOMBA.SHOP right away.`);
+                    
+                    // Close modal after delay
+                    setTimeout(() => {
+                        signupModal.classList.remove('active');
+                    }, 1000);
+                });
+            });
+            
+            // Smooth scrolling for anchor links
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function(e) {
+                    if (this.getAttribute('href') === '#') return;
+                    
                     e.preventDefault();
                     const targetId = this.getAttribute('href');
-                    if(targetId === '#') return;
-                    
                     const target = document.querySelector(targetId);
+                    
                     if(target) {
                         window.scrollTo({
                             top: target.offsetTop - 20,
@@ -1023,10 +1982,157 @@
                 });
             });
             
+            // Product image preview
+            const imageInput = document.getElementById('productImage');
+            const imagePreview = document.getElementById('imagePreview');
+            const previewPlaceholder = document.getElementById('previewPlaceholder');
+            
+            imageInput.addEventListener('input', () => {
+                if (imageInput.value.trim() !== '') {
+                    imagePreview.src = imageInput.value;
+                    imagePreview.style.display = 'block';
+                    previewPlaceholder.style.display = 'none';
+                } else {
+                    imagePreview.style.display = 'none';
+                    previewPlaceholder.style.display = 'block';
+                }
+            });
+            
+            // Add product form submission
+            const addProductForm = document.getElementById('addProductForm');
+            if (addProductForm) {
+                addProductForm.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    
+                    // Get form values
+                    const name = document.getElementById('productName').value;
+                    const desc = document.getElementById('productDesc').value;
+                    const price = document.getElementById('productPrice').value;
+                    const condition = document.getElementById('productCondition').value;
+                    const size = document.getElementById('productSize').value;
+                    const imageUrl = document.getElementById('productImage').value;
+                    
+                    // Create new product card
+                    const newProduct = document.createElement('div');
+                    newProduct.className = 'product-card';
+                    newProduct.innerHTML = `
+                        <div class="seller-badge">Seller: You</div>
+                        <div class="urgency-badge">NEW</div>
+                        <img src="${imageUrl || 'https://placehold.co/600x600/121212/D4AF37?text=' + encodeURIComponent(name)}" 
+                             alt="${name}" 
+                             class="product-image"
+                             loading="lazy">
+                        <div class="product-info">
+                            <h3 class="product-name">${name}</h3>
+                            <p class="product-description">${desc}</p>
+                            <div class="product-meta">
+                                <span>Condition: <span class="condition">${condition}</span></span>
+                                <span>Size: ${size}</span>
+                            </div>
+                            <div class="product-meta">
+                                <span>Grade 1</span>
+                                <span>Nairobi</span>
+                            </div>
+                            <div>
+                                <span class="price">KES ${parseInt(price).toLocaleString()}</span>
+                            </div>
+                            <a href="https://wa.me/254736906440?text=I%20want%20the%20${encodeURIComponent(name)}%20for%20KES%20${price}.%20Is%20it%20available?" 
+                               class="whatsapp-btn">
+                               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                 <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
+                               </svg>
+                               Order via WhatsApp
+                            </a>
+                        </div>
+                    `;
+                    
+                    // Add to product grid
+                    const productGrid = document.querySelector('.products-grid');
+                    productGrid.insertBefore(newProduct, productGrid.firstChild);
+                    
+                    // Reset form
+                    addProductForm.reset();
+                    imagePreview.style.display = 'none';
+                    previewPlaceholder.style.display = 'block';
+                    
+                    // Show success message
+                    alert('Product successfully added to marketplace! It will appear at the top of the product grid.');
+                    
+                    // Scroll to products section
+                    document.querySelector('#products').scrollIntoView({behavior: 'smooth'});
+                });
+            }
+            
+            // Admin panel functionality
+            let logoClickCount = 0;
+            const logo = document.getElementById('adminTrigger');
+            const adminPanel = document.getElementById('adminPanel');
+            const closeAdminPanel = document.getElementById('closeAdminPanel');
+            
+            // Show admin panel after 5 logo clicks
+            logo.addEventListener('click', () => {
+                logoClickCount++;
+                if (logoClickCount >= 5) {
+                    adminPanel.style.display = 'flex';
+                    logoClickCount = 0;
+                }
+            });
+            
+            // Close admin panel
+            closeAdminPanel.addEventListener('click', () => {
+                adminPanel.style.display = 'none';
+            });
+            
+            // Color picker functionality
+            const colorOptions = document.querySelectorAll('.color-option');
+            const currentColorPreview = document.getElementById('currentColorPreview');
+            const currentColorValue = document.getElementById('currentColorValue');
+            const previewText = document.getElementById('previewText');
+            const heroText = document.getElementById('heroText');
+            
+            colorOptions.forEach(option => {
+                option.addEventListener('click', () => {
+                    // Update active state
+                    colorOptions.forEach(opt => opt.classList.remove('active'));
+                    option.classList.add('active');
+                    
+                    // Update preview
+                    const color = option.dataset.color;
+                    currentColorPreview.style.background = color;
+                    currentColorValue.textContent = color;
+                    
+                    // Update preview text color
+                    previewText.style.color = color;
+                });
+            });
+            
+            // Update preview when hero text changes
+            heroText.addEventListener('input', () => {
+                previewText.textContent = heroText.value || 'Original Gikomba Drip — Direct From Sellers 🇰🇪';
+            });
+            
+            // Apply appearance changes
+            document.getElementById('applyAppearance').addEventListener('click', () => {
+                const selectedColor = document.querySelector('.color-option.active').dataset.color;
+                const newHeroText = heroText.value;
+                
+                // Update CSS variable
+                document.documentElement.style.setProperty('--gold', selectedColor);
+                
+                // Update hero section text
+                document.querySelector('.hero h1').textContent = newHeroText || 'Original Gikomba Drip — Direct From Sellers 🇰🇪';
+                
+                // Update preview
+                currentColorPreview.style.background = selectedColor;
+                currentColorValue.textContent = selectedColor;
+                previewText.textContent = newHeroText || 'Original Gikomba Drip — Direct From Sellers 🇰🇪';
+                previewText.style.color = selectedColor;
+                
+                alert('Appearance changes applied successfully! (In a real app, these would be saved to your database)');
+            });
+            
             // Preload WhatsApp links on hover for faster opening
-            if('connection' in navigator && navigator.connection.effectiveType === 'slow-2g') {
-                // Skip preload on very slow connections
-            } else {
+            if(!('connection' in navigator && navigator.connection.effectiveType === 'slow-2g')) {
                 document.querySelectorAll('.whatsapp-btn, .whatsapp-float, .whatsapp-nav').forEach(el => {
                     el.addEventListener('mouseenter', () => {
                         const href = el.href;
@@ -1040,10 +2146,7 @@
                 });
             }
         });
-        
-        // Critical CSS already inlined - no render blocking
-        // All images have loading="lazy" attribute
-        // System fonts used for fastest text rendering
     </script>
 </body>
 </html>
+
