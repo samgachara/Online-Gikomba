@@ -3,27 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gikomba.Shop — Authentic Thrift From Verified Sellers</title>
+    <title>Online Gikomba — Authentic Thrift From Verified Sellers</title>
     <meta name="description" content="Quality handpicked thrift wear from KES 50. One-piece only items. Chat directly with verified Gikomba sellers via WhatsApp.">
     
-    <!-- Open Graph / Social Media -->
-    <meta property="og:title" content="Gikomba.Shop — Authentic Thrift From Verified Sellers">
-    <meta property="og:description" content="Quality handpicked thrift from KES 50. Chat directly with verified Gikomba sellers.">
-    <meta property="og:image" content="https://gikomba.shop/og-image.jpg">
-    <meta property="og:url" content="https://gikomba.shop">
+    <!-- WhatsApp Share Meta -->
+    <meta property="og:title" content="Online Gikomba — Authentic Thrift From Verified Sellers">
+    <meta property="og:description" content="Browse handpicked Gikomba thrift from verified sellers. Chat on WhatsApp before you pay. New items daily.">
     <meta property="og:type" content="website">
-    <meta name="twitter:card" content="summary_large_image">
+    <meta property="og:image" content="https://gikomba.shop/preview.jpg">
+    <meta property="og:url" content="https://gikomba.shop">
     
-    <!-- Favicon -->
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🇰🇪</text></svg>">
     
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         :root {
             --primary: #0a0a0a;
             --accent: #d4af37;
@@ -31,6 +24,7 @@
             --success: #2ecc71;
             --warning: #f1c40f;
             --danger: #e74c3c;
+            --info: #3498db;
             --gray-100: #f8f9fa;
             --gray-200: #e9ecef;
             --gray-300: #dee2e6;
@@ -41,2218 +35,513 @@
             --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
             --shadow-gold: 0 4px 20px rgba(212, 175, 55, 0.3);
         }
+        html { scroll-behavior: smooth; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; line-height: 1.6; color: var(--primary); background: var(--white); }
+        
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
+        .text-center { text-align: center; }
+        .hidden { display: none !important; }
+        
+        /* Role Disclaimer */
+        .role-disclaimer { background: #fff8e1; padding: 0.75rem; text-align: center; font-size: 0.8rem; color: #6c757d; border-bottom: 1px solid #ffe082; }
+        
+        /* Trust Bar */
+        .trust-bar { background: var(--success); color: white; padding: 0.5rem; text-align: center; font-size: 0.85rem; font-weight: 600; }
+        
+        /* Navbar */
+        .navbar { position: sticky; top: 0; background: var(--primary); border-bottom: 2px solid var(--accent); z-index: 1000; padding: 1rem 0; }
+        .nav-container { display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
+        .logo { font-size: 1.5rem; font-weight: 800; color: var(--white); text-decoration: none; }
+        .logo span { color: var(--accent); }
+        .nav-links { display: flex; gap: 2rem; list-style: none; align-items: center; }
+        .nav-links a { color: var(--gray-200); text-decoration: none; font-weight: 500; transition: color 0.2s; }
+        .nav-links a:hover { color: var(--accent); }
+        .nav-cta { background: var(--accent); color: var(--primary) !important; padding: 0.5rem 1.25rem; border-radius: 25px; font-weight: 700; }
+        .mobile-menu-btn { display: none; background: none; border: none; font-size: 1.5rem; color: var(--white); cursor: pointer; }
+        
+        .mobile-nav { display: none; background: var(--primary); padding: 1rem; position: fixed; top: 70px; left: 0; right: 0; z-index: 999; border-bottom: 2px solid var(--accent); }
+        .mobile-nav.active { display: block; }
+        .mobile-nav a { display: block; color: var(--white); text-decoration: none; padding: 1rem 0; border-bottom: 1px solid var(--gray-800); }
 
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            line-height: 1.6;
-            color: var(--primary);
-            background: var(--white);
-        }
-
-        /* Focus styles for accessibility */
-        *:focus {
-            outline: 3px solid var(--accent);
-            outline-offset: 2px;
-        }
-
-        button:focus,
-        a:focus {
-            outline: 3px solid var(--accent);
-            outline-offset: 2px;
-        }
-
-        /* Cookie Consent Banner */
-        .cookie-banner {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: var(--primary);
-            color: var(--white);
-            padding: 1rem 1.5rem;
-            z-index: 10000;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 1rem;
-            box-shadow: 0 -4px 20px rgba(0,0,0,0.3);
-        }
-
-        .cookie-banner p {
-            font-size: 0.9rem;
-            max-width: 600px;
-        }
-
-        .cookie-banner a {
-            color: var(--accent);
-            text-decoration: underline;
-        }
-
-        .cookie-btn {
-            background: var(--accent);
-            color: var(--primary);
-            border: none;
-            padding: 0.75rem 1.5rem;
-            border-radius: 6px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-
-        .cookie-btn:hover {
-            background: var(--accent-dark);
-            transform: scale(1.05);
-        }
-
-        .cookie-banner.hidden {
-            display: none;
-        }
-
-        /* Navigation */
-        .navbar {
-            position: sticky;
-            top: 0;
-            background: var(--primary);
-            border-bottom: 2px solid var(--accent);
-            z-index: 1000;
-            padding: 1rem 0;
-        }
-
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 1.5rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 800;
-            color: var(--white);
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .logo span {
-            color: var(--accent);
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            align-items: center;
-            list-style: none;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: var(--gray-200);
-            font-weight: 500;
-            font-size: 0.95rem;
-            transition: color 0.2s;
-            padding: 0.5rem 0;
-        }
-
-        .nav-links a:hover,
-        .nav-links a.active {
-            color: var(--accent);
-        }
-
-        .nav-cta {
-            background: var(--accent);
-            color: var(--primary) !important;
-            padding: 0.5rem 1.25rem !important;
-            border-radius: 25px;
-            font-weight: 700;
-        }
-
-        .nav-cta:hover {
-            background: var(--accent-dark);
-            box-shadow: var(--shadow-gold);
-        }
-
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: var(--white);
-            padding: 0.5rem;
-        }
-
-        /* Mobile Navigation */
-        .mobile-nav {
-            display: none;
-            position: fixed;
-            top: 70px;
-            left: 0;
-            right: 0;
-            background: var(--primary);
-            padding: 1rem;
-            z-index: 999;
-            border-bottom: 2px solid var(--accent);
-        }
-
-        .mobile-nav.active {
-            display: block;
-        }
-
-        .mobile-nav a {
-            display: block;
-            color: var(--gray-200);
-            text-decoration: none;
-            padding: 1rem;
-            border-bottom: 1px solid var(--gray-800);
-            font-weight: 500;
-        }
-
-        .mobile-nav a:hover,
-        .mobile-nav a.active {
-            color: var(--accent);
-        }
-
-        .mobile-nav .nav-cta {
-            background: var(--accent);
-            color: var(--primary) !important;
-            border-radius: 8px;
-            margin-top: 0.5rem;
-            text-align: center;
-            font-weight: 700;
-        }
-
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(135deg, var(--primary) 0%, #1a1a1a 100%);
-            padding: 5rem 1.5rem;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -20%;
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, rgba(212, 175, 55, 0.1) 0%, transparent 70%);
-            pointer-events: none;
-        }
-
-        .hero-content {
-            max-width: 800px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 1;
-        }
-
-        .hero-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            background: rgba(212, 175, 55, 0.15);
-            border: 1px solid var(--accent);
-            padding: 0.75rem 1.5rem;
-            border-radius: 50px;
-            font-weight: 600;
-            margin-bottom: 2rem;
-            color: var(--accent);
-        }
-
-        .price-tag {
-            color: var(--accent);
-            font-size: 1.5rem;
-            font-weight: 800;
-        }
-
-        .hero h1 {
-            font-size: 3.5rem;
-            font-weight: 800;
-            margin-bottom: 1rem;
-            line-height: 1.2;
-            color: var(--white);
-        }
-
-        .hero h1 span {
-            color: var(--accent);
-        }
-
-        .hero-subtitle {
-            font-size: 1.25rem;
-            color: var(--gray-300);
-            margin-bottom: 2rem;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .hero-cta {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            background: var(--accent);
-            color: var(--primary);
-            padding: 1rem 2rem;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 1.1rem;
-            transition: all 0.3s;
-            box-shadow: var(--shadow-gold);
-        }
-
-        .hero-cta:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 30px rgba(212, 175, 55, 0.4);
-        }
-
-        /* Delivery & Payment Section */
-        .delivery-payment {
-            background: var(--gray-100);
-            padding: 3rem 1.5rem;
-            border-bottom: 1px solid var(--gray-200);
-        }
-
-        .delivery-grid {
-            max-width: 1000px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-        }
-
-        .delivery-card {
-            background: var(--white);
-            padding: 1.5rem;
-            border-radius: 12px;
-            text-align: center;
-            border: 2px solid transparent;
-            transition: all 0.3s;
-        }
-
-        .delivery-card:hover {
-            border-color: var(--accent);
-            transform: translateY(-3px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .delivery-icon {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .delivery-card h3 {
-            font-size: 1.1rem;
-            margin-bottom: 0.5rem;
-            color: var(--primary);
-        }
-
-        .delivery-card p {
-            font-size: 0.9rem;
-            color: var(--gray-600);
-        }
-
-        .delivery-card .highlight {
-            color: var(--accent);
-            font-weight: 700;
-        }
+        /* Hero */
+        .hero { background: linear-gradient(135deg, var(--primary) 0%, #1a1a1a 100%); padding: 4rem 1.5rem; text-align: center; color: var(--white); }
+        .hero h1 { font-size: 3rem; font-weight: 800; margin-bottom: 1rem; line-height: 1.2; }
+        .hero h1 span { color: var(--accent); }
+        .hero-subtitle { font-size: 1.1rem; color: var(--gray-300); max-width: 600px; margin: 0 auto 2rem; }
+        .hero-cta { display: inline-block; background: var(--accent); color: var(--primary); padding: 1rem 2.5rem; border-radius: 50px; font-weight: 700; text-decoration: none; font-size: 1.1rem; box-shadow: var(--shadow-gold); transition: transform 0.3s; }
+        .hero-cta:hover { transform: translateY(-3px); }
 
         /* How It Works */
-        .how-it-works {
-            padding: 5rem 1.5rem;
-            background: var(--white);
-        }
+        .how-it-works { background: var(--gray-100); padding: 3rem 1.5rem; }
+        .steps-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; max-width: 1000px; margin: 2rem auto 0; }
+        .step { text-align: center; padding: 1.5rem; }
+        .step-number { width: 50px; height: 50px; background: var(--accent); color: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1.25rem; margin: 0 auto 1rem; }
 
-        .section-title {
-            text-align: center;
-            font-size: 2.5rem;
-            font-weight: 800;
-            margin-bottom: 1rem;
-            color: var(--primary);
-        }
-
-        .section-subtitle {
-            text-align: center;
-            color: var(--gray-600);
-            margin-bottom: 3rem;
-            font-size: 1.1rem;
-        }
-
-        .steps {
-            max-width: 1000px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-        }
-
-        .step {
-            text-align: center;
-            padding: 2rem;
-            position: relative;
-            background: var(--gray-100);
-            border-radius: 16px;
-            transition: all 0.3s;
-        }
-
-        .step:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .step-number {
-            width: 60px;
-            height: 60px;
-            background: var(--accent);
-            color: var(--primary);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            font-weight: 800;
-            margin: 0 auto 1.5rem;
-            box-shadow: var(--shadow-gold);
-        }
-
-        .step h3 {
-            font-size: 1.25rem;
-            margin-bottom: 0.75rem;
-            color: var(--primary);
-        }
-
-        .step p {
-            color: var(--gray-600);
-            font-size: 0.95rem;
-            line-height: 1.7;
-        }
-
-        /* Protection Notice */
-        .protection-notice {
-            background: linear-gradient(135deg, #fff9e6 0%, #fff3cd 100%);
-            border: 2px solid var(--accent);
-            border-radius: 12px;
-            padding: 1.5rem;
-            max-width: 800px;
-            margin: 3rem auto 0;
-            text-align: center;
-            font-size: 0.95rem;
-            color: var(--gray-800);
-        }
-
-        .protection-notice strong {
-            color: var(--primary);
-        }
-
-        .protection-notice a {
-            color: var(--accent-dark);
-            font-weight: 600;
-            text-decoration: none;
-        }
-
-        .protection-notice a:hover {
-            text-decoration: underline;
-        }
-
-        /* Curated Sections */
-        .curated-section {
-            padding: 4rem 1.5rem;
-        }
-
-        .curated-section:nth-child(even) {
-            background: var(--gray-100);
-        }
-
-        .curated-section:nth-child(odd) {
-            background: var(--white);
-        }
-
-        .section-header {
-            max-width: 1200px;
-            margin: 0 auto 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 1rem;
-        }
-
-        .section-header h2 {
-            font-size: 1.75rem;
-            font-weight: 700;
-        }
-
-        .section-header p {
-            color: var(--gray-600);
-            font-size: 0.95rem;
-        }
-
-        .view-all-btn {
-            color: var(--accent-dark);
-            text-decoration: none;
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            gap: 0.25rem;
-        }
-
-        .view-all-btn:hover {
-            text-decoration: underline;
-        }
-
-        /* Filter Tabs */
-        .filter-tabs {
-            display: flex;
-            gap: 0.5rem;
-            flex-wrap: wrap;
-            margin-bottom: 2rem;
-            max-width: 1200px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .filter-btn {
-            padding: 0.625rem 1.25rem;
-            border: 2px solid var(--gray-200);
-            background: var(--white);
-            border-radius: 25px;
-            cursor: pointer;
-            font-size: 0.9rem;
-            font-weight: 500;
-            transition: all 0.2s;
-        }
-
-        .filter-btn.active,
-        .filter-btn:hover {
-            background: var(--accent);
-            color: var(--primary);
-            border-color: var(--accent);
-            font-weight: 600;
-        }
-
-        /* Products Grid */
-        .products-grid {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 2rem;
-        }
-
-        /* Product Card */
-        .product-card {
-            background: var(--white);
-            border-radius: 16px;
-            overflow: hidden;
-            box-shadow: var(--shadow);
-            transition: all 0.3s;
-            position: relative;
-            border: 1px solid var(--gray-200);
-        }
-
-        .product-card:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--shadow-lg);
-            border-color: var(--accent);
-        }
-
-        .product-card.sold {
-            opacity: 0.6;
-            pointer-events: none;
-        }
-
-        .product-card.sold .product-image {
-            filter: grayscale(100%);
-        }
-
-        .product-badge {
-            position: absolute;
-            top: 1rem;
-            left: 1rem;
-            padding: 0.375rem 0.875rem;
-            border-radius: 20px;
-            font-size: 0.75rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            z-index: 10;
-            letter-spacing: 0.5px;
-        }
-
-        .product-badge.urgent {
-            background: var(--danger);
-            color: var(--white);
-        }
-
-        .product-badge.hot {
-            background: var(--accent);
-            color: var(--primary);
-        }
-
-        .product-badge.sold {
-            background: var(--gray-600);
-            color: var(--white);
-        }
-
-        .product-badge.new {
-            background: var(--success);
-            color: var(--white);
-        }
-
-        .product-image-container {
-            position: relative;
-            overflow: hidden;
-            background: var(--gray-100);
-        }
-
-        .product-image {
-            width: 100%;
-            height: 350px;
-            object-fit: cover;
-            display: block;
-            transition: transform 0.3s;
-        }
-
-        .product-card:hover .product-image {
-            transform: scale(1.05);
-        }
-
-        .product-info {
-            padding: 1.5rem;
-        }
-
-        .freshness-indicator {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.25rem;
-            font-size: 0.75rem;
-            color: var(--success);
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-        }
-
-        .freshness-indicator.stale {
-            color: var(--gray-600);
-        }
-
-        .seller-name {
-            font-size: 0.85rem;
-            color: var(--gray-600);
-            margin-bottom: 0.5rem;
-            display: flex;
-            align-items: center;
-            gap: 0.25rem;
-        }
-
-        .verified-badge {
-            background: var(--success);
-            color: var(--white);
-            font-size: 0.7rem;
-            padding: 0.125rem 0.375rem;
-            border-radius: 10px;
-            font-weight: 700;
-        }
-
-        .product-title {
-            font-size: 1.1rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-            line-height: 1.3;
-            color: var(--primary);
-        }
-
-        .product-description {
-            font-size: 0.9rem;
-            color: var(--gray-600);
-            margin-bottom: 0.75rem;
-            line-height: 1.5;
-        }
-
-        .product-meta {
-            display: flex;
-            gap: 1rem;
-            margin-bottom: 0.75rem;
-            font-size: 0.85rem;
-            color: var(--gray-600);
-        }
-
-        .meta-item {
-            display: flex;
-            align-items: center;
-            gap: 0.25rem;
-        }
-
-        .condition {
-            display: inline-block;
-            padding: 0.25rem 0.625rem;
-            background: var(--gray-100);
-            border-radius: 4px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            color: var(--gray-800);
-        }
-
-        .price-row {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            margin-bottom: 1rem;
-        }
-
-        .current-price {
-            font-size: 1.5rem;
-            font-weight: 800;
-            color: var(--accent-dark);
-        }
-
-        .original-price {
-            font-size: 1rem;
-            color: var(--gray-600);
-            text-decoration: line-through;
-        }
-
-        .whatsapp-btn {
-            width: 100%;
-            background: #25d366;
-            color: var(--white);
-            border: none;
-            padding: 0.875rem;
-            border-radius: 8px;
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.5rem;
-            text-decoration: none;
-            transition: all 0.2s;
-        }
-
-        .whatsapp-btn:hover {
-            background: #128c7e;
-            transform: scale(1.02);
-        }
-
-        .whatsapp-btn:disabled {
-            background: var(--gray-600);
-            cursor: not-allowed;
-            transform: none;
-        }
-
-        .report-link {
-            display: block;
-            text-align: center;
-            margin-top: 0.75rem;
-            font-size: 0.8rem;
-            color: var(--gray-600);
-            text-decoration: none;
-            background: none;
-            border: none;
-            cursor: pointer;
-            width: 100%;
-        }
-
-        .report-link:hover {
-            color: var(--danger);
-        }
-
+        /* Products */
+        .products-section { padding: 4rem 1.5rem; background: var(--white); }
+        .section-header { text-align: center; margin-bottom: 3rem; }
+        .section-header h2 { font-size: 2.5rem; margin-bottom: 0.5rem; }
+        
+        .filters { display: flex; gap: 1rem; justify-content: center; margin-bottom: 2rem; flex-wrap: wrap; }
+        .filter-btn { padding: 0.5rem 1.25rem; border: 2px solid var(--gray-300); background: white; border-radius: 25px; cursor: pointer; font-weight: 600; transition: all 0.2s; }
+        .filter-btn:hover, .filter-btn.active { border-color: var(--accent); background: var(--accent); color: var(--primary); }
+        
+        .products-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 2rem; max-width: 1200px; margin: 0 auto; }
+        
+        .product-card { background: var(--white); border-radius: 12px; overflow: hidden; box-shadow: var(--shadow); border: 1px solid var(--gray-200); transition: all 0.3s; position: relative; }
+        .product-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-lg); }
+        .product-card.reserved { opacity: 0.7; border-color: var(--warning); }
+        .product-card.sold { opacity: 0.5; filter: grayscale(100%); }
+        
+        .product-badges { position: absolute; top: 1rem; left: 1rem; display: flex; flex-direction: column; gap: 0.5rem; z-index: 10; }
+        .badge { padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; }
+        .badge-hot { background: var(--danger); color: white; }
+        .badge-grade { background: var(--success); color: white; }
+        .badge-new { background: var(--info); color: white; }
+        .badge-verified { background: var(--accent); color: var(--primary); }
+        .badge-reserved { background: var(--warning); color: var(--primary); }
+        .badge-sold { background: var(--gray-600); color: white; }
+        
+        .view-counter { position: absolute; top: 1rem; right: 1rem; background: rgba(0,0,0,0.7); color: white; padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.75rem; display: flex; align-items: center; gap: 0.25rem; }
+        
+        .img-placeholder { width: 100%; height: 280px; background: linear-gradient(45deg, #f1f1f1 25%, #e9ecef 25%, #e9ecef 50%, #f1f1f1 50%, #f1f1f1 75%, #e9ecef 75%, #e9ecef 100%); background-size: 20px 20px; display: flex; align-items: center; justify-content: center; color: var(--gray-600); font-weight: 600; text-transform: uppercase; letter-spacing: 1px; font-size: 0.9rem; position: relative; }
+        .img-placeholder.sold::after { content: 'SOLD'; position: absolute; background: var(--danger); color: white; padding: 0.5rem 2rem; font-size: 1.5rem; font-weight: 800; transform: rotate(-15deg); }
+        
+        .product-info { padding: 1.5rem; }
+        
+        .seller-row { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.75rem; flex-wrap: wrap; }
+        .seller-name { font-size: 0.85rem; color: var(--gray-600); font-weight: 600; }
+        .seller-badge { font-size: 0.65rem; padding: 0.15rem 0.5rem; border-radius: 10px; background: var(--gray-200); color: var(--gray-600); cursor: help; }
+        .seller-badge.verified { background: var(--success); color: white; }
+        .seller-stats { font-size: 0.75rem; color: var(--gray-600); margin-left: auto; }
+        
+        .product-title { font-size: 1.1rem; font-weight: 700; margin-bottom: 0.5rem; line-height: 1.3; }
+        
+        .product-meta { display: flex; gap: 1rem; margin-bottom: 1rem; font-size: 0.8rem; color: var(--gray-600); }
+        .condition { display: flex; align-items: center; gap: 0.25rem; }
+        .condition-dot { width: 8px; height: 8px; border-radius: 50%; }
+        .condition-excellent { background: var(--success); }
+        .condition-good { background: var(--warning); }
+        .condition-fair { background: var(--danger); }
+        
+        .price-row { display: flex; align-items: baseline; gap: 0.75rem; margin-bottom: 1rem; }
+        .product-price { font-size: 1.5rem; font-weight: 800; color: var(--accent-dark); }
+        .original-price { font-size: 1rem; color: var(--gray-600); text-decoration: line-through; }
+        .discount { font-size: 0.8rem; color: var(--danger); font-weight: 700; }
+        
+        .stock-info { font-size: 0.8rem; color: var(--gray-600); margin-bottom: 1rem; display: flex; justify-content: space-between; }
+        .time-left { color: var(--danger); font-weight: 600; }
+        
+        .whatsapp-btn { display: flex; align-items: center; justify-content: center; width: 100%; background: #25d366; color: white; padding: 0.875rem; border-radius: 8px; text-decoration: none; font-weight: 700; gap: 0.5rem; transition: all 0.2s; border: none; cursor: pointer; font-size: 1rem; }
+        .whatsapp-btn:hover:not(:disabled) { background: #128c7e; transform: translateY(-2px); }
+        .whatsapp-btn:disabled { background: var(--gray-600); cursor: not-allowed; }
+        .whatsapp-btn.reserved { background: var(--warning); color: var(--primary); }
+        
+        .protection-notice { display: flex; align-items: center; gap: 0.5rem; margin-top: 0.75rem; padding: 0.5rem; background: var(--gray-100); border-radius: 6px; font-size: 0.75rem; color: var(--gray-600); }
+        .reservation-clarifier { font-size: 0.75rem; color: var(--gray-600); margin-top: 0.5rem; font-style: italic; }
+        
         /* Seller Section */
-        .seller-section {
-            padding: 5rem 1.5rem;
-            background: linear-gradient(135deg, var(--primary) 0%, #1a1a1a 100%);
-            color: var(--white);
-        }
-
-        .seller-content {
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .seller-section h2 {
-            color: var(--white);
-            margin-bottom: 1rem;
-        }
-
-        .seller-section .section-subtitle {
-            color: var(--gray-300);
-        }
-
-        .seller-benefits {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            margin: 3rem 0;
-            text-align: left;
-        }
-
-        .benefit {
-            padding: 1.5rem;
-            background: rgba(255,255,255,0.05);
-            border-radius: 12px;
-            border: 1px solid rgba(212, 175, 55, 0.2);
-            transition: all 0.3s;
-        }
-
-        .benefit:hover {
-            border-color: var(--accent);
-            transform: translateY(-3px);
-        }
-
-        .benefit h4 {
-            margin-bottom: 0.5rem;
-            color: var(--accent);
-            font-size: 1.1rem;
-        }
-
-        .benefit p {
-            color: var(--gray-300);
-            font-size: 0.9rem;
-        }
-
-        .verification-steps {
-            background: rgba(255,255,255,0.05);
-            padding: 2rem;
-            border-radius: 12px;
-            margin: 2rem 0;
-            text-align: left;
-            border: 1px solid rgba(212, 175, 55, 0.2);
-        }
-
-        .verification-steps h3 {
-            margin-bottom: 1rem;
-            color: var(--accent);
-        }
-
-        .verification-steps ol {
-            margin-left: 1.5rem;
-            line-height: 2;
-            color: var(--gray-300);
-        }
-
-        .verification-steps li {
-            margin-bottom: 0.5rem;
-        }
-
-        .cta-button {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            background: var(--accent);
-            color: var(--primary);
-            padding: 1rem 2rem;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 1.1rem;
-            margin-top: 1rem;
-            transition: all 0.3s;
-            box-shadow: var(--shadow-gold);
-        }
-
-        .cta-button:hover {
-            transform: scale(1.05);
-            box-shadow: 0 8px 30px rgba(212, 175, 55, 0.4);
-        }
-
-        .contact-info-small {
-            margin-top: 1rem;
-            font-size: 0.9rem;
-            color: var(--gray-300);
-        }
-
-        .contact-info-small a {
-            color: var(--accent);
-            text-decoration: none;
-        }
-
-        /* Trust Indicators */
-        .trust-section {
-            padding: 4rem 1.5rem;
-            background: var(--gray-100);
-            border-top: 1px solid var(--gray-200);
-        }
-
-        .trust-grid {
-            max-width: 1000px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            text-align: center;
-        }
-
-        .trust-item {
-            padding: 1.5rem;
-            background: var(--white);
-            border-radius: 12px;
-            transition: all 0.3s;
-        }
-
-        .trust-item:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .trust-icon {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .trust-item h4 {
-            font-size: 1.1rem;
-            margin-bottom: 0.5rem;
-            color: var(--primary);
-        }
-
-        .trust-item p {
-            font-size: 0.9rem;
-            color: var(--gray-600);
-        }
-
+        .seller-section { background: var(--primary); padding: 5rem 1.5rem; color: white; text-align: center; }
+        .seller-benefits { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; max-width: 800px; margin: 2rem auto; text-align: left; }
+        .benefit { display: flex; align-items: start; gap: 1rem; }
+        .benefit-icon { font-size: 1.5rem; }
+        
         /* Footer */
-        .footer {
-            background: var(--primary);
-            color: var(--white);
-            padding: 4rem 1.5rem 1.5rem;
-        }
-
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-bottom: 3rem;
-        }
-
-        .footer-section h4 {
-            margin-bottom: 1rem;
-            color: var(--accent);
-            font-size: 1.1rem;
-        }
-
-        .footer-section ul {
-            list-style: none;
-        }
-
-        .footer-section a {
-            color: var(--gray-300);
-            text-decoration: none;
-            font-size: 0.9rem;
-            line-height: 2.2;
-            transition: color 0.2s;
-            display: block;
-        }
-
-        .footer-section a:hover {
-            color: var(--accent);
-        }
-
-        .footer-bottom {
-            border-top: 1px solid var(--gray-800);
-            padding-top: 1.5rem;
-            text-align: center;
-            color: var(--gray-600);
-            font-size: 0.85rem;
-        }
-
-        .social-links {
-            display: flex;
-            gap: 1rem;
-            margin-top: 1rem;
-        }
-
-        .social-links a {
-            width: 42px;
-            height: 42px;
-            background: var(--gray-800);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--white);
-            text-decoration: none;
-            transition: all 0.2s;
-            font-weight: 600;
-        }
-
-        .social-links a:hover {
-            background: var(--accent);
-            color: var(--primary);
-            transform: translateY(-3px);
-        }
-
-        /* Legal Pages Styles */
-        .legal-page {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 4rem 1.5rem;
-        }
-
-        .legal-page h1 {
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
-            color: var(--primary);
-        }
-
-        .legal-page h2 {
-            font-size: 1.5rem;
-            margin: 2.5rem 0 1rem;
-            color: var(--accent-dark);
-        }
-
-        .legal-page h3 {
-            font-size: 1.2rem;
-            margin: 1.5rem 0 0.75rem;
-            color: var(--gray-800);
-        }
-
-        .legal-page p,
-        .legal-page li {
-            margin-bottom: 1rem;
-            color: var(--gray-800);
-            line-height: 1.8;
-        }
-
-        .legal-page ul,
-        .legal-page ol {
-            margin-left: 2rem;
-            margin-bottom: 1rem;
-        }
-
-        .legal-page li {
-            margin-bottom: 0.5rem;
-        }
-
-        .last-updated {
-            color: var(--gray-600);
-            font-style: italic;
-            margin-bottom: 2rem;
-            padding-bottom: 1rem;
-            border-bottom: 1px solid var(--gray-200);
-        }
-
-        /* Contact Page */
-        .contact-grid {
-            max-width: 1000px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            padding: 4rem 1.5rem;
-        }
-
-        .contact-info h2 {
-            margin-bottom: 1rem;
-            color: var(--primary);
-        }
-
-        .contact-info > p {
-            color: var(--gray-600);
-            margin-bottom: 2rem;
-        }
-
-        .contact-method {
-            margin-bottom: 1.5rem;
-            padding: 1.25rem;
-            background: var(--gray-100);
-            border-radius: 12px;
-            border-left: 4px solid var(--accent);
-        }
-
-        .contact-method h3 {
-            color: var(--accent-dark);
-            margin-bottom: 0.5rem;
-            font-size: 1rem;
-        }
-
-        .contact-method p {
-            color: var(--gray-800);
-            font-weight: 600;
-        }
-
-        .contact-method .note {
-            font-size: 0.85rem;
-            color: var(--gray-600);
-            font-weight: 400;
-            margin-top: 0.25rem;
-        }
-
-        .contact-form label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 600;
-            color: var(--gray-800);
-            font-size: 0.9rem;
-        }
-
-        .contact-form input,
-        .contact-form textarea,
-        .contact-form select {
-            width: 100%;
-            padding: 0.875rem;
-            margin-bottom: 1rem;
-            border: 2px solid var(--gray-200);
-            border-radius: 8px;
-            font-family: inherit;
-            font-size: 1rem;
-            transition: border-color 0.2s;
-        }
-
-        .contact-form input:focus,
-        .contact-form textarea:focus,
-        .contact-form select:focus {
-            border-color: var(--accent);
-            outline: none;
-        }
-
-        .contact-form button {
-            background: var(--accent);
-            color: var(--primary);
-            border: none;
-            padding: 1rem 2rem;
-            border-radius: 8px;
-            font-weight: 700;
-            cursor: pointer;
-            font-size: 1rem;
-            transition: all 0.2s;
-            width: 100%;
-        }
-
-        .contact-form button:hover {
-            background: var(--accent-dark);
-            transform: translateY(-2px);
-        }
-
-        /* FAQ Page */
-        .faq-item {
-            margin-bottom: 2rem;
-            padding-bottom: 2rem;
-            border-bottom: 1px solid var(--gray-200);
-        }
-
-        .faq-item:last-child {
-            border-bottom: none;
-        }
-
-        .faq-item h3 {
-            color: var(--primary);
-            margin-bottom: 0.75rem;
-            font-size: 1.1rem;
-        }
-
-        .faq-item p {
-            color: var(--gray-600);
-            line-height: 1.7;
-        }
-
-        /* Responsive */
+        .footer { background: var(--primary); color: var(--white); padding: 4rem 1.5rem 1rem; border-top: 1px solid var(--gray-800); }
+        .footer-content { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; max-width: 1200px; margin: 0 auto 3rem; }
+        .footer h3 { color: var(--accent); margin-bottom: 1.5rem; }
+        .footer ul { list-style: none; }
+        .footer li { margin-bottom: 0.75rem; }
+        .footer a { color: var(--gray-300); text-decoration: none; }
+        .footer a:hover { color: var(--accent); }
+        .footer-disclaimer { border-top: 1px solid var(--gray-800); padding-top: 2rem; margin-top: 2rem; text-align: center; }
+        
         @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-
-            .mobile-menu-btn {
-                display: block;
-            }
-
-            .hero h1 {
-                font-size: 2.25rem;
-            }
-
-            .hero-subtitle {
-                font-size: 1rem;
-            }
-
-            .contact-grid {
-                grid-template-columns: 1fr;
-                padding: 2rem 1.5rem;
-            }
-
-            .section-header {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
-            .section-title {
-                font-size: 2rem;
-            }
-
-            .legal-page {
-                padding: 2rem 1.5rem;
-            }
-
-            .legal-page h1 {
-                font-size: 1.75rem;
-            }
-
-            .cookie-banner {
-                flex-direction: column;
-                text-align: center;
-            }
-        }
-
-        /* Utility Classes */
-        .hidden {
-            display: none !important;
-        }
-
-        .text-center {
-            text-align: center;
-        }
-
-        .mt-2 {
-            margin-top: 2rem;
-        }
-
-        .mb-2 {
-            margin-bottom: 2rem;
-        }
-
-        /* Toast Notification */
-        .toast {
-            position: fixed;
-            bottom: 2rem;
-            right: 2rem;
-            background: var(--primary);
-            color: var(--white);
-            padding: 1rem 1.5rem;
-            border-radius: 12px;
-            box-shadow: var(--shadow-lg);
-            z-index: 9999;
-            transform: translateY(100px);
-            opacity: 0;
-            transition: all 0.3s;
-            max-width: 400px;
-            border-left: 4px solid var(--accent);
-        }
-
-        .toast.show {
-            transform: translateY(0);
-            opacity: 1;
-        }
-
-        .toast.success {
-            border-left-color: var(--success);
-        }
-
-        .toast.error {
-            border-left-color: var(--danger);
-        }
-
-        /* Page transitions */
-        .page {
-            animation: fadeIn 0.3s ease-out;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(10px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            .nav-links { display: none; }
+            .mobile-menu-btn { display: block; }
+            .hero h1 { font-size: 2rem; }
+            .products-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Cookie Consent Banner -->
-    <div id="cookie-banner" class="cookie-banner">
-        <p>We use cookies to enhance your experience and analyze our traffic. By continuing to use Gikomba.Shop, you agree to our <a href="#privacy" onclick="navigateToPage('privacy')">Privacy Policy</a>.</p>
-        <button class="cookie-btn" onclick="acceptCookies()">Got it</button>
+    <!-- Role Disclaimer -->
+    <div class="role-disclaimer">
+        Online Gikomba connects buyers with independent sellers. 
+        Payments, delivery, and item condition are confirmed directly between buyer and seller.
     </div>
 
-    <!-- Navigation -->
+    <div class="trust-bar">
+        ✅ Buyer Protection: Pay only after confirming item availability. Report issues within 24hrs.
+    </div>
+
     <nav class="navbar">
         <div class="nav-container">
-            <a href="#home" class="logo" onclick="navigateToPage('home')">
-                GIKOMBA<span>.SHOP</span> 🇰🇪
-            </a>
+            <a href="#" class="logo">🇰🇪 Online <span>Gikomba</span></a>
             <ul class="nav-links">
-                <li><a href="#home" onclick="navigateToPage('home')" class="nav-link" data-page="home">Home</a></li>
-                <li><a href="#how-it-works" onclick="scrollToSection('how-it-works')">How It Works</a></li>
-                <li><a href="#sellers" onclick="navigateToPage('sellers')" class="nav-link" data-page="sellers">Sell</a></li>
-                <li><a href="#contact" onclick="navigateToPage('contact')" class="nav-link" data-page="contact">Contact</a></li>
-                <li><a href="#faq" onclick="navigateToPage('faq')" class="nav-link" data-page="faq">FAQ</a></li>
-                <li><a href="#sellers" class="nav-cta" onclick="navigateToPage('sellers')">Become a Seller</a></li>
+                <li><a href="#shop">Shop</a></li>
+                <li><a href="#how-it-works">How It Works</a></li>
+                <li><a href="#sell">Become a Seller</a></li>
+                <li><a href="https://wa.me/254736906440" class="nav-cta">Contact Support</a></li>
             </ul>
-            <button class="mobile-menu-btn" onclick="toggleMobileMenu()" aria-label="Toggle menu">☰</button>
+            <button class="mobile-menu-btn" onclick="toggleMenu()">☰</button>
         </div>
     </nav>
 
-    <!-- Mobile Navigation -->
-    <div id="mobile-nav" class="mobile-nav">
-        <a href="#home" onclick="navigateToPage('home'); toggleMobileMenu();">Home</a>
-        <a href="#how-it-works" onclick="scrollToSection('how-it-works'); toggleMobileMenu();">How It Works</a>
-        <a href="#sellers" onclick="navigateToPage('sellers'); toggleMobileMenu();">Sell</a>
-        <a href="#contact" onclick="navigateToPage('contact'); toggleMobileMenu();">Contact</a>
-        <a href="#faq" onclick="navigateToPage('faq'); toggleMobileMenu();">FAQ</a>
-        <a href="#sellers" class="nav-cta" onclick="navigateToPage('sellers'); toggleMobileMenu();">Become a Seller</a>
+    <div class="mobile-nav" id="mobileNav">
+        <a href="#shop" onclick="toggleMenu()">Shop</a>
+        <a href="#how-it-works" onclick="toggleMenu()">How It Works</a>
+        <a href="#sell" onclick="toggleMenu()">Become a Seller</a>
+        <a href="https://wa.me/254736906440" onclick="toggleMenu()" style="color: var(--accent);">Contact Support</a>
     </div>
 
-    <!-- HOME PAGE -->
-    <div id="home-page" class="page">
-        <!-- Hero -->
-        <section class="hero">
-            <div class="hero-content">
-                <div class="hero-badge">
-                    <span>🔥</span>
-                    <span>Fresh Drops From</span>
-                    <span class="price-tag">KES 50</span>
-                </div>
-                <h1>Authentic Gikomba <span>Drip</span><br>Direct From Verified Sellers</h1>
-                <p class="hero-subtitle">
-                    One-of-a-kind thrift pieces handpicked at Gikomba Market. 
-                    No middlemen. Chat directly with sellers on WhatsApp and get your drip delivered.
-                </p>
-                <a href="#products" class="hero-cta" onclick="scrollToSection('products')">
-                    <span>🔥</span>
-                    <span>Shop Today's Drops</span>
-                </a>
-            </div>
-        </section>
-
-        <!-- Delivery & Payment -->
-        <section class="delivery-payment">
-            <div class="delivery-grid">
-                <div class="delivery-card">
-                    <div class="delivery-icon">⚡</div>
-                    <h3>Same-Day Delivery</h3>
-                    <p>Nairobi: <span class="highlight">Same day</span><br>Other counties: 1-3 days</p>
-                </div>
-                <div class="delivery-card">
-                    <div class="delivery-icon">📱</div>
-                    <h3>MPESA Payment</h3>
-                    <p>Pay via <span class="highlight">MPESA</span><br>or Cash on Delivery</p>
-                </div>
-                <div class="delivery-card">
-                    <div class="delivery-icon">🛡️</div>
-                    <h3>Buyer Protection</h3>
-                    <p>Money-back guarantee<br>if item doesn't match</p>
-                </div>
-                <div class="delivery-card">
-                    <div class="delivery-icon">✅</div>
-                    <h3>Verified Sellers</h3>
-                    <p>Every seller checked<br>at Gikomba Market</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- How It Works -->
-        <section id="how-it-works" class="how-it-works">
-            <h2 class="section-title">How Gikomba.Shop Works</h2>
-            <p class="section-subtitle">
-                No accounts needed. No complicated checkout. Just authentic drip, direct from the source.
+    <section class="hero">
+        <div class="container">
+            <h1>Authentic Gikomba<br><span>Verified Sellers Only</span></h1>
+            <p class="hero-subtitle">
+                Direct from the market to your door. Connect with verified sellers, 
+                review items before you pay, get delivery support.
             </p>
-            <div class="steps">
+            <a href="#shop" class="hero-cta">Browse Fresh Arrivals</a>
+        </div>
+    </section>
+
+    <section class="how-it-works" id="how-it-works">
+        <div class="container">
+            <div class="section-header">
+                <h2>How It Works</h2>
+                <p>No accounts needed. Browse, chat, buy.</p>
+            </div>
+            <div class="steps-grid">
                 <div class="step">
                     <div class="step-number">1</div>
-                    <h3>Browse Fresh Drops</h3>
-                    <p>Explore one-of-a-kind thrift pieces from verified Gikomba sellers. Each item is handpicked, photographed, and listed with honest condition ratings.</p>
+                    <h3>Browse Verified Items</h3>
+                    <p>Handpicked thrift from verified Gikomba sellers. Items are reviewed before listing where possible.</p>
                 </div>
                 <div class="step">
                     <div class="step-number">2</div>
                     <h3>Chat on WhatsApp</h3>
-                    <p>Found something you like? Tap "Order on WhatsApp" to chat directly with the seller. Confirm availability, ask for measurements, negotiate if needed.</p>
+                    <p>Click to chat directly with seller. Confirm availability, size, and delivery details.</p>
                 </div>
                 <div class="step">
                     <div class="step-number">3</div>
                     <h3>Pay & Get Delivered</h3>
-                    <p>Pay via MPESA or Cash on Delivery. Sellers in Nairobi often deliver same-day. Track your package and rate your experience.</p>
+                    <p>Pay via MPESA after confirming item. Nairobi same-day, countrywide 1-3 days.</p>
                 </div>
             </div>
-            <div class="protection-notice">
-                <strong>🛡️ Buyer Protection:</strong> We verify every seller in person at Gikomba Market. 
-                If your item doesn't match the description, we'll help you get a refund. 
-                Always confirm availability before paying. 
-                <a href="#safety" onclick="navigateToPage('safety')">Learn more about safety →</a>
-            </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- New Arrivals Section -->
-        <section class="curated-section">
+    <section class="products-section" id="shop">
+        <div class="container">
             <div class="section-header">
-                <div>
-                    <h2>🔥 Fresh Today</h2>
-                    <p>Just listed in the last 24 hours</p>
-                </div>
-                <a href="#products" class="view-all-btn" onclick="scrollToSection('products')">View all →</a>
+                <h2>Fresh Arrivals</h2>
+                <p>New items added daily. Listings expire after 48 hours.</p>
             </div>
-            <div class="products-grid" id="new-arrivals-grid">
-                <!-- Populated by JS -->
-            </div>
-        </section>
-
-        <!-- Under 500 Section -->
-        <section class="curated-section">
-            <div class="section-header">
-                <div>
-                    <h2>💰 Under KES 500</h2>
-                    <p>Budget-friendly finds that still slap</p>
-                </div>
-                <a href="#products" class="view-all-btn" onclick="scrollToSection('products')">View all →</a>
-            </div>
-            <div class="products-grid" id="under-500-grid">
-                <!-- Populated by JS -->
-            </div>
-        </section>
-
-        <!-- All Products Section -->
-        <section id="products" class="curated-section">
-            <div class="section-header">
-                <div>
-                    <h2>All Available Items</h2>
-                    <p>One piece only — when it's gone, it's gone</p>
-                </div>
-            </div>
-            <div class="filter-tabs">
+            
+            <div class="filters">
                 <button class="filter-btn active" onclick="filterProducts('all')">All Items</button>
-                <button class="filter-btn" onclick="filterProducts('tops')">Tops</button>
-                <button class="filter-btn" onclick="filterProducts('bottoms')">Bottoms</button>
-                <button class="filter-btn" onclick="filterProducts('jackets')">Jackets</button>
+                <button class="filter-btn" onclick="filterProducts('men')">Men</button>
+                <button class="filter-btn" onclick="filterProducts('women')">Women</button>
+                <button class="filter-btn" onclick="filterProducts('kids')">Kids</button>
                 <button class="filter-btn" onclick="filterProducts('shoes')">Shoes</button>
             </div>
-            <div class="products-grid" id="products-grid">
-                <!-- Populated by JS -->
+
+            <div class="products-grid" id="productsGrid">
+                <!-- Products injected by JS -->
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Trust Indicators -->
-        <section class="trust-section">
-            <div class="trust-grid">
-                <div class="trust-item">
-                    <div class="trust-icon">✅</div>
-                    <h4>Verified Sellers</h4>
-                    <p>Every seller is physically verified at Gikomba Market with ID check</p>
-                </div>
-                <div class="trust-item">
-                    <div class="trust-icon">🛡️</div>
-                    <h4>Buyer Protection</h4>
-                    <p>Money-back guarantee if item doesn't match description</p>
-                </div>
-                <div class="trust-item">
-                    <div class="trust-icon">⚡</div>
-                    <h4>Fast Delivery</h4>
-                    <p>Same-day delivery available within Nairobi</p>
-                </div>
-                <div class="trust-item">
-                    <div class="trust-icon">💯</div>
-                    <h4>Authentic Items</h4>
-                    <p>Handpicked thrift, no replicas or counterfeits</p>
-                </div>
-            </div>
-        </section>
-    </div>
-
-    <!-- SELLERS PAGE -->
-    <div id="sellers-page" class="page hidden">
-        <section class="seller-section">
-            <div class="seller-content">
-                <h2 class="section-title">Sell on Gikomba.Shop</h2>
-                <p class="section-subtitle">
-                    Join 50+ verified sellers reaching thousands of buyers daily. 
-                    Zero setup fees. Keep 100% of your sales for the first month.
-                </p>
-
-                <div class="seller-benefits">
-                    <div class="benefit">
-                        <h4>🚀 Zero Setup Cost</h4>
-                        <p>Start selling immediately. No registration fees, no monthly charges. Just your phone and your inventory.</p>
-                    </div>
-                    <div class="benefit">
-                        <h4>📱 Direct to Buyer</h4>
-                        <p>Chat directly with customers via WhatsApp. No middlemen taking a cut. You control your prices.</p>
-                    </div>
-                    <div class="benefit">
-                        <h4>🛡️ Seller Protection</h4>
-                        <p>We verify buyers and handle dispute resolution fairly. Report problematic customers instantly.</p>
-                    </div>
-                    <div class="benefit">
-                        <h4>📸 Easy Listing</h4>
-                        <p>Just send us photos and details via WhatsApp. We handle the website, SEO, and marketing.</p>
+    <section class="seller-section" id="sell">
+        <div class="container">
+            <h2 style="font-size: 2.5rem; margin-bottom: 1rem;">Sell With Us</h2>
+            <p style="color: var(--gray-300); max-width: 600px; margin: 0 auto 2rem;">
+                Join 50+ verified sellers. We assist with photos, listings, and help coordinate delivery with trusted courier partners.
+            </p>
+            <div class="seller-benefits">
+                <div class="benefit">
+                    <span class="benefit-icon">📸</span>
+                    <div>
+                        <h4>Free Photography</h4>
+                        <p style="color: var(--gray-300); font-size: 0.9rem;">We come to your stall</p>
                     </div>
                 </div>
-
-                <div class="verification-steps">
-                    <h3>How Seller Verification Works:</h3>
-                    <ol>
-                        <li><strong>Apply:</strong> Send us your Gikomba stall location and ID via WhatsApp</li>
-                        <li><strong>Verification:</strong> Our team visits your stall in person (24-48 hours)</li>
-                        <li><strong>Training:</strong> Quick tips on photography and pricing for online sales</li>
-                        <li><strong>Start Selling:</strong> List your items and start receiving orders immediately</li>
-                    </ol>
+                <div class="benefit">
+                    <span class="benefit-icon">🚚</span>
+                    <div>
+                        <h4>Delivery Support</h4>
+                        <p style="color: var(--gray-300); font-size: 0.9rem;">Wells Fargo/G4S coordination</p>
+                    </div>
                 </div>
-
-                <a href="https://wa.me/254712345678?text=Hi%20Gikomba.Shop!%20I'm%20interested%20in%20becoming%20a%20verified%20seller.%20My%20stall%20location%20is:%20" class="cta-button" target="_blank" rel="noopener noreferrer">
-                    <span>💬</span>
-                    <span>Apply on WhatsApp</span>
-                </a>
-                <p class="contact-info-small">
-                    Or call us: <a href="tel:+254712345678">+254 712 345 678</a> (Mon-Sat, 8am-6pm)
-                </p>
-            </div>
-        </section>
-    </div>
-
-    <!-- TERMS PAGE -->
-    <div id="terms-page" class="page hidden">
-        <div class="legal-page">
-            <h1>Terms of Service</h1>
-            <p class="last-updated">Last Updated: February 6, 2025</p>
-
-            <h2>1. Acceptance of Terms</h2>
-            <p>By accessing or using Gikomba.Shop, you agree to be bound by these Terms of Service. If you disagree with any part of the terms, you may not access the service.</p>
-
-            <h2>2. Description of Service</h2>
-            <p>Gikomba.Shop is a marketplace platform connecting buyers with verified thrift sellers from Gikomba Market, Nairobi. We facilitate connections via WhatsApp but are not a party to transactions between buyers and sellers.</p>
-
-            <h2>3. Buyer Responsibilities</h2>
-            <ul>
-                <li>Verify item availability and condition before payment</li>
-                <li>Communicate respectfully with sellers</li>
-                <li>Report fraudulent activity within 24 hours</li>
-                <li>Understand that items are one-of-a-kind and sold as-described</li>
-            </ul>
-
-            <h2>4. Seller Responsibilities</h2>
-            <ul>
-                <li>Maintain accurate inventory and pricing</li>
-                <li>Respond to inquiries within 24 hours</li>
-                <li>Deliver items as described or provide refunds</li>
-                <li>Comply with all applicable laws and regulations</li>
-            </ul>
-
-            <h2>5. Prohibited Items</h2>
-            <p>Sellers may not list: counterfeit goods, illegal items, weapons, hazardous materials, or items violating intellectual property rights.</p>
-
-            <h2>6. Limitation of Liability</h2>
-            <p>Gikomba.Shop is not liable for:</p>
-            <ul>
-                <li>Quality, safety, or legality of items advertised</li>
-                <li>Accuracy of seller listings</li>
-                <li>Disputes between buyers and sellers</li>
-                <li>Direct, indirect, incidental, or consequential damages</li>
-            </ul>
-
-            <h2>7. Dispute Resolution</h2>
-            <p>We encourage buyers and sellers to resolve disputes directly. If unresolved, contact us at disputes@gikomba.shop. We reserve the right to ban users violating platform rules.</p>
-
-            <h2>8. Contact</h2>
-            <p>For questions about these terms, contact: <a href="mailto:legal@gikomba.shop">legal@gikomba.shop</a></p>
-        </div>
-    </div>
-
-    <!-- PRIVACY PAGE -->
-    <div id="privacy-page" class="page hidden">
-        <div class="legal-page">
-            <h1>Privacy Policy</h1>
-            <p class="last-updated">Last Updated: February 6, 2025</p>
-
-            <h2>1. Information We Collect</h2>
-            <p>We collect information you provide directly:</p>
-            <ul>
-                <li><strong>Buyers:</strong> Name, phone number (via WhatsApp), delivery address</li>
-                <li><strong>Sellers:</strong> Name, ID number, stall location, phone number, bank/MPESA details</li>
-                <li><strong>Automatically:</strong> IP address, browser type, device information</li>
-            </ul>
-
-            <h2>2. How We Use Your Information</h2>
-            <ul>
-                <li>Facilitate communication between buyers and sellers</li>
-                <li>Verify seller identities and stall locations</li>
-                <li>Process payments and commissions</li>
-                <li>Improve our platform and user experience</li>
-                <li>Send service-related notifications</li>
-            </ul>
-
-            <h2>3. Information Sharing</h2>
-            <p>We do not sell your personal information. We share data only:</p>
-            <ul>
-                <li>Between buyers and sellers to complete transactions</li>
-                <li>With service providers (hosting, payment processing)</li>
-                <li>When required by law or to protect rights</li>
-            </ul>
-
-            <h2>4. Data Security</h2>
-            <p>We implement appropriate security measures including SSL encryption, secure servers, and regular security audits.</p>
-
-            <h2>5. Your Rights</h2>
-            <p>Under Kenyan data protection laws, you have the right to access, correct, or delete your personal data. Contact us at privacy@gikomba.shop.</p>
-
-            <h2>6. Contact Us</h2>
-            <p>For privacy concerns, contact: <a href="mailto:privacy@gikomba.shop">privacy@gikomba.shop</a></p>
-        </div>
-    </div>
-
-    <!-- RETURNS PAGE -->
-    <div id="returns-page" class="page hidden">
-        <div class="legal-page">
-            <h1>Returns & Refund Policy</h1>
-            <p class="last-updated">Last Updated: February 6, 2025</p>
-
-            <h2>Our Guarantee</h2>
-            <p>We want you to love your Gikomba finds. If your item doesn't match the description or photos, we've got you covered.</p>
-
-            <h2>Eligible Returns</h2>
-            <ul>
-                <li>Item significantly different from description/photos</li>
-                <li>Wrong size (if size was confirmed before purchase)</li>
-                <li>Damaged or defective items (not disclosed)</li>
-                <li>Counterfeit items (we guarantee authenticity)</li>
-            </ul>
-
-            <h2>Non-Eligible Returns</h2>
-            <ul>
-                <li>Change of mind (thrifting is final sale)</li>
-                <li>Items marked "Final Sale" or "As-Is"</li>
-                <li>Damage caused by buyer after delivery</li>
-                <li>Items held for more than 48 hours before complaint</li>
-            </ul>
-
-            <h2>Return Process</h2>
-            <ol>
-                <li><strong>Report within 24 hours:</strong> Message the seller immediately with photos of the issue</li>
-                <li><strong>Contact us:</strong> If unresolved, email disputes@gikomba.shop with order details</li>
-                <li><strong>Return item:</strong> If approved, return item to seller within 3 days</li>
-                <li><strong>Refund:</strong> MPESA refund processed within 48 hours of item receipt</li>
-            </ol>
-
-            <h2>Contact</h2>
-            <p>Questions? Contact <a href="mailto:support@gikomba.shop">support@gikomba.shop</a> or WhatsApp +254 712 345 678</p>
-        </div>
-    </div>
-
-    <!-- CONTACT PAGE -->
-    <div id="contact-page" class="page hidden">
-        <div class="contact-grid">
-            <div class="contact-info">
-                <h2>Get in Touch</h2>
-                <p>We're here to help with any questions about buying, selling, or using our platform.</p>
-
-                <div class="contact-method">
-                    <h3>📱 WhatsApp (Fastest Response)</h3>
-                    <p>+254 712 345 678</p>
-                    <p class="note">Available 8am - 8pm EAT, daily</p>
-                </div>
-
-                <div class="contact-method">
-                    <h3>📧 Email Support</h3>
-                    <p>support@gikomba.shop</p>
-                    <p class="note">Response within 24 hours</p>
-                </div>
-
-                <div class="contact-method">
-                    <h3>📍 Visit Our Office</h3>
-                    <p>Gikomba Market, Nairobi</p>
-                    <p class="note">Office hours: Mon-Sat, 9am-5pm</p>
-                </div>
-
-                <div class="contact-method">
-                    <h3>🆘 Emergency Disputes</h3>
-                    <p>disputes@gikomba.shop</p>
-                    <p class="note">For urgent transaction issues</p>
+                <div class="benefit">
+                    <span class="benefit-icon">💰</span>
+                    <div>
+                        <h4>Zero Upfront Cost</h4>
+                        <p style="color: var(--gray-300); font-size: 0.9rem;">We take 15% only on sales</p>
+                    </div>
                 </div>
             </div>
-
-            <div>
-                <h2>Send us a Message</h2>
-                <form class="contact-form" onsubmit="handleContactSubmit(event)">
-                    <label for="contact-name">Your Name</label>
-                    <input type="text" id="contact-name" name="name" placeholder="John Doe" required>
-                    
-                    <label for="contact-email">Email Address</label>
-                    <input type="email" id="contact-email" name="email" placeholder="john@example.com" required>
-                    
-                    <label for="contact-phone">Phone Number (optional)</label>
-                    <input type="tel" id="contact-phone" name="phone" placeholder="+254 7XX XXX XXX">
-                    
-                    <label for="contact-type">How can we help?</label>
-                    <select id="contact-type" name="type" required>
-                        <option value="">Select an option...</option>
-                        <option value="buyer">I'm a Buyer</option>
-                        <option value="seller">I'm a Seller</option>
-                        <option value="interested">Interested in Selling</option>
-                        <option value="general">General Inquiry</option>
-                        <option value="issue">Report an Issue</option>
-                    </select>
-                    
-                    <label for="contact-message">Your Message</label>
-                    <textarea id="contact-message" name="message" rows="5" placeholder="How can we help you?" required></textarea>
-                    
-                    <button type="submit">Send Message</button>
-                </form>
-            </div>
+            
+            <!-- Verified Seller Definition -->
+            <p style="font-size:0.8rem;color:var(--gray-300);margin-top:2rem;max-width:600px;margin-left:auto;margin-right:auto;">
+                Verified sellers have completed ID confirmation and stall verification at Gikomba market.
+            </p>
+            
+            <a href="https://wa.me/254736906440?text=I%20want%20to%20become%20a%20verified%20seller" class="hero-cta" style="background: var(--white); color: var(--primary); margin-top: 2rem;">
+                Apply in 2 Minutes
+            </a>
         </div>
-    </div>
+    </section>
 
-    <!-- FAQ PAGE -->
-    <div id="faq-page" class="page hidden">
-        <div class="legal-page">
-            <h1>Frequently Asked Questions</h1>
-
-            <div class="faq-item">
-                <h3>How do I know the items are authentic?</h3>
-                <p>Every seller is physically verified at Gikomba Market. We check their stall, ID, and business registration. Items are photographed by sellers and reviewed by our team. If you receive a counterfeit item, we'll issue a full refund.</p>
-            </div>
-
-            <div class="faq-item">
-                <h3>What if the item doesn't fit?</h3>
-                <p>Since these are one-of-a-kind thrift pieces, we recommend confirming measurements with the seller via WhatsApp before purchase. Some sellers offer exchanges for size issues within 24 hours if the item is unworn.</p>
-            </div>
-
-            <div class="faq-item">
-                <h3>How do I pay?</h3>
-                <p>Most sellers accept MPESA mobile money. Some offer Cash on Delivery within Nairobi. <strong>Never pay before confirming item availability.</strong> Always get confirmation from the seller that the item is still in stock.</p>
-            </div>
-
-            <div class="faq-item">
-                <h3>How long does delivery take?</h3>
-                <p><strong>Nairobi:</strong> Same day or next day delivery.<br><strong>Other counties:</strong> 1-3 days via courier.<br>Exact timing depends on the seller's location and your delivery address. Discuss delivery options directly with the seller.</p>
-            </div>
-
-            <div class="faq-item">
-                <h3>How much does it cost to sell?</h3>
-                <p>Zero setup cost. No commission for your first month. After that, we charge a small 5% commission per sale to cover platform costs, payment processing, and marketing.</p>
-            </div>
-
-            <div class="faq-item">
-                <h3>What if I get scammed?</h3>
-                <p>Contact us immediately at disputes@gikomba.shop with screenshots of your conversation. We investigate all claims within 24 hours and ban fraudulent users. We also work with local authorities for serious cases. Our buyer protection policy covers you.</p>
-            </div>
-        </div>
-    </div>
-
-    <!-- SAFETY PAGE -->
-    <div id="safety-page" class="page hidden">
-        <div class="legal-page">
-            <h1>Safety Guidelines</h1>
-
-            <h2>🔒 For Buyers</h2>
-            <ul>
-                <li><strong>Verify first:</strong> Always confirm item availability and condition via WhatsApp before paying</li>
-                <li><strong>Use platform:</strong> Keep all communication on WhatsApp for our records</li>
-                <li><strong>Check seller rating:</strong> Look for "Verified" badges and review their history</li>
-                <li><strong>Safe meetings:</strong> If meeting in person, choose public places during daytime</li>
-                <li><strong>Report red flags:</strong> Prices too good to be true, pressure to pay quickly, or refusal to answer questions</li>
-            </ul>
-
-            <h2>🛡️ For Sellers</h2>
-            <ul>
-                <li><strong>Verify buyers:</strong> Check their profile and ask for confirmation before holding items</li>
-                <li><strong>Clear photos:</strong> Show all flaws to avoid disputes</li>
-                <li><strong>Secure payments:</strong> Confirm MPESA receipt before releasing items</li>
-                <li><strong>Keep records:</strong> Screenshot all agreements and payments</li>
-                <li><strong>Report harassment:</strong> We ban abusive buyers immediately</li>
-            </ul>
-
-            <h2>⚠️ Red Flags</h2>
-            <p>Report users who:</p>
-            <ul>
-                <li>Ask for payment outside MPESA/bank transfer</li>
-                <li>Refuse to provide phone numbers or stall locations</li>
-                <li>Pressure you to decide immediately</li>
-                <li>Send suspicious links</li>
-                <li>Use stolen photos (reverse image search if unsure)</li>
-            </ul>
-
-            <h2>📞 Emergency Contacts</h2>
-            <p>If you feel unsafe or encounter fraud:</p>
-            <ul>
-                <li>Platform: disputes@gikomba.shop or +254 712 345 678</li>
-                <li>Police: 999 or 112</li>
-                <li>Cybercrime: report@ke-cirt.go.ke</li>
-            </ul>
-        </div>
-    </div>
-
-    <!-- Footer -->
     <footer class="footer">
         <div class="footer-content">
-            <div class="footer-section">
-                <h4>Shop</h4>
+            <div>
+                <h3>🇰🇪 Online Gikomba</h3>
+                <p style="color: var(--gray-600); font-size: 0.9rem; margin-top: 1rem;">
+                    Nairobi's trusted thrift marketplace. Verified sellers, authentic items, buyer-seller direct connection.
+                </p>
+            </div>
+            <div>
+                <h3>Support</h3>
                 <ul>
-                    <li><a href="#home" onclick="navigateToPage('home')">Browse Items</a></li>
-                    <li><a href="#how-it-works" onclick="scrollToSection('how-it-works')">How It Works</a></li>
-                    <li><a href="#safety" onclick="navigateToPage('safety')">Safety Tips</a></li>
-                    <li><a href="#faq" onclick="navigateToPage('faq')">FAQ</a></li>
+                    <li><a href="https://wa.me/254736906440">WhatsApp Support</a></li>
+                    <li><a href="#" onclick="alert('Pay only after confirming item availability. Report issues within 24 hours via WhatsApp.')">Buyer Protection</a></li>
+                    <li><a href="https://wa.me/254736906440?text=I%20want%20to%20report%20a%20seller">Report a Seller</a></li>
+                    <li><a href="#">Delivery Info</a></li>
                 </ul>
             </div>
-            <div class="footer-section">
-                <h4>Sell</h4>
+            <div>
+                <h3>Sellers</h3>
                 <ul>
-                    <li><a href="#sellers" onclick="navigateToPage('sellers')">Become a Seller</a></li>
-                    <li><a href="#sellers" onclick="navigateToPage('sellers')">Seller Guidelines</a></li>
-                    <li><a href="#sellers" onclick="navigateToPage('sellers')">Success Stories</a></li>
+                    <li><a href="#">Become Verified</a></li>
+                    <li><a href="#">Seller Guidelines</a></li>
+                    <li><a href="#">Commission Rates</a></li>
                 </ul>
-            </div>
-            <div class="footer-section">
-                <h4>Support</h4>
-                <ul>
-                    <li><a href="#contact" onclick="navigateToPage('contact')">Contact Us</a></li>
-                    <li><a href="#returns" onclick="navigateToPage('returns')">Returns & Refunds</a></li>
-                    <li><a href="#safety" onclick="navigateToPage('safety')">Report an Issue</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h4>Legal</h4>
-                <ul>
-                    <li><a href="#terms" onclick="navigateToPage('terms')">Terms of Service</a></li>
-                    <li><a href="#privacy" onclick="navigateToPage('privacy')">Privacy Policy</a></li>
-                    <li><a href="#returns" onclick="navigateToPage('returns')">Return Policy</a></li>
-                </ul>
-                <div class="social-links">
-                    <a href="https://instagram.com/gikomba.shop" target="_blank" rel="noopener noreferrer" aria-label="Instagram">IG</a>
-                    <a href="https://twitter.com/gikombashop" target="_blank" rel="noopener noreferrer" aria-label="Twitter">X</a>
-                    <a href="https://tiktok.com/@gikomba.shop" target="_blank" rel="noopener noreferrer" aria-label="TikTok">TT</a>
-                </div>
             </div>
         </div>
-        <div class="footer-bottom">
-            <p>&copy; 2025 Gikomba.Shop. All rights reserved. | Made with ❤️ in Nairobi 🇰🇪</p>
+        
+        <div class="footer-disclaimer">
+            <p style="font-size:0.75rem;color:var(--gray-600);margin-bottom:1rem;">
+                Online Gikomba does not hold payments or guarantee transactions. 
+                Buyers are advised to confirm item details and delivery terms before sending payment.
+            </p>
+            <p style="font-size: 0.8rem; color: var(--gray-600);">
+                &copy; 2024 Online Gikomba. All rights reserved.
+            </p>
         </div>
     </footer>
 
-    <!-- Toast Notification -->
-    <div id="toast" class="toast"></div>
-
     <script>
-        // Product Data with REAL seller WhatsApp numbers
         const products = [
             {
-                id: 1,
-                title: "Vintage Levi's Denim Jacket",
-                seller: "GikoKing",
-                sellerWhatsApp: "254712345001",
-                verified: true,
+                id: 'GK001',
+                title: 'Vintage Levi\'s Denim Jacket',
+                size: 'L',
+                price: 850,
+                originalPrice: 1500,
+                condition: 'excellent',
+                conditionNote: '9/10 - Minimal fade',
+                seller: 'Mama Kevo Stores',
+                sellerVerified: true,
+                sellerSales: 47,
+                sellerJoined: '2023',
+                category: 'men',
+                views: 12,
+                postedHours: 2,
+                expiresHours: 46,
+                stock: 1,
+                status: 'available',
+                image: 'Denim Jacket'
+            },
+            {
+                id: 'GK002',
+                title: 'Cotton Office Shirt - Blue',
+                size: 'M',
+                price: 450,
+                originalPrice: 800,
+                condition: 'good',
+                conditionNote: '8/10 - Slight wrinkling',
+                seller: 'Stylish Men Gikomba',
+                sellerVerified: true,
+                sellerSales: 123,
+                sellerJoined: '2022',
+                category: 'men',
+                views: 8,
+                postedHours: 5,
+                expiresHours: 43,
+                stock: 1,
+                status: 'available',
+                image: 'Office Shirt'
+            },
+            {
+                id: 'GK003',
+                title: 'Ladies Trench Coat - Beige',
+                size: 'UK 12',
                 price: 1200,
                 originalPrice: 2500,
-                condition: "9/10",
-                size: "L",
-                location: "Nairobi",
-                category: "jackets",
-                badge: "ONLY 1 LEFT",
-                badgeType: "urgent",
-                image: "product-1-jacket.jpg",
-                description: "Classic Levi's denim jacket with authentic vintage fade. Perfect condition with minimal wear. Looks fire with jeans or over a hoodie.",
-                listedAt: new Date(Date.now() - 2 * 60 * 60 * 1000), // 2 hours ago
-                isSold: false
+                condition: 'excellent',
+                conditionNote: '9.5/10 - Worn once',
+                seller: 'Winter Wear Hub',
+                sellerVerified: false,
+                sellerSales: 8,
+                sellerJoined: '2024',
+                category: 'women',
+                views: 23,
+                postedHours: 1,
+                expiresHours: 47,
+                stock: 1,
+                status: 'available',
+                image: 'Trench Coat'
             },
             {
-                id: 2,
-                title: "Olive Cargo Pants",
-                seller: "ThriftQueen",
-                sellerWhatsApp: "254712345002",
-                verified: true,
-                price: 850,
-                originalPrice: 1800,
-                condition: "8.5/10",
-                size: "32",
-                location: "Nairobi",
-                category: "bottoms",
-                badge: "HOT DEAL",
-                badgeType: "hot",
-                image: "product-2-cargo.jpg",
-                description: "Trendy cargo pants with multiple pockets. Perfect for streetwear fits. Slightly tapered leg for modern look. Barely worn.",
-                listedAt: new Date(Date.now() - 5 * 60 * 60 * 1000), // 5 hours ago
-                isSold: false
-            },
-            {
-                id: 3,
-                title: "Retro Graphic Tee",
-                seller: "DripMaster",
-                sellerWhatsApp: "254712345003",
-                verified: true,
-                price: 50,
-                originalPrice: null,
-                condition: "8/10",
-                size: "M",
-                location: "Nairobi",
-                category: "tops",
-                badge: "KES 50!",
-                badgeType: "hot",
-                image: "product-3-tee.jpg",
-                description: "Vintage band tee with faded print. 100% cotton, super soft feel. Perfect for layering or wearing alone on hot Nairobi days.",
-                listedAt: new Date(Date.now() - 30 * 60 * 1000), // 30 minutes ago
-                isSold: false
-            },
-            {
-                id: 4,
-                title: "Brown Leather Chelsea Boots",
-                seller: "VintageVault",
-                sellerWhatsApp: "254712345004",
-                verified: true,
-                price: 1500,
-                originalPrice: 3200,
-                condition: "9/10",
-                size: "EU 42",
-                location: "Nairobi",
-                category: "shoes",
-                badge: "LAST CHANCE",
-                badgeType: "urgent",
-                image: "product-4-boots.jpg",
-                description: "Genuine leather boots, barely worn. Classic style that goes with everything. Sole in perfect condition.",
-                listedAt: new Date(Date.now() - 24 * 60 * 60 * 1000), // 1 day ago
-                isSold: false
-            },
-            {
-                id: 5,
-                title: "Nike Windbreaker",
-                seller: "GikoKing",
-                sellerWhatsApp: "254712345001",
-                verified: true,
-                price: 800,
-                originalPrice: 1500,
-                condition: "8/10",
-                size: "XL",
-                location: "Nairobi",
-                category: "jackets",
-                badge: null,
-                badgeType: null,
-                image: "product-5-windbreaker.jpg",
-                description: "Classic Nike windbreaker in navy blue. Light wear on cuffs but overall great condition. Perfect for Nairobi weather.",
-                listedAt: new Date(Date.now() - 3 * 60 * 60 * 1000), // 3 hours ago
-                isSold: false
-            },
-            {
-                id: 6,
-                title: "Vintage Levi's 501 Jeans",
-                seller: "ThriftQueen",
-                sellerWhatsApp: "254712345002",
-                verified: true,
+                id: 'GK004',
+                title: 'Kids Hoodie Bundle (3pcs)',
+                size: 'Ages 3-5',
                 price: 600,
                 originalPrice: 1200,
-                condition: "7.5/10",
-                size: "34",
-                location: "Nairobi",
-                category: "bottoms",
-                badge: null,
-                badgeType: null,
-                image: "product-6-jeans.jpg",
-                description: "Authentic Levi's 501 with natural distressing. Some fading on knees adds character. Button fly, made in USA.",
-                listedAt: new Date(Date.now() - 18 * 60 * 60 * 1000), // 18 hours ago
-                isSold: true
+                condition: 'good',
+                conditionNote: '8/10 - Mixed brands',
+                seller: 'Tot\'s Corner',
+                sellerVerified: true,
+                sellerSales: 89,
+                sellerJoined: '2023',
+                category: 'kids',
+                views: 15,
+                postedHours: 3,
+                expiresHours: 45,
+                stock: 2,
+                status: 'available',
+                image: 'Kids Bundle'
             }
         ];
 
-        // Format relative time
-        function getRelativeTime(date) {
-            const now = new Date();
-            const diff = now - date;
-            const minutes = Math.floor(diff / 60000);
-            const hours = Math.floor(diff / 3600000);
-            const days = Math.floor(diff / 86400000);
+        let reservedItems = JSON.parse(localStorage.getItem('reservedItems') || '[]');
 
-            if (minutes < 60) return `${minutes}m ago`;
-            if (hours < 24) return `${hours}h ago`;
-            if (days === 1) return 'Yesterday';
-            return `${days} days ago`;
-        }
-
-        // Render a product card
-        function renderProductCard(product) {
-            const freshness = getRelativeTime(product.listedAt);
-            const isFresh = (new Date() - product.listedAt) < 24 * 60 * 60 * 1000;
+        function renderProducts(filter = 'all') {
+            const grid = document.getElementById('productsGrid');
+            grid.innerHTML = '';
             
-            if (product.isSold) {
-                return `
-                    <div class="product-card sold" data-category="${product.category}">
-                        <span class="product-badge sold">SOLD</span>
-                        <div class="product-image-container">
-                            <img src="${product.image}" alt="${product.title}" class="product-image" loading="lazy">
+            const filtered = filter === 'all' ? products : products.filter(p => p.category === filter);
+            
+            filtered.forEach(product => {
+                const isReserved = reservedItems.includes(product.id);
+                const statusClass = isReserved ? 'reserved' : product.status === 'sold' ? 'sold' : '';
+                const statusBadge = isReserved ? '<span class="badge badge-reserved">⏳ Reserved</span>' : 
+                                   product.status === 'sold' ? '<span class="badge badge-sold">✓ Sold</span>' : '';
+                
+                const sellerBadge = product.sellerVerified ? 
+                    `<span class="seller-badge verified" title="ID & stall verified at Gikomba market">✓ Verified</span>` : 
+                    `<span class="seller-badge">New Seller</span>`;
+                
+                const discount = Math.round(((product.originalPrice - product.price) / product.originalPrice) * 100);
+                
+                const card = document.createElement('div');
+                card.className = `product-card ${statusClass}`;
+                card.innerHTML = `
+                    <div class="product-badges">
+                        ${statusBadge}
+                        ${product.condition === 'excellent' ? '<span class="badge badge-grade">Grade A</span>' : ''}
+                        ${product.postedHours < 3 ? '<span class="badge badge-new">Just Added</span>' : ''}
+                        ${product.sellerVerified && product.sellerSales > 50 ? '<span class="badge badge-verified">Top Seller</span>' : ''}
+                    </div>
+                    <div class="view-counter">
+                        👁 ${product.views} viewing
+                    </div>
+                    <div class="img-placeholder ${product.status === 'sold' ? 'sold' : ''}">
+                        <span>${product.image}</span>
+                    </div>
+                    <div class="product-info">
+                        <div class="seller-row">
+                            <span class="seller-name">${product.seller}</span>
+                            ${sellerBadge}
+                            <span class="seller-stats">${product.sellerSales} sales</span>
                         </div>
-                        <div class="product-info">
-                            <div class="seller-name">
-                                Seller: ${product.seller} 
-                                ${product.verified ? '<span class="verified-badge">VERIFIED</span>' : ''}
-                            </div>
-                            <h3 class="product-title">${product.title}</h3>
-                            <p class="product-description">${product.description}</p>
-                            <div class="product-meta">
-                                <span class="meta-item">📍 ${product.location}</span>
-                                <span class="meta-item">📏 Size ${product.size}</span>
-                            </div>
-                            <span class="condition">Condition: ${product.condition}</span>
-                            <div class="price-row">
-                                <span class="current-price">KES ${product.price.toLocaleString()}</span>
-                                ${product.originalPrice ? `<span class="original-price">KES ${product.originalPrice.toLocaleString()}</span>` : ''}
-                            </div>
-                            <button class="whatsapp-btn" disabled>
-                                <span>❌</span>
-                                <span>Item Sold</span>
-                            </button>
+                        <h3 class="product-title">${product.title} (${product.size})</h3>
+                        <div class="product-meta">
+                            <span class="condition">
+                                <span class="condition-dot condition-${product.condition}"></span>
+                                ${product.conditionNote}
+                            </span>
+                        </div>
+                        <div class="price-row">
+                            <span class="product-price">KES ${product.price.toLocaleString()}</span>
+                            <span class="original-price">KES ${product.originalPrice.toLocaleString()}</span>
+                            <span class="discount">-${discount}%</span>
+                        </div>
+                        <div class="stock-info">
+                            <span>⏱ Posted ${product.postedHours}h ago</span>
+                            ${!isReserved && product.status !== 'sold' ? `<span class="time-left">⏳ Expires in ${product.expiresHours}h</span>` : ''}
+                        </div>
+                        <button class="whatsapp-btn ${isReserved ? 'reserved' : ''}" 
+                                onclick="handleOrder('${product.id}', '${product.title}', ${product.price}, '${product.seller}')"
+                                ${isReserved || product.status === 'sold' ? 'disabled' : ''}>
+                            ${isReserved ? '⏳ Check Back Later' : 
+                              product.status === 'sold' ? '✓ Item Sold' : 
+                              '📱 Order via WhatsApp'}
+                        </button>
+                        <div class="protection-notice">
+                            <span>🛡️</span>
+                            <span>Don't pay until seller confirms item is available</span>
+                        </div>
+                        <div class="reservation-clarifier">
+                            Reservation only pauses this listing for you locally. Availability is confirmed by the seller.
                         </div>
                     </div>
                 `;
-            }
-
-            const whatsappMessage = `Hi ${product.seller}! I'm interested in the ${product.title} (KES ${product.price}) on Gikomba.Shop. Is it still available?`;
-            const encodedMessage = encodeURIComponent(whatsappMessage);
-
-            return `
-                <div class="product-card" data-category="${product.category}">
-                    ${product.badge ? `<span class="product-badge ${product.badgeType}">${product.badge}</span>` : ''}
-                    <div class="product-image-container">
-                        <img src="${product.image}" alt="${product.title}" class="product-image" loading="lazy">
-                    </div>
-                    <div class="product-info">
-                        <div class="freshness-indicator ${isFresh ? '' : 'stale'}">
-                            <span>🕐</span>
-                            <span>Listed ${freshness}</span>
-                        </div>
-                        <div class="seller-name">
-                            Seller: ${product.seller} 
-                            ${product.verified ? '<span class="verified-badge">VERIFIED</span>' : ''}
-                        </div>
-                        <h3 class="product-title">${product.title}</h3>
-                        <p class="product-description">${product.description}</p>
-                        <div class="product-meta">
-                            <span class="meta-item">📍 ${product.location}</span>
-                            <span class="meta-item">📏 Size ${product.size}</span>
-                        </div>
-                        <span class="condition">Condition: ${product.condition}</span>
-                        <div class="price-row">
-                            <span class="current-price">KES ${product.price.toLocaleString()}</span>
-                            ${product.originalPrice ? `<span class="original-price">KES ${product.originalPrice.toLocaleString()}</span>` : ''}
-                        </div>
-                        <a href="https://wa.me/${product.sellerWhatsApp}?text=${encodedMessage}" 
-                           class="whatsapp-btn" 
-                           target="_blank"
-                           rel="noopener noreferrer"
-                           onclick="trackWhatsAppClick(${product.id}, '${product.seller}')">
-                            <span>💬</span>
-                            <span>Order on WhatsApp</span>
-                        </a>
-                        <button class="report-link" onclick="reportItem(${product.id}, '${product.title.replace(/'/g, "\\'")}')">
-                            Report this item
-                        </button>
-                    </div>
-                </div>
-            `;
+                grid.appendChild(card);
+            });
         }
 
-        // Render products to grids
-        function renderProducts() {
-            const allGrid = document.getElementById('products-grid');
-            const newArrivalsGrid = document.getElementById('new-arrivals-grid');
-            const under500Grid = document.getElementById('under-500-grid');
-
-            // All products (excluding sold for main grid)
-            const availableProducts = products.filter(p => !p.isSold);
-            if (allGrid) {
-                allGrid.innerHTML = availableProducts.map(renderProductCard).join('');
-            }
-
-            // New arrivals (last 24 hours)
-            const newArrivals = products.filter(p => {
-                const age = new Date() - p.listedAt;
-                return age < 24 * 60 * 60 * 1000;
-            }).slice(0, 3);
-            if (newArrivalsGrid) {
-                newArrivalsGrid.innerHTML = newArrivals.map(renderProductCard).join('');
-            }
-
-            // Under 500
-            const under500 = products.filter(p => p.price < 500 && !p.isSold).slice(0, 3);
-            if (under500Grid) {
-                under500Grid.innerHTML = under500.map(renderProductCard).join('');
+        function handleOrder(id, title, price, seller) {
+            if (!reservedItems.includes(id)) {
+                reservedItems.push(id);
+                localStorage.setItem('reservedItems', JSON.stringify(reservedItems));
+                
+                renderProducts(document.querySelector('.filter-btn.active').textContent.toLowerCase().replace(' ', '-'));
+                
+                const message = `Hi, I'm interested in buying:\n\n*Item:* ${title}\n*ID:* ${id}\n*Price:* KES ${price.toLocaleString()}\n*Seller:* ${seller}\n\nIs this still available? Please confirm before I send payment.`;
+                const encodedMessage = encodeURIComponent(message);
+                window.open(`https://wa.me/254736906440?text=${encodedMessage}`, '_blank');
+                
+                console.log('Order initiated:', { id, title, price, seller, timestamp: new Date().toISOString() });
             }
         }
 
-        // Filter Products
         function filterProducts(category) {
-            // Update active button
             document.querySelectorAll('.filter-btn').forEach(btn => {
                 btn.classList.remove('active');
-                if (btn.textContent.toLowerCase().includes(category) || 
-                    (category === 'all' && btn.textContent === 'All Items')) {
+                if (btn.textContent.toLowerCase().includes(category) || (category === 'all' && btn.textContent === 'All Items')) {
                     btn.classList.add('active');
                 }
             });
-
-            // Filter cards
-            const cards = document.querySelectorAll('#products-grid .product-card');
-            cards.forEach(card => {
-                if (category === 'all' || card.dataset.category === category) {
-                    card.style.display = 'block';
-                } else {
-                    card.style.display = 'none';
-                }
-            });
+            renderProducts(category);
         }
 
-        // Hash-based Navigation
-        function navigateToPage(pageName) {
-            // Update URL hash
-            window.location.hash = pageName;
-            
-            // Hide all pages
-            document.querySelectorAll('.page').forEach(page => {
-                page.classList.add('hidden');
-            });
+        function toggleMenu() {
+            document.getElementById('mobileNav').classList.toggle('active');
+        }
 
-            // Show requested page
-            const pageId = pageName + '-page';
-            const page = document.getElementById(pageId);
-            if (page) {
-                page.classList.remove('hidden');
-            } else {
-                // Default to home
-                document.getElementById('home-page').classList.remove('hidden');
+        renderProducts();
+
+        setInterval(() => {
+            products.forEach(p => {
+                if (Math.random() > 0.7) p.views += Math.floor(Math.random() * 3) - 1;
+                if (p.views < 1) p.views = 1;
+            });
+            if (!document.querySelector('.product-card:hover')) {
+                renderProducts(document.querySelector('.filter-btn.active').textContent.toLowerCase().replace(' ', '-'));
             }
+        }, 10000);
 
-            // Update nav active state
-            document.querySelectorAll('.nav-link').forEach(link => {
-                link.classList.remove('active');
-                if (link.dataset.page === pageName) {
-                    link.classList.add('active');
-                }
-            });
-
-            // Scroll to top
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-
-            // Re-render products if on home page
-            if (pageName === 'home') {
+        setInterval(() => {
+            if (reservedItems.length > 0) {
+                reservedItems = reservedItems.slice(-5);
+                localStorage.setItem('reservedItems', JSON.stringify(reservedItems));
                 renderProducts();
             }
-        }
-
-        // Scroll to section
-        function scrollToSection(sectionId) {
-            const section = document.getElementById(sectionId);
-            if (section) {
-                section.scrollIntoView({ behavior: 'smooth' });
-            }
-            // Ensure we're on home page
-            if (!document.getElementById('home-page').classList.contains('hidden')) {
-                return;
-            }
-            navigateToPage('home');
-            setTimeout(() => {
-                const section = document.getElementById(sectionId);
-                if (section) {
-                    section.scrollIntoView({ behavior: 'smooth' });
-                }
-            }, 100);
-        }
-
-        // Handle hash change (browser back/forward)
-        function handleHashChange() {
-            const hash = window.location.hash.slice(1) || 'home';
-            navigateToPage(hash);
-        }
-
-        // Mobile Menu Toggle
-        function toggleMobileMenu() {
-            const mobileNav = document.getElementById('mobile-nav');
-            mobileNav.classList.toggle('active');
-        }
-
-        // Report Item
-        function reportItem(id, title) {
-            const reasons = [
-                'Item not as described',
-                'Suspicious seller',
-                'Counterfeit item',
-                'Inappropriate content',
-                'Other'
-            ];
-            
-            let reasonText = 'Report: "' + title + '"\n\nSelect reason:\n';
-            reasons.forEach((r, i) => {
-                reasonText += `${i + 1}. ${r}\n`;
-            });
-            reasonText += '\nEnter number (1-5):';
-            
-            const reason = prompt(reasonText);
-            
-            if (reason && reason >= '1' && reason <= '5') {
-                showToast(`Report submitted for "${title}". We'll investigate within 24 hours.`, 'success');
-                console.log(`Reported item ${id}: Reason ${reasons[parseInt(reason) - 1]}`);
-            }
-        }
-
-        // Track WhatsApp Clicks
-        function trackWhatsAppClick(productId, sellerName) {
-            console.log(`WhatsApp click: Product ${productId}, Seller: ${sellerName}`);
-            showToast(`Opening WhatsApp chat with ${sellerName}... Confirm availability before payment!`, 'success');
-        }
-
-        // Contact Form Handler
-        function handleContactSubmit(e) {
-            e.preventDefault();
-            const formData = new FormData(e.target);
-            const data = Object.fromEntries(formData);
-            
-            console.log('Contact form submitted:', data);
-            showToast('Message sent! We\'ll get back to you within 24 hours.', 'success');
-            e.target.reset();
-        }
-
-        // Toast Notification
-        function showToast(message, type = '') {
-            const toast = document.getElementById('toast');
-            toast.textContent = message;
-            toast.className = 'toast ' + type;
-            toast.classList.add('show');
-            
-            setTimeout(() => {
-                toast.classList.remove('show');
-            }, 4000);
-        }
-
-        // Cookie Consent
-        function acceptCookies() {
-            localStorage.setItem('cookiesAccepted', 'true');
-            document.getElementById('cookie-banner').classList.add('hidden');
-        }
-
-        function checkCookieConsent() {
-            if (localStorage.getItem('cookiesAccepted')) {
-                document.getElementById('cookie-banner').classList.add('hidden');
-            }
-        }
-
-        // Initialize
-        document.addEventListener('DOMContentLoaded', function() {
-            // Check cookie consent
-            checkCookieConsent();
-            
-            // Handle initial hash
-            handleHashChange();
-            
-            // Listen for hash changes
-            window.addEventListener('hashchange', handleHashChange);
-            
-            // Render products
-            renderProducts();
-        });
-
-        // Close mobile menu when clicking outside
-        document.addEventListener('click', function(e) {
-            const mobileNav = document.getElementById('mobile-nav');
-            const menuBtn = document.querySelector('.mobile-menu-btn');
-            
-            if (!mobileNav.contains(e.target) && !menuBtn.contains(e.target)) {
-                mobileNav.classList.remove('active');
-            }
-        });
+        }, 1800000);
     </script>
 </body>
 </html>
