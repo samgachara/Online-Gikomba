@@ -5,60 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Online Gikomba — Authentic Thrift From Verified Sellers</title>
     <meta name="description" content="Quality handpicked thrift wear from KES 50. One-piece only items. Chat directly with verified Gikomba sellers via WhatsApp.">
-    
-    <!-- Canonical URL -->
     <link rel="canonical" href="https://gikomba.shop/">
-    
-    <!-- Open Graph Meta -->
     <meta property="og:title" content="Online Gikomba — Authentic Thrift From Verified Sellers">
     <meta property="og:description" content="Browse handpicked Gikomba thrift from verified sellers. Chat on WhatsApp before you pay. New items daily.">
     <meta property="og:type" content="website">
-    <meta property="og:image" content="https://gikomba.shop/preview.jpg">
     <meta property="og:url" content="https://gikomba.shop/">
-    
-    <!-- Twitter Card Meta -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Online Gikomba — Authentic Thrift From Verified Sellers">
-    <meta name="twitter:description" content="Browse handpicked Gikomba thrift from verified sellers. Chat on WhatsApp before you pay. New items daily.">
-    <meta name="twitter:image" content="https://gikomba.shop/preview.jpg">
-    
-    <!-- Preconnect hints -->
     <link rel="preconnect" href="https://wa.me">
-    <link rel="preconnect" href="https://firestore.googleapis.com">
-    <link rel="dns-prefetch" href="https://wa.me">
-    
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🇰🇪</text></svg>">
-    
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'GA_MEASUREMENT_ID');
-    </script>
-    
-    <!-- Firebase SDK -->
-    <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-app-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-firestore-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-auth-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-storage-compat.js"></script>
-    
-    <!-- Structured Data -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "WebSite",
-        "name": "Online Gikomba",
-        "url": "https://gikomba.shop/",
-        "description": "Nairobi's trusted thrift marketplace. Verified sellers, authentic items, buyer-seller direct connection.",
-        "potentialAction": {
-            "@type": "SearchAction",
-            "target": "https://gikomba.shop/?search={search_term_string}",
-            "query-input": "required name=search_term_string"
-        }
-    }
-    </script>
     
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -84,32 +38,28 @@
         body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; line-height: 1.6; color: var(--primary); background: var(--white); }
         
         .container { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
-        .text-center { text-align: center; }
         .hidden { display: none !important; }
         
-        /* Skip Link for Accessibility */
-        .skip-link {
-            position: absolute;
-            top: -40px;
-            left: 0;
-            background: var(--accent);
-            color: var(--primary);
-            padding: 8px 16px;
-            z-index: 10000;
-            text-decoration: none;
+        /* DEMO MODE Banner */
+        .demo-banner {
+            background: linear-gradient(90deg, #ff6b6b, #ee5a6f);
+            color: white;
+            text-align: center;
+            padding: 0.75rem;
             font-weight: 700;
-            border-radius: 0 0 8px 0;
-        }
-        .skip-link:focus {
+            font-size: 0.9rem;
+            position: sticky;
             top: 0;
+            z-index: 10000;
         }
+        .demo-banner a { color: white; text-decoration: underline; margin-left: 0.5rem; }
         
         /* Toast Notifications */
         .toast-container {
             position: fixed;
-            top: 80px;
+            top: 100px;
             right: 20px;
-            z-index: 10000;
+            z-index: 10001;
             display: flex;
             flex-direction: column;
             gap: 10px;
@@ -139,14 +89,11 @@
             to { transform: translateX(100%); opacity: 0; }
         }
         
-        /* Role Disclaimer */
         .role-disclaimer { background: #fff8e1; padding: 0.75rem; text-align: center; font-size: 0.8rem; color: #6c757d; border-bottom: 1px solid #ffe082; }
-        
-        /* Trust Bar */
         .trust-bar { background: var(--success); color: white; padding: 0.5rem; text-align: center; font-size: 0.85rem; font-weight: 600; }
         
         /* Navbar */
-        .navbar { position: sticky; top: 0; background: var(--primary); border-bottom: 2px solid var(--accent); z-index: 1000; padding: 1rem 0; }
+        .navbar { position: sticky; top: 40px; background: var(--primary); border-bottom: 2px solid var(--accent); z-index: 1000; padding: 1rem 0; }
         .nav-container { display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
         .logo { font-size: 1.5rem; font-weight: 800; color: var(--white); text-decoration: none; }
         .logo span { color: var(--accent); }
@@ -156,7 +103,7 @@
         .nav-cta { background: var(--accent); color: var(--primary) !important; padding: 0.5rem 1.25rem; border-radius: 25px; font-weight: 700; }
         .mobile-menu-btn { display: none; background: none; border: none; font-size: 1.5rem; color: var(--white); cursor: pointer; }
         
-        .mobile-nav { display: none; background: var(--primary); padding: 1rem; position: fixed; top: 70px; left: 0; right: 0; z-index: 999; border-bottom: 2px solid var(--accent); }
+        .mobile-nav { display: none; background: var(--primary); padding: 1rem; position: fixed; top: 110px; left: 0; right: 0; z-index: 999; border-bottom: 2px solid var(--accent); }
         .mobile-nav.active { display: block; }
         .mobile-nav a { display: block; color: var(--white); text-decoration: none; padding: 1rem 0; border-bottom: 1px solid var(--gray-800); }
 
@@ -165,7 +112,7 @@
         .hero h1 { font-size: 3rem; font-weight: 800; margin-bottom: 1rem; line-height: 1.2; }
         .hero h1 span { color: var(--accent); }
         .hero-subtitle { font-size: 1.1rem; color: var(--gray-300); max-width: 600px; margin: 0 auto 2rem; }
-        .hero-cta { display: inline-block; background: var(--accent); color: var(--primary); padding: 1rem 2.5rem; border-radius: 50px; font-weight: 700; text-decoration: none; font-size: 1.1rem; box-shadow: var(--shadow-gold); transition: transform 0.3s; }
+        .hero-cta { display: inline-block; background: var(--accent); color: var(--primary); padding: 1rem 2.5rem; border-radius: 50px; font-weight: 700; text-decoration: none; font-size: 1.1rem; box-shadow: var(--shadow-gold); transition: transform 0.3s; cursor: pointer; border: none; }
         .hero-cta:hover { transform: translateY(-3px); }
 
         /* How It Works */
@@ -173,108 +120,59 @@
         .steps-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; max-width: 1000px; margin: 2rem auto 0; }
         .step { text-align: center; padding: 1.5rem; }
         .step-number { width: 50px; height: 50px; background: var(--accent); color: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1.25rem; margin: 0 auto 1rem; }
-
-        /* Search and Filter Section */
-        .search-filter-section {
-            background: var(--gray-100);
-            padding: 1.5rem;
-            border-bottom: 1px solid var(--gray-200);
-        }
-        .search-filter-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-            align-items: center;
-            justify-content: center;
-        }
-        .search-box {
-            flex: 1;
-            min-width: 250px;
-            max-width: 400px;
-            position: relative;
-        }
-        .search-box input {
-            width: 100%;
-            padding: 0.75rem 1rem 0.75rem 2.5rem;
-            border: 2px solid var(--gray-300);
-            border-radius: 25px;
-            font-size: 1rem;
-            transition: border-color 0.2s;
-        }
-        .search-box input:focus {
-            outline: none;
-            border-color: var(--accent);
-        }
-        .search-box::before {
-            content: '🔍';
-            position: absolute;
-            left: 1rem;
-            top: 50%;
-            transform: translateY(-50%);
-        }
-        .price-range-filter {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            flex-wrap: wrap;
-        }
-        .price-range-filter label {
-            font-weight: 600;
-            color: var(--gray-600);
-        }
-        .price-range-filter input {
-            width: 100px;
-            padding: 0.5rem;
-            border: 2px solid var(--gray-300);
+        
+        .safety-warning {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
             border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0;
             font-size: 0.9rem;
+            color: #856404;
+            max-width: 800px;
+            margin: 2rem auto 0;
         }
-        .price-range-filter input:focus {
-            outline: none;
-            border-color: var(--accent);
-        }
-        .sort-select {
-            padding: 0.5rem 1rem;
-            border: 2px solid var(--gray-300);
-            border-radius: 25px;
-            background: white;
-            font-size: 0.9rem;
-            cursor: pointer;
-        }
-        .sort-select:focus {
-            outline: none;
-            border-color: var(--accent);
-        }
-        .clear-filters-btn {
-            padding: 0.5rem 1rem;
-            background: var(--gray-200);
-            border: none;
-            border-radius: 25px;
-            cursor: pointer;
-            font-weight: 600;
-            transition: background 0.2s;
-        }
-        .clear-filters-btn:hover {
-            background: var(--gray-300);
-        }
+        .safety-warning strong { color: #d32f2f; display: block; margin-bottom: 0.5rem; }
+
+        /* Search */
+        .search-filter-section { background: var(--gray-100); padding: 1.5rem; border-bottom: 1px solid var(--gray-200); }
+        .search-filter-container { max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; justify-content: center; }
+        .search-box { flex: 1; min-width: 250px; max-width: 400px; position: relative; }
+        .search-box input { width: 100%; padding: 0.75rem 1rem 0.75rem 2.5rem; border: 2px solid var(--gray-300); border-radius: 25px; font-size: 1rem; }
+        .search-box::before { content: '🔍'; position: absolute; left: 1rem; top: 50%; transform: translateY(-50%); }
+        .price-range-filter { display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap; }
+        .price-range-filter input { width: 100px; padding: 0.5rem; border: 2px solid var(--gray-300); border-radius: 8px; font-size: 0.9rem; }
+        .sort-select { padding: 0.5rem 1rem; border: 2px solid var(--gray-300); border-radius: 25px; background: white; font-size: 0.9rem; cursor: pointer; }
+        .clear-filters-btn { padding: 0.5rem 1rem; background: var(--gray-200); border: none; border-radius: 25px; cursor: pointer; font-weight: 600; }
 
         /* Products */
         .products-section { padding: 4rem 1.5rem; background: var(--white); }
         .section-header { text-align: center; margin-bottom: 3rem; }
         .section-header h2 { font-size: 2.5rem; margin-bottom: 0.5rem; }
-        
         .filters { display: flex; gap: 1rem; justify-content: center; margin-bottom: 2rem; flex-wrap: wrap; }
         .filter-btn { padding: 0.5rem 1.25rem; border: 2px solid var(--gray-300); background: white; border-radius: 25px; cursor: pointer; font-weight: 600; transition: all 0.2s; }
         .filter-btn:hover, .filter-btn.active { border-color: var(--accent); background: var(--accent); color: var(--primary); }
-        
         .products-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 2rem; max-width: 1200px; margin: 0 auto; }
         
         .product-card { background: var(--white); border-radius: 12px; overflow: hidden; box-shadow: var(--shadow); border: 1px solid var(--gray-200); transition: all 0.3s; position: relative; }
         .product-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-lg); }
-        .product-card.reserved { opacity: 0.7; border-color: var(--warning); }
-        .product-card.sold { opacity: 0.5; filter: grayscale(100%); }
+        .product-card.demo { border: 2px dashed var(--warning); }
+        
+        .demo-badge {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(-15deg);
+            background: rgba(231, 76, 60, 0.9);
+            color: white;
+            padding: 1rem 3rem;
+            font-size: 1.5rem;
+            font-weight: 800;
+            z-index: 20;
+            pointer-events: none;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
         
         .product-badges { position: absolute; top: 1rem; left: 1rem; display: flex; flex-direction: column; gap: 0.5rem; z-index: 10; }
         .badge { padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; }
@@ -282,31 +180,26 @@
         .badge-grade { background: var(--success); color: white; }
         .badge-new { background: var(--info); color: white; }
         .badge-verified { background: var(--accent); color: var(--primary); }
-        .badge-reserved { background: var(--warning); color: var(--primary); }
-        .badge-sold { background: var(--gray-600); color: white; }
+        .badge-demo { background: var(--danger); color: white; font-size: 0.8rem; }
         
-        .view-counter { position: absolute; top: 1rem; right: 1rem; background: rgba(0,0,0,0.7); color: white; padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.75rem; display: flex; align-items: center; gap: 0.25rem; }
-        
+        .view-counter { position: absolute; top: 1rem; right: 1rem; background: rgba(0,0,0,0.7); color: white; padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.75rem; }
         .product-image-container { width: 100%; height: 280px; position: relative; overflow: hidden; background: var(--gray-100); }
         .product-image-container img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s; }
         .product-card:hover .product-image-container img { transform: scale(1.05); }
-        .img-placeholder { width: 100%; height: 100%; background: linear-gradient(45deg, #f1f1f1 25%, #e9ecef 25%, #e9ecef 50%, #f1f1f1 50%, #f1f1f1 75%, #e9ecef 75%, #e9ecef 100%); background-size: 20px 20px; display: flex; align-items: center; justify-content: center; color: var(--gray-600); font-weight: 600; text-transform: uppercase; letter-spacing: 1px; font-size: 0.9rem; position: relative; }
-        .img-placeholder.sold::after { content: 'SOLD'; position: absolute; background: var(--danger); color: white; padding: 0.5rem 2rem; font-size: 1.5rem; font-weight: 800; transform: rotate(-15deg); }
+        .img-placeholder { width: 100%; height: 100%; background: linear-gradient(45deg, #f1f1f1 25%, #e9ecef 25%, #e9ecef 50%, #f1f1f1 50%, #f1f1f1 75%, #e9ecef 75%, #e9ecef 100%); background-size: 20px 20px; display: flex; align-items: center; justify-content: center; color: var(--gray-600); font-weight: 600; }
         
         .product-info { padding: 1.5rem; }
-        
         .seller-row { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.75rem; flex-wrap: wrap; }
         .seller-name { font-size: 0.85rem; color: var(--gray-600); font-weight: 600; cursor: pointer; }
         .seller-name:hover { color: var(--accent); text-decoration: underline; }
-        .seller-badge { font-size: 0.65rem; padding: 0.15rem 0.5rem; border-radius: 10px; background: var(--gray-200); color: var(--gray-600); cursor: help; }
+        .seller-badge { font-size: 0.65rem; padding: 0.15rem 0.5rem; border-radius: 10px; background: var(--gray-200); color: var(--gray-600); }
         .seller-badge.verified { background: var(--success); color: white; }
         .seller-stats { font-size: 0.75rem; color: var(--gray-600); margin-left: auto; }
         
         .product-title { font-size: 1.1rem; font-weight: 700; margin-bottom: 0.5rem; line-height: 1.3; }
-        
         .product-meta { display: flex; gap: 1rem; margin-bottom: 1rem; font-size: 0.8rem; color: var(--gray-600); }
         .condition { display: flex; align-items: center; gap: 0.25rem; }
-        .condition-dot { width: 8px; height: 8px; border-radius: 50%; }
+        .condition-dot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; }
         .condition-excellent { background: var(--success); }
         .condition-good { background: var(--warning); }
         .condition-fair { background: var(--danger); }
@@ -318,39 +211,16 @@
         
         .stock-info { font-size: 0.8rem; color: var(--gray-600); margin-bottom: 1rem; display: flex; justify-content: space-between; }
         .time-left { color: var(--danger); font-weight: 600; }
-        
         .rating-row { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 1rem; }
         .stars { color: var(--warning); font-size: 0.9rem; }
-        .rating-count { font-size: 0.75rem; color: var(--gray-600); }
         
         .whatsapp-btn { display: flex; align-items: center; justify-content: center; width: 100%; background: #25d366; color: white; padding: 0.875rem; border-radius: 8px; text-decoration: none; font-weight: 700; gap: 0.5rem; transition: all 0.2s; border: none; cursor: pointer; font-size: 1rem; }
         .whatsapp-btn:hover:not(:disabled) { background: #128c7e; transform: translateY(-2px); }
-        .whatsapp-btn:disabled { background: var(--gray-600); cursor: not-allowed; }
+        .whatsapp-btn:disabled { background: var(--gray-600); cursor: not-allowed; opacity: 0.6; }
         .whatsapp-btn.reserved { background: var(--warning); color: var(--primary); }
         
-        .notify-btn {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
-            background: var(--info);
-            color: white;
-            padding: 0.5rem;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 600;
-            gap: 0.5rem;
-            transition: all 0.2s;
-            border: none;
-            cursor: pointer;
-            font-size: 0.85rem;
-            margin-top: 0.5rem;
-        }
-        .notify-btn:hover { background: #2980b9; }
-        .notify-btn.subscribed { background: var(--success); }
-        
         .protection-notice { display: flex; align-items: center; gap: 0.5rem; margin-top: 0.75rem; padding: 0.5rem; background: var(--gray-100); border-radius: 6px; font-size: 0.75rem; color: var(--gray-600); }
-        .reservation-clarifier { font-size: 0.75rem; color: var(--gray-600); margin-top: 0.5rem; font-style: italic; }
+        .protection-notice strong { color: var(--danger); }
         
         /* Seller Section */
         .seller-section { background: var(--primary); padding: 5rem 1.5rem; color: white; text-align: center; }
@@ -358,155 +228,40 @@
         .benefit { display: flex; align-items: start; gap: 1rem; }
         .benefit-icon { font-size: 1.5rem; }
         
-        /* Modal Styles */
-        .modal-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0,0,0,0.7);
-            z-index: 2000;
-            display: none;
-            align-items: center;
-            justify-content: center;
-            padding: 1rem;
-        }
+        /* Modals */
+        .modal-overlay { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.7); z-index: 2000; display: none; align-items: center; justify-content: center; padding: 1rem; }
         .modal-overlay.active { display: flex; }
-        .modal {
-            background: white;
-            border-radius: 16px;
-            max-width: 500px;
-            width: 100%;
-            max-height: 90vh;
-            overflow-y: auto;
-            animation: modalSlideIn 0.3s ease;
-        }
-        @keyframes modalSlideIn {
-            from { transform: translateY(-50px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
-        }
-        .modal-header {
-            padding: 1.5rem;
-            border-bottom: 1px solid var(--gray-200);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .modal-header h3 { font-size: 1.25rem; }
-        .modal-close {
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: var(--gray-600);
-        }
+        .modal { background: white; border-radius: 16px; max-width: 500px; width: 100%; max-height: 90vh; overflow-y: auto; animation: modalSlideIn 0.3s ease; }
+        @keyframes modalSlideIn { from { transform: translateY(-50px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+        .modal-header { padding: 1.5rem; border-bottom: 1px solid var(--gray-200); display: flex; justify-content: space-between; align-items: center; }
+        .modal-close { background: none; border: none; font-size: 1.5rem; cursor: pointer; color: var(--gray-600); }
         .modal-body { padding: 1.5rem; }
-        .modal-footer {
-            padding: 1rem 1.5rem;
-            border-top: 1px solid var(--gray-200);
-            display: flex;
-            gap: 1rem;
-            justify-content: flex-end;
-        }
+        .modal-footer { padding: 1rem 1.5rem; border-top: 1px solid var(--gray-200); display: flex; gap: 1rem; justify-content: flex-end; }
         
-        /* Form Styles */
         .form-group { margin-bottom: 1rem; }
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 600;
-            color: var(--gray-800);
-        }
-        .form-group input,
-        .form-group textarea,
-        .form-group select {
-            width: 100%;
-            padding: 0.75rem;
-            border: 2px solid var(--gray-300);
-            border-radius: 8px;
-            font-size: 1rem;
-            font-family: inherit;
-        }
-        .form-group input:focus,
-        .form-group textarea:focus,
-        .form-group select:focus {
-            outline: none;
-            border-color: var(--accent);
-        }
-        .form-group textarea { resize: vertical; min-height: 100px; }
+        .form-group label { display: block; margin-bottom: 0.5rem; font-weight: 600; color: var(--gray-800); }
+        .form-group input, .form-group textarea, .form-group select { width: 100%; padding: 0.75rem; border: 2px solid var(--gray-300); border-radius: 8px; font-size: 1rem; font-family: inherit; }
+        .form-group input:focus, .form-group textarea:focus, .form-group select:focus { outline: none; border-color: var(--accent); }
+        .form-group small { color: var(--gray-600); font-size: 0.8rem; }
         
-        .btn {
-            padding: 0.75rem 1.5rem;
-            border: none;
-            border-radius: 8px;
-            font-weight: 700;
-            cursor: pointer;
-            transition: all 0.2s;
-            font-size: 1rem;
-        }
+        .btn { padding: 0.75rem 1.5rem; border: none; border-radius: 8px; font-weight: 700; cursor: pointer; transition: all 0.2s; font-size: 1rem; }
         .btn-primary { background: var(--accent); color: var(--primary); }
         .btn-primary:hover { background: var(--accent-dark); }
         .btn-secondary { background: var(--gray-200); color: var(--gray-800); }
-        .btn-secondary:hover { background: var(--gray-300); }
         .btn-success { background: var(--success); color: white; }
-        .btn-success:hover { background: #27ae60; }
         .btn:disabled { opacity: 0.6; cursor: not-allowed; }
         
-        /* Rating Modal */
-        .star-rating {
-            display: flex;
-            gap: 0.5rem;
-            font-size: 2rem;
-            cursor: pointer;
-        }
-        .star-rating .star {
-            color: var(--gray-300);
-            transition: color 0.2s;
-        }
-        .star-rating .star.active,
-        .star-rating .star:hover { color: var(--warning); }
-        
-        /* Seller Profile Modal */
-        .seller-profile-header {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            margin-bottom: 1.5rem;
-        }
-        .seller-avatar {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            background: var(--accent);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-            font-weight: 800;
-            color: var(--primary);
-        }
-        .seller-profile-info h4 { font-size: 1.25rem; margin-bottom: 0.25rem; }
-        .seller-profile-stats {
-            display: flex;
-            gap: 1.5rem;
-            margin-top: 1rem;
-        }
-        .stat { text-align: center; }
-        .stat-value { font-size: 1.5rem; font-weight: 800; color: var(--accent-dark); }
-        .stat-label { font-size: 0.75rem; color: var(--gray-600); }
-        
-        /* Loading Skeleton */
-        .skeleton {
-            background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
-            background-size: 200% 100%;
-            animation: shimmer 1.5s infinite;
-        }
-        @keyframes shimmer {
-            0% { background-position: 200% 0; }
-            100% { background-position: -200% 0; }
-        }
-        .skeleton-card { height: 400px; border-radius: 12px; }
+        /* Admin Panel */
+        #adminPanel { background: #f5f5f5; padding: 3rem 1.5rem; margin-top: 3rem; border-top: 3px solid var(--accent); display: none; }
+        .admin-card { background: white; padding: 1.5rem; border-radius: 8px; box-shadow: var(--shadow); margin-bottom: 2rem; }
+        .admin-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; flex-wrap: wrap; gap: 1rem; }
+        .stat-box { background: var(--gray-100); padding: 1.5rem; border-radius: 8px; text-align: center; }
+        .stat-value { font-size: 2rem; font-weight: 800; color: var(--accent-dark); }
+        .application-card { border: 1px solid var(--gray-300); border-radius: 8px; padding: 1rem; margin-bottom: 1rem; background: white; }
+        .application-header { display: flex; justify-content: space-between; align-items: start; margin-bottom: 0.5rem; }
+        .status-badge { padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.75rem; font-weight: 600; }
+        .status-pending { background: var(--warning); color: var(--primary); }
+        .status-approved { background: var(--success); color: white; }
         
         /* Footer */
         .footer { background: var(--primary); color: var(--white); padding: 4rem 1.5rem 1rem; border-top: 1px solid var(--gray-800); }
@@ -516,29 +271,9 @@
         .footer li { margin-bottom: 0.75rem; }
         .footer a { color: var(--gray-300); text-decoration: none; }
         .footer a:hover { color: var(--accent); }
-        .footer-disclaimer { border-top: 1px solid var(--gray-800); padding-top: 2rem; margin-top: 2rem; text-align: center; }
+        .footer-disclaimer { border-top: 1px solid var(--gray-800); padding-top: 2rem; margin-top: 2rem; text-align: center; font-size: 0.75rem; color: var(--gray-600); line-height: 1.6; }
         
-        /* Back to Top Button */
-        .back-to-top {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 50px;
-            height: 50px;
-            background: var(--accent);
-            color: var(--primary);
-            border: none;
-            border-radius: 50%;
-            cursor: pointer;
-            display: none;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            box-shadow: var(--shadow-lg);
-            transition: all 0.3s;
-            z-index: 999;
-        }
-        .back-to-top:hover { transform: translateY(-3px); }
+        .back-to-top { position: fixed; bottom: 30px; right: 30px; width: 50px; height: 50px; background: var(--accent); color: var(--primary); border: none; border-radius: 50%; cursor: pointer; display: none; align-items: center; justify-content: center; font-size: 1.5rem; box-shadow: var(--shadow-lg); z-index: 999; }
         .back-to-top.visible { display: flex; }
         
         @media (max-width: 768px) {
@@ -546,43 +281,42 @@
             .mobile-menu-btn { display: block; }
             .hero h1 { font-size: 2rem; }
             .products-grid { grid-template-columns: 1fr; }
-            .search-filter-container { flex-direction: column; }
-            .search-box { max-width: 100%; }
+            .navbar { top: 36px; }
+            .mobile-nav { top: 100px; }
         }
     </style>
 <base target="_blank">
 </head>
 <body>
-    <!-- Skip Link for Accessibility -->
-    <a href="#main-content" class="skip-link">Skip to main content</a>
-    
-    <!-- Toast Container -->
+    <!-- DEMO MODE Banner -->
+    <div class="demo-banner">
+        🚀 DEMO MODE: Example listings shown. Real seller inventory coming soon. 
+        <a href="#sell">Apply to sell →</a>
+    </div>
+
     <div class="toast-container" id="toastContainer"></div>
 
-    <!-- Role Disclaimer -->
     <div class="role-disclaimer">
-        Online Gikomba connects buyers with independent sellers. 
-        Payments, delivery, and item condition are confirmed directly between buyer and seller.
+        <strong>Buyer Protection:</strong> Always confirm item availability before payment. Issues? 
+        <a href="https://wa.me/254736906440" style="color: var(--accent-dark);">+254 736 906440</a>
     </div>
 
-    <div class="trust-bar" role="banner">
-        ✅ Buyer Protection: Pay only after confirming item availability. Report issues within 24hrs.
-    </div>
+    <div class="trust-bar">✅ Verified Sellers Only | 📱 Chat Before Pay | 🛡️ 24hr Support</div>
 
-    <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <nav class="navbar">
         <div class="nav-container">
-            <a href="#" class="logo" aria-label="Online Gikomba Home">🇰🇪 Online <span>Gikomba</span></a>
+            <a href="#" class="logo">🇰🇪 Online <span>Gikomba</span></a>
             <ul class="nav-links">
                 <li><a href="#shop">Shop</a></li>
                 <li><a href="#how-it-works">How It Works</a></li>
                 <li><a href="#sell">Become a Seller</a></li>
                 <li><a href="https://wa.me/254736906440" class="nav-cta">Contact Support</a></li>
             </ul>
-            <button class="mobile-menu-btn" onclick="toggleMenu()" aria-label="Toggle mobile menu">☰</button>
+            <button class="mobile-menu-btn" onclick="toggleMenu()">☰</button>
         </div>
     </nav>
 
-    <div class="mobile-nav" id="mobileNav" role="navigation" aria-label="Mobile navigation">
+    <div class="mobile-nav" id="mobileNav">
         <a href="#shop" onclick="toggleMenu()">Shop</a>
         <a href="#how-it-works" onclick="toggleMenu()">How It Works</a>
         <a href="#sell" onclick="toggleMenu()">Become a Seller</a>
@@ -592,10 +326,7 @@
     <section class="hero">
         <div class="container">
             <h1>Authentic Gikomba<br><span>Verified Sellers Only</span></h1>
-            <p class="hero-subtitle">
-                Direct from the market to your door. Connect with verified sellers, 
-                review items before you pay, get delivery support.
-            </p>
+            <p class="hero-subtitle">Direct from the market to your door. Chat with verified sellers via WhatsApp before you pay.</p>
             <a href="#shop" class="hero-cta">Browse Fresh Arrivals</a>
         </div>
     </section>
@@ -609,751 +340,454 @@
             <div class="steps-grid">
                 <div class="step">
                     <div class="step-number">1</div>
-                    <h3>Browse Verified Items</h3>
-                    <p>Handpicked thrift from verified Gikomba sellers. Items are reviewed before listing where possible.</p>
+                    <h3>Browse Items</h3>
+                    <p>Handpicked thrift from verified sellers.</p>
                 </div>
                 <div class="step">
                     <div class="step-number">2</div>
                     <h3>Chat on WhatsApp</h3>
-                    <p>Click to chat directly with seller. Confirm availability, size, and delivery details.</p>
+                    <p>Confirm availability and details.</p>
                 </div>
                 <div class="step">
                     <div class="step-number">3</div>
-                    <h3>Pay & Get Delivered</h3>
-                    <p>Pay via MPESA after confirming item. Nairobi same-day, countrywide 1-3 days.</p>
+                    <h3>Pay & Deliver</h3>
+                    <p>MPESA after confirmation. Same-day in Nairobi.</p>
                 </div>
+            </div>
+            <div class="safety-warning">
+                <strong>⚠️ SAFETY FIRST</strong>
+                Never pay before confirming item exists. Request live photos. Meet in public places.
             </div>
         </div>
     </section>
 
-    <!-- Search and Filter Section -->
     <section class="search-filter-section">
         <div class="search-filter-container">
             <div class="search-box">
-                <input type="text" id="searchInput" placeholder="Search products, sellers..." aria-label="Search products">
+                <input type="text" id="searchInput" placeholder="Search products...">
             </div>
             <div class="price-range-filter">
                 <label>Price:</label>
-                <input type="number" id="minPrice" placeholder="Min" min="0" aria-label="Minimum price">
+                <input type="number" id="minPrice" placeholder="Min">
                 <span>-</span>
-                <input type="number" id="maxPrice" placeholder="Max" min="0" aria-label="Maximum price">
+                <input type="number" id="maxPrice" placeholder="Max">
             </div>
-            <select class="sort-select" id="sortSelect" aria-label="Sort products">
-                <option value="newest">Newest First</option>
-                <option value="price-low">Price: Low to High</option>
-                <option value="price-high">Price: High to Low</option>
-                <option value="popular">Most Viewed</option>
-                <option value="rated">Highest Rated</option>
+            <select class="sort-select" id="sortSelect">
+                <option value="newest">Newest</option>
+                <option value="price-low">Price: Low-High</option>
+                <option value="price-high">Price: High-Low</option>
             </select>
-            <button class="clear-filters-btn" onclick="clearFilters()">Clear Filters</button>
+            <button class="clear-filters-btn" onclick="clearFilters()">Clear</button>
         </div>
     </section>
 
-    <main class="products-section" id="shop" role="main">
+    <main class="products-section" id="shop">
         <div class="container">
             <div class="section-header">
                 <h2>Fresh Arrivals</h2>
-                <p>New items added daily. Listings expire after 48 hours.</p>
+                <p style="color: var(--danger); font-weight: 600; margin-top: 0.5rem;">
+                    📌 EXAMPLE LISTINGS: Demo items. Real inventory starts March 1st.
+                </p>
             </div>
-            
-            <div class="filters" role="group" aria-label="Category filters">
-                <button class="filter-btn active" data-category="all" aria-pressed="true">All Items</button>
-                <button class="filter-btn" data-category="men" aria-pressed="false">Men</button>
-                <button class="filter-btn" data-category="women" aria-pressed="false">Women</button>
-                <button class="filter-btn" data-category="kids" aria-pressed="false">Kids</button>
-                <button class="filter-btn" data-category="shoes" aria-pressed="false">Shoes</button>
+            <div class="filters">
+                <button class="filter-btn active" data-category="all">All</button>
+                <button class="filter-btn" data-category="men">Men</button>
+                <button class="filter-btn" data-category="women">Women</button>
+                <button class="filter-btn" data-category="kids">Kids</button>
+                <button class="filter-btn" data-category="shoes">Shoes</button>
             </div>
-
-            <div class="products-grid" id="productsGrid" role="region" aria-label="Product listings">
-                <!-- Products injected by JS -->
-            </div>
+            <div class="products-grid" id="productsGrid"></div>
         </div>
     </main>
 
     <section class="seller-section" id="sell">
         <div class="container">
             <h2 style="font-size: 2.5rem; margin-bottom: 1rem;">Sell With Us</h2>
-            <p style="color: var(--gray-300); max-width: 600px; margin: 0 auto 2rem;">
-                Join verified sellers. We assist with photos, listings, and help coordinate delivery with trusted courier partners.
-            </p>
+            <p style="color: var(--gray-300); max-width: 600px; margin: 0 auto 2rem;">Join verified sellers. Free photography, delivery support, zero commission for 3 months.</p>
             <div class="seller-benefits">
-                <div class="benefit">
-                    <span class="benefit-icon">📸</span>
-                    <div>
-                        <h4>Free Photography</h4>
-                        <p style="color: var(--gray-300); font-size: 0.9rem;">We come to your stall</p>
-                    </div>
-                </div>
-                <div class="benefit">
-                    <span class="benefit-icon">🚚</span>
-                    <div>
-                        <h4>Delivery Support</h4>
-                        <p style="color: var(--gray-300); font-size: 0.9rem;">Wells Fargo/G4S coordination</p>
-                    </div>
-                </div>
-                <div class="benefit">
-                    <span class="benefit-icon">✅</span>
-                    <div>
-                        <h4>Free for Now</h4>
-                        <p style="color: var(--gray-300); font-size: 0.9rem;">No commission during launch</p>
-                    </div>
-                </div>
+                <div class="benefit"><span class="benefit-icon">📸</span><div><h4>Free Photos</h4><p style="color: var(--gray-300); font-size: 0.9rem;">We come to your stall</p></div></div>
+                <div class="benefit"><span class="benefit-icon">🚚</span><div><h4>Delivery Help</h4><p style="color: var(--gray-300); font-size: 0.9rem;">Wells Fargo/G4S</p></div></div>
+                <div class="benefit"><span class="benefit-icon">✅</span><div><h4>Zero Commission</h4><p style="color: var(--gray-300); font-size: 0.9rem;">First 3 months free</p></div></div>
             </div>
-            
-            <p style="font-size:0.8rem;color:var(--gray-300);margin-top:2rem;max-width:600px;margin-left:auto;margin-right:auto;">
-                Verified sellers complete email verification and maintain consistent ratings.
-            </p>
-            
-            <button class="hero-cta" style="background: var(--white); color: var(--primary); margin-top: 2rem; border: none; cursor: pointer;" onclick="openSellerModal()">
-                Apply in 2 Minutes
-            </button>
+            <button class="hero-cta" style="background: white; color: var(--primary); margin-top: 2rem;" onclick="openSellerModal()">Apply to Sell</button>
         </div>
     </section>
 
-    <footer class="footer" role="contentinfo">
+    <footer class="footer">
         <div class="footer-content">
             <div>
                 <h3>🇰🇪 Online Gikomba</h3>
-                <p style="color: var(--gray-600); font-size: 0.9rem; margin-top: 1rem;">
-                    Nairobi's trusted thrift marketplace. Verified sellers, authentic items, buyer-seller direct connection.
-                </p>
+                <p style="color: var(--gray-600); margin-top: 1rem;">Nairobi's trusted thrift marketplace.</p>
+                <p style="color: var(--accent); margin-top: 1rem; font-weight: 600;">Support: +254 736 906440</p>
             </div>
             <div>
                 <h3>Support</h3>
                 <ul>
-                    <li><a href="https://wa.me/254736906440">WhatsApp Support</a></li>
-                    <li><a href="#" onclick="showBuyerProtection()">Buyer Protection</a></li>
-                    <li><a href="https://wa.me/254736906440?text=I%20want%20to%20report%20a%20seller">Report a Seller</a></li>
-                    <li><a href="#" onclick="showDeliveryInfo()">Delivery Info</a></li>
+                    <li><a href="https://wa.me/254736906440">WhatsApp Help</a></li>
+                    <li><a href="#" onclick="showSafety()">Safety Tips</a></li>
+                    <li><a href="https://wa.me/254736906440?text=Report">Report Fraud</a></li>
                 </ul>
             </div>
             <div>
                 <h3>Sellers</h3>
                 <ul>
-                    <li><a href="#" onclick="openSellerModal()">Become Verified</a></li>
-                    <li><a href="#" onclick="showSellerGuidelines()">Seller Guidelines</a></li>
-                    <li><a href="#" onclick="showCommissionInfo()">Commission Rates</a></li>
+                    <li><a href="#" onclick="openSellerModal()">Apply Now</a></li>
+                    <li><a href="https://wa.me/254736906440?text=Seller%20Help">Seller Support</a></li>
                 </ul>
             </div>
         </div>
-        
         <div class="footer-disclaimer">
-            <p style="font-size:0.75rem;color:var(--gray-600);margin-bottom:1rem;">
-                Online Gikomba does not hold payments or guarantee transactions. 
-                Buyers are advised to confirm item details and delivery terms before sending payment.
-            </p>
-            <p style="font-size: 0.8rem; color: var(--gray-600);">
-                © <span id="copyrightYear">2024</span> Online Gikomba. All rights reserved.
-            </p>
+            <p><strong>Disclaimer:</strong> Online Gikomba connects buyers and sellers. We don't hold payments. Verify items before paying. By using this site, you agree to our Terms.</p>
+            <p style="margin-top: 1rem;">© 2024 Online Gikomba. All rights reserved.</p>
         </div>
     </footer>
 
-    <!-- Back to Top Button -->
-    <button class="back-to-top" id="backToTop" onclick="scrollToTop()" aria-label="Back to top">↑</button>
+    <button class="back-to-top" id="backToTop" onclick="scrollToTop()">↑</button>
 
-    <!-- Product Detail Modal -->
-    <div class="modal-overlay" id="productModal" role="dialog" aria-modal="true" aria-labelledby="productModalTitle">
+    <!-- Product Modal -->
+    <div class="modal-overlay" id="productModal">
         <div class="modal">
             <div class="modal-header">
-                <h3 id="productModalTitle">Product Details</h3>
-                <button class="modal-close" onclick="closeModal('productModal')" aria-label="Close modal">&times;</button>
+                <h3 id="productModalTitle">Product</h3>
+                <button class="modal-close" onclick="closeModal('productModal')">&times;</button>
             </div>
-            <div class="modal-body" id="productModalBody">
-                <!-- Product details injected here -->
-            </div>
+            <div class="modal-body" id="productModalBody"></div>
             <div class="modal-footer">
                 <button class="btn btn-secondary" onclick="closeModal('productModal')">Close</button>
-                <button class="btn btn-primary" id="productModalAction">Order via WhatsApp</button>
+                <button class="btn btn-primary" id="productModalAction">Order</button>
             </div>
         </div>
     </div>
 
-    <!-- Rating Modal -->
-    <div class="modal-overlay" id="ratingModal" role="dialog" aria-modal="true" aria-labelledby="ratingModalTitle">
+    <!-- Seller Modal -->
+    <div class="modal-overlay" id="sellerModal">
         <div class="modal">
             <div class="modal-header">
-                <h3 id="ratingModalTitle">Rate Your Experience</h3>
-                <button class="modal-close" onclick="closeModal('ratingModal')" aria-label="Close modal">&times;</button>
-            </div>
-            <div class="modal-body">
-                <p>How would you rate this item and the seller's service?</p>
-                <div class="star-rating" id="starRating" role="radiogroup" aria-label="Rating">
-                    <span class="star" data-rating="1" role="radio" aria-label="1 star" tabindex="0">★</span>
-                    <span class="star" data-rating="2" role="radio" aria-label="2 stars" tabindex="0">★</span>
-                    <span class="star" data-rating="3" role="radio" aria-label="3 stars" tabindex="0">★</span>
-                    <span class="star" data-rating="4" role="radio" aria-label="4 stars" tabindex="0">★</span>
-                    <span class="star" data-rating="5" role="radio" aria-label="5 stars" tabindex="0">★</span>
-                </div>
-                <div class="form-group" style="margin-top: 1rem;">
-                    <label for="ratingComment">Comment (optional)</label>
-                    <textarea id="ratingComment" placeholder="Share your experience..."></textarea>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button class="btn btn-secondary" onclick="closeModal('ratingModal')">Cancel</button>
-                <button class="btn btn-primary" onclick="submitRating()">Submit Rating</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Seller Registration Modal -->
-    <div class="modal-overlay" id="sellerModal" role="dialog" aria-modal="true" aria-labelledby="sellerModalTitle">
-        <div class="modal">
-            <div class="modal-header">
-                <h3 id="sellerModalTitle">Become a Verified Seller</h3>
-                <button class="modal-close" onclick="closeModal('sellerModal')" aria-label="Close modal">&times;</button>
+                <h3>Become a Verified Seller</h3>
+                <button class="modal-close" onclick="closeModal('sellerModal')">&times;</button>
             </div>
             <div class="modal-body">
                 <form id="sellerForm">
                     <div class="form-group">
-                        <label for="sellerName">Business Name *</label>
-                        <input type="text" id="sellerName" required placeholder="Your shop name">
+                        <label>Business Name *</label>
+                        <input type="text" id="sellerName" required placeholder="Mama Kevo Collections">
                     </div>
                     <div class="form-group">
-                        <label for="sellerEmail">Email Address *</label>
-                        <input type="email" id="sellerEmail" required placeholder="your@email.com">
+                        <label>Email *</label>
+                        <input type="email" id="sellerEmail" required placeholder="you@email.com">
                     </div>
                     <div class="form-group">
-                        <label for="sellerPhone">Phone Number (WhatsApp) *</label>
-                        <input type="tel" id="sellerPhone" required placeholder="2547XX XXX XXX">
+                        <label>WhatsApp Number *</label>
+                        <input type="tel" id="sellerPhone" required placeholder="254712345678" pattern="254[0-9]{9}">
+                        <small>Format: 254712345678</small>
                     </div>
                     <div class="form-group">
-                        <label for="sellerStall">Stall Location at Gikomba *</label>
-                        <input type="text" id="sellerStall" required placeholder="e.g., Section A, Stall 45">
+                        <label>Stall Location *</label>
+                        <input type="text" id="sellerStall" required placeholder="Section A, Stall 45">
                     </div>
                     <div class="form-group">
-                        <label for="sellerCategories">What do you sell? *</label>
-                        <select id="sellerCategories" multiple required>
-                            <option value="men">Men's Clothing</option>
-                            <option value="women">Women's Clothing</option>
-                            <option value="kids">Kids' Clothing</option>
+                        <label>ID Number *</label>
+                        <input type="text" id="sellerId" required placeholder="National ID">
+                    </div>
+                    <div class="form-group">
+                        <label>Categories (Hold Ctrl to select multiple) *</label>
+                        <select id="sellerCategories" multiple required size="4">
+                            <option value="men">Men</option>
+                            <option value="women">Women</option>
+                            <option value="kids">Kids</option>
                             <option value="shoes">Shoes</option>
-                            <option value="accessories">Accessories</option>
                         </select>
                     </div>
-                    <p style="font-size: 0.8rem; color: var(--gray-600); margin-top: 1rem;">
-                        By applying, you agree to our seller guidelines and verification process.
-                    </p>
                 </form>
             </div>
             <div class="modal-footer">
                 <button class="btn btn-secondary" onclick="closeModal('sellerModal')">Cancel</button>
-                <button class="btn btn-primary" onclick="submitSellerApplication()">Apply Now</button>
+                <button class="btn btn-primary" onclick="submitSellerApplication()" id="submitBtn">Apply</button>
             </div>
         </div>
     </div>
 
-    <!-- Seller Profile Modal -->
-    <div class="modal-overlay" id="sellerProfileModal" role="dialog" aria-modal="true" aria-labelledby="sellerProfileTitle">
-        <div class="modal">
-            <div class="modal-header">
-                <h3 id="sellerProfileTitle">Seller Profile</h3>
-                <button class="modal-close" onclick="closeModal('sellerProfileModal')" aria-label="Close modal">&times;</button>
-            </div>
-            <div class="modal-body" id="sellerProfileBody">
-                <!-- Seller profile injected here -->
-            </div>
-            <div class="modal-footer">
-                <button class="btn btn-secondary" onclick="closeModal('sellerProfileModal')">Close</button>
-            </div>
+    <!-- Success Modal -->
+    <div class="modal-overlay" id="successModal">
+        <div class="modal" style="text-align: center; padding: 2rem;">
+            <div style="font-size: 4rem; margin-bottom: 1rem;">🎉</div>
+            <h3 style="margin-bottom: 1rem;">Application Received!</h3>
+            <p style="color: var(--gray-600); margin-bottom: 1.5rem;">We will visit your stall within 48 hours.</p>
+            <p style="background: var(--gray-100); padding: 1rem; border-radius: 8px; font-size: 0.9rem; margin-bottom: 1.5rem;">
+                <strong>Reference:</strong> <span id="appRef"></span>
+            </p>
+            <button class="btn btn-primary" onclick="closeModal('successModal')">Got It</button>
         </div>
     </div>
 
-    <!-- Notification Permission Modal -->
-    <div class="modal-overlay" id="notificationModal" role="dialog" aria-modal="true" aria-labelledby="notificationModalTitle">
-        <div class="modal">
-            <div class="modal-header">
-                <h3 id="notificationModalTitle">Get Notified</h3>
-                <button class="modal-close" onclick="closeModal('notificationModal')" aria-label="Close modal">&times;</button>
-            </div>
-            <div class="modal-body">
-                <p>Enter your email to get notified when <strong id="notificationSellerName"></strong> uploads new items.</p>
-                <div class="form-group">
-                    <label for="notificationEmail">Email Address</label>
-                    <input type="email" id="notificationEmail" placeholder="your@email.com" required>
+    <!-- ADMIN DASHBOARD -->
+    <div id="adminPanel">
+        <div class="container">
+            <h2 style="margin-bottom: 2rem;">🔐 Admin Dashboard</h2>
+            
+            <div class="admin-card">
+                <div class="admin-header">
+                    <h3>Seller Applications</h3>
+                    <button onclick="exportData()" class="btn btn-primary" style="font-size: 0.9rem;">Export CSV</button>
                 </div>
-                <input type="hidden" id="notificationSellerId">
-            </div>
-            <div class="modal-footer">
-                <button class="btn btn-secondary" onclick="closeModal('notificationModal')">Cancel</button>
-                <button class="btn btn-primary" onclick="subscribeToSeller()">Subscribe</button>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; margin-bottom: 2rem;">
+                    <div class="stat-box">
+                        <div class="stat-value" id="adminPending">0</div>
+                        <div style="font-size: 0.9rem; color: var(--gray-600);">Pending</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-value" id="adminTotal">0</div>
+                        <div style="font-size: 0.9rem; color: var(--gray-600);">Total</div>
+                    </div>
+                </div>
+                <div id="adminList"></div>
             </div>
         </div>
     </div>
-
 
     <script>
-        // ============================================
-        // FIREBASE CONFIGURATION
-        // ============================================
-        // Replace with your Firebase config after creating a project
-        const firebaseConfig = {
-            apiKey: "YOUR_API_KEY",
-            authDomain: "gikomba-shop.firebaseapp.com",
-            projectId: "gikomba-shop",
-            storageBucket: "gikomba-shop.appspot.com",
-            messagingSenderId: "YOUR_SENDER_ID",
-            appId: "YOUR_APP_ID"
-        };
-
-        // Initialize Firebase (commented out until config is set)
-        // firebase.initializeApp(firebaseConfig);
-        // const db = firebase.firestore();
-        // const auth = firebase.auth();
-        // const storage = firebase.storage();
-
-        // ============================================
-        // STATE MANAGEMENT
-        // ============================================
+        // ==========================================
+        // CONFIGURATION - CHANGE THESE
+        // ==========================================
+        const ADMIN_PASSWORD = "isaacsam254"; // ⚠️ CHANGE THIS
+        const SUPPORT_WHATSAPP = "254736906440";
+        
+        // ==========================================
+        // STATE
+        // ==========================================
         let products = [];
-        let sellers = [];
+        let sellers = JSON.parse(localStorage.getItem('gikomba_sellers') || '[]');
         let currentFilter = 'all';
-        let currentRating = 0;
-        let currentRatingProduct = null;
-        let subscribedSellers = JSON.parse(localStorage.getItem('subscribedSellers') || '[]');
-        let wishlist = JSON.parse(localStorage.getItem('wishlist') || '[]');
-
-        // ============================================
-        // SAMPLE DATA (Remove after Firebase setup)
-        // ============================================
-        const sampleProducts = [
+        
+        // ==========================================
+        // DEMO PRODUCTS (Clearly Marked)
+        // ==========================================
+        const demoProducts = [
             {
-                id: 'GK001',
+                id: 'DEMO001',
                 title: 'Vintage Levi\'s Denim Jacket',
                 size: 'L',
                 price: 850,
                 originalPrice: 1500,
                 condition: 'excellent',
-                conditionNote: '9/10 - Minimal fade',
+                conditionNote: '9/10 condition',
                 seller: 'Mama Kevo Stores',
-                sellerId: 'seller1',
+                sellerId: 'demo1',
                 sellerVerified: true,
                 sellerSales: 47,
-                sellerJoined: '2023',
-                sellerRating: 4.5,
-                sellerReviewCount: 23,
                 category: 'men',
                 views: 12,
                 postedAt: new Date(Date.now() - 2 * 60 * 60 * 1000),
                 expiresAt: new Date(Date.now() + 46 * 60 * 60 * 1000),
-                stock: 1,
-                status: 'available',
                 image: 'https://images.unsplash.com/photo-1523381210434-271e8be1f52b?w=400&h=400&fit=crop',
-                rating: 4.2,
-                ratingCount: 8,
-                description: 'Authentic Levi\'s denim jacket in excellent condition. Minimal fading, no tears or stains.'
+                isDemo: true
             },
             {
-                id: 'GK002',
-                title: 'Cotton Office Shirt - Blue',
+                id: 'DEMO002',
+                title: 'Cotton Office Shirt',
                 size: 'M',
                 price: 450,
                 originalPrice: 800,
                 condition: 'good',
-                conditionNote: '8/10 - Slight wrinkling',
-                seller: 'Stylish Men Gikomba',
-                sellerId: 'seller2',
+                conditionNote: '8/10 condition',
+                seller: 'Stylish Men',
+                sellerId: 'demo2',
                 sellerVerified: true,
                 sellerSales: 123,
-                sellerJoined: '2022',
-                sellerRating: 4.8,
-                sellerReviewCount: 89,
                 category: 'men',
                 views: 8,
                 postedAt: new Date(Date.now() - 5 * 60 * 60 * 1000),
                 expiresAt: new Date(Date.now() + 43 * 60 * 60 * 1000),
-                stock: 1,
-                status: 'available',
                 image: 'https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=400&h=400&fit=crop',
-                rating: 4.5,
-                ratingCount: 15,
-                description: 'Classic blue office shirt, perfect for formal occasions. Good condition with slight wrinkling.'
+                isDemo: true
             },
             {
-                id: 'GK003',
-                title: 'Ladies Trench Coat - Beige',
+                id: 'DEMO003',
+                title: 'Ladies Trench Coat',
                 size: 'UK 12',
                 price: 1200,
                 originalPrice: 2500,
                 condition: 'excellent',
-                conditionNote: '9.5/10 - Worn once',
+                conditionNote: '9.5/10 condition',
                 seller: 'Winter Wear Hub',
-                sellerId: 'seller3',
+                sellerId: 'demo3',
                 sellerVerified: true,
                 sellerSales: 8,
-                sellerJoined: '2024',
-                sellerRating: 4.0,
-                sellerReviewCount: 5,
                 category: 'women',
                 views: 23,
                 postedAt: new Date(Date.now() - 1 * 60 * 60 * 1000),
                 expiresAt: new Date(Date.now() + 47 * 60 * 60 * 1000),
-                stock: 1,
-                status: 'available',
                 image: 'https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=400&h=400&fit=crop',
-                rating: 4.8,
-                ratingCount: 3,
-                description: 'Elegant beige trench coat, worn only once. Perfect for the rainy season.'
+                isDemo: true
             },
             {
-                id: 'GK004',
-                title: 'Kids Hoodie Bundle (3pcs)',
+                id: 'DEMO004',
+                title: 'Kids Hoodie Bundle',
                 size: 'Ages 3-5',
                 price: 600,
                 originalPrice: 1200,
                 condition: 'good',
-                conditionNote: '8/10 - Mixed brands',
+                conditionNote: '8/10 condition',
                 seller: 'Tot\'s Corner',
-                sellerId: 'seller4',
+                sellerId: 'demo4',
                 sellerVerified: true,
                 sellerSales: 89,
-                sellerJoined: '2023',
-                sellerRating: 4.7,
-                sellerReviewCount: 56,
                 category: 'kids',
                 views: 15,
                 postedAt: new Date(Date.now() - 3 * 60 * 60 * 1000),
                 expiresAt: new Date(Date.now() + 45 * 60 * 60 * 1000),
-                stock: 2,
-                status: 'available',
                 image: 'https://images.unsplash.com/photo-1519238263530-99bdd11df2ea?w=400&h=400&fit=crop',
-                rating: 4.3,
-                ratingCount: 12,
-                description: 'Bundle of 3 kids hoodies in various colors. Mixed brands, all in good condition.'
+                isDemo: true
             },
             {
-                id: 'GK005',
+                id: 'DEMO005',
                 title: 'Nike Running Shoes',
                 size: 'UK 9',
                 price: 1500,
                 originalPrice: 3500,
                 condition: 'good',
-                conditionNote: '7/10 - Some wear on soles',
+                conditionNote: '7/10 condition',
                 seller: 'Sneaker Spot',
-                sellerId: 'seller5',
+                sellerId: 'demo5',
                 sellerVerified: true,
                 sellerSales: 34,
-                sellerJoined: '2023',
-                sellerRating: 4.4,
-                sellerReviewCount: 18,
                 category: 'shoes',
                 views: 31,
                 postedAt: new Date(Date.now() - 30 * 60 * 1000),
                 expiresAt: new Date(Date.now() + 47.5 * 60 * 60 * 1000),
-                stock: 1,
-                status: 'available',
                 image: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&h=400&fit=crop',
-                rating: 4.1,
-                ratingCount: 7,
-                description: 'Authentic Nike running shoes. Some wear on soles but still in good condition.'
-            },
-            {
-                id: 'GK006',
-                title: 'Vintage Leather Jacket',
-                size: 'XL',
-                price: 2000,
-                originalPrice: 4000,
-                condition: 'excellent',
-                conditionNote: '9/10 - Well maintained',
-                seller: 'Mama Kevo Stores',
-                sellerId: 'seller1',
-                sellerVerified: true,
-                sellerSales: 47,
-                sellerJoined: '2023',
-                sellerRating: 4.5,
-                sellerReviewCount: 23,
-                category: 'men',
-                views: 18,
-                postedAt: new Date(Date.now() - 6 * 60 * 60 * 1000),
-                expiresAt: new Date(Date.now() + 42 * 60 * 60 * 1000),
-                stock: 1,
-                status: 'available',
-                image: 'https://images.unsplash.com/photo-1551028719-00167b16eac5?w=400&h=400&fit=crop',
-                rating: 4.6,
-                ratingCount: 10,
-                description: 'Classic vintage leather jacket. Well maintained, excellent condition.'
+                isDemo: true
             }
         ];
 
-        // ============================================
+        // ==========================================
         // INITIALIZATION
-        // ============================================
+        // ==========================================
         document.addEventListener('DOMContentLoaded', () => {
-            // Set dynamic copyright year
-            document.getElementById('copyrightYear').textContent = new Date().getFullYear();
+            // Check for admin access
+            if (window.location.search.includes('admin')) {
+                const pass = prompt('Enter admin password:');
+                if (pass === ADMIN_PASSWORD) {
+                    document.getElementById('adminPanel').style.display = 'block';
+                    renderAdmin();
+                    window.scrollTo(0, document.body.scrollHeight);
+                } else {
+                    alert('Wrong password');
+                }
+            }
             
-            // Load products (from Firebase or sample data)
-            loadProducts();
-            
-            // Setup event listeners
+            products = [...demoProducts];
+            renderProducts();
             setupEventListeners();
             
-            // Setup back to top button
-            setupBackToTop();
-            
-            // Track page view
-            gtag('event', 'page_view', {
-                page_title: document.title,
-                page_location: window.location.href
+            // Back to top button
+            window.addEventListener('scroll', () => {
+                document.getElementById('backToTop').classList.toggle('visible', window.scrollY > 500);
             });
         });
 
-        // ============================================
-        // PRODUCT LOADING & RENDERING
-        // ============================================
-        async function loadProducts() {
-            showLoading();
-            
-            // TODO: Replace with Firebase fetch
-            // const snapshot = await db.collection('products').get();
-            // products = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-            
-            // Using sample data for now
-            products = [...sampleProducts];
-            
-            renderProducts();
-            hideLoading();
-        }
-
+        // ==========================================
+        // RENDER PRODUCTS
+        // ==========================================
         function renderProducts(productsToRender = products) {
             const grid = document.getElementById('productsGrid');
-            
             if (productsToRender.length === 0) {
-                grid.innerHTML = `
-                    <div style="grid-column: 1/-1; text-align: center; padding: 3rem;">
-                        <p style="font-size: 1.25rem; color: var(--gray-600);">No products found matching your criteria.</p>
-                        <button class="btn btn-primary" onclick="clearFilters()" style="margin-top: 1rem;">Clear Filters</button>
-                    </div>
-                `;
+                grid.innerHTML = '<p style="text-align: center; grid-column: 1/-1;">No products found.</p>';
                 return;
             }
             
-            grid.innerHTML = productsToRender.map(product => createProductCard(product)).join('');
-        }
-
-        function createProductCard(product) {
-            const isReserved = wishlist.includes(product.id);
-            const isSubscribed = subscribedSellers.includes(product.sellerId);
-            const discount = Math.round(((product.originalPrice - product.price) / product.originalPrice) * 100);
-            const timeLeft = getTimeLeft(product.expiresAt);
-            const postedTime = getTimeAgo(product.postedAt);
-            
-            return `
-                <article class="product-card ${isReserved ? 'reserved' : ''}" data-product-id="${product.id}">
-                    <div class="product-badges">
-                        ${isReserved ? '<span class="badge badge-reserved">❤️ Saved</span>' : ''}
-                        ${product.condition === 'excellent' ? '<span class="badge badge-grade">Grade A</span>' : ''}
-                        ${isNewProduct(product.postedAt) ? '<span class="badge badge-new">Just Added</span>' : ''}
-                        ${product.sellerVerified && product.sellerSales > 50 ? '<span class="badge badge-verified">Top Seller</span>' : ''}
-                    </div>
-                    <div class="view-counter" aria-label="${product.views} people viewing">
-                        👁 ${product.views} viewing
-                    </div>
-                    <div class="product-image-container">
-                        <img src="${product.image}" alt="${product.title} - ${product.size}" loading="lazy" onclick="openProductModal('${product.id}')">
-                    </div>
-                    <div class="product-info">
-                        <div class="seller-row">
-                            <span class="seller-name" onclick="openSellerProfile('${product.sellerId}')">${product.seller}</span>
-                            ${product.sellerVerified ? 
-                                `<span class="seller-badge verified" title="ID & stall verified at Gikomba market">✓ Verified</span>` : 
-                                `<span class="seller-badge">New Seller</span>`}
-                            <span class="seller-stats">${product.sellerSales} sales</span>
+            grid.innerHTML = productsToRender.map(p => {
+                const isDemo = p.isDemo;
+                const timeLeft = getTimeLeft(p.expiresAt);
+                const discount = Math.round(((p.originalPrice - p.price) / p.originalPrice) * 100);
+                
+                return `
+                    <article class="product-card ${isDemo ? 'demo' : ''}">
+                        ${isDemo ? '<div class="demo-badge">EXAMPLE</div>' : ''}
+                        <div class="product-badges">
+                            <span class="badge badge-demo">EXAMPLE LISTING</span>
+                            ${p.condition === 'excellent' ? '<span class="badge badge-grade">Grade A</span>' : ''}
                         </div>
-                        <h3 class="product-title">${product.title} (${product.size})</h3>
-                        <div class="product-meta">
-                            <span class="condition">
-                                <span class="condition-dot condition-${product.condition}"></span>
-                                ${product.conditionNote}
-                            </span>
+                        <div class="view-counter">👁 ${p.views} viewing</div>
+                        <div class="product-image-container">
+                            <img src="${p.image}" alt="${p.title}" onclick="openProductModal('${p.id}')">
                         </div>
-                        <div class="rating-row">
-                            <span class="stars">${renderStars(product.rating)}</span>
-                            <span class="rating-count">(${product.ratingCount} reviews)</span>
+                        <div class="product-info">
+                            <div class="seller-row">
+                                <span class="seller-name">${p.seller}</span>
+                                ${p.sellerVerified ? '<span class="seller-badge verified">✓ Verified</span>' : ''}
+                                <span class="seller-stats">${p.sellerSales} sales</span>
+                            </div>
+                            <h3 class="product-title">${p.title} (${p.size})</h3>
+                            <div class="product-meta">
+                                <span class="condition">
+                                    <span class="condition-dot condition-${p.condition}"></span>
+                                    ${p.conditionNote}
+                                </span>
+                            </div>
+                            <div class="price-row">
+                                <span class="product-price">KES ${p.price.toLocaleString()}</span>
+                                <span class="original-price">KES ${p.originalPrice.toLocaleString()}</span>
+                                <span class="discount">-${discount}%</span>
+                            </div>
+                            <div class="stock-info">
+                                <span>⏱ Just now</span>
+                                <span class="time-left">⏳ ${timeLeft}</span>
+                            </div>
+                            <button class="whatsapp-btn ${isDemo ? 'reserved' : ''}" onclick="handleOrder('${p.id}')" ${isDemo ? 'disabled' : ''}>
+                                ${isDemo ? 'Example Item - Not for Sale' : '📱 Order via WhatsApp'}
+                            </button>
+                            <div class="protection-notice">
+                                <span>🛡️</span>
+                                <span><strong>Don't pay</strong> until seller confirms availability</span>
+                            </div>
                         </div>
-                        <div class="price-row">
-                            <span class="product-price">KES ${product.price.toLocaleString()}</span>
-                            <span class="original-price">KES ${product.originalPrice.toLocaleString()}</span>
-                            <span class="discount">-${discount}%</span>
-                        </div>
-                        <div class="stock-info">
-                            <span>⏱ ${postedTime}</span>
-                            <span class="time-left">⏳ ${timeLeft}</span>
-                        </div>
-                        <button class="whatsapp-btn" onclick="handleOrder('${product.id}')">
-                            📱 Order via WhatsApp
-                        </button>
-                        <button class="notify-btn ${isSubscribed ? 'subscribed' : ''}" onclick="toggleSellerNotification('${product.sellerId}', '${product.seller}')">
-                            ${isSubscribed ? '✓ Subscribed' : '🔔 Get Notified'}
-                        </button>
-                        <div class="protection-notice">
-                            <span>🛡️</span>
-                            <span>Don't pay until seller confirms item is available</span>
-                        </div>
-                    </div>
-                </article>
-            `;
-        }
-
-        function renderStars(rating) {
-            const fullStars = Math.floor(rating);
-            const hasHalfStar = rating % 1 >= 0.5;
-            let stars = '';
-            
-            for (let i = 0; i < fullStars; i++) {
-                stars += '★';
-            }
-            if (hasHalfStar) {
-                stars += '½';
-            }
-            for (let i = fullStars + (hasHalfStar ? 1 : 0); i < 5; i++) {
-                stars += '☆';
-            }
-            
-            return stars;
+                    </article>
+                `;
+            }).join('');
         }
 
         function getTimeLeft(expiresAt) {
-            const now = new Date();
-            const diff = expiresAt - now;
-            
-            if (diff <= 0) return 'Expired';
-            
-            const hours = Math.floor(diff / (1000 * 60 * 60));
-            if (hours < 1) {
-                const minutes = Math.floor(diff / (1000 * 60));
-                return `${minutes}m left`;
-            }
-            return `${hours}h left`;
+            const hours = Math.floor((expiresAt - new Date()) / (1000 * 60 * 60));
+            return hours > 0 ? `${hours}h left` : 'Expired';
         }
 
-        function getTimeAgo(date) {
-            const now = new Date();
-            const diff = now - date;
-            const hours = Math.floor(diff / (1000 * 60 * 60));
-            
-            if (hours < 1) {
-                const minutes = Math.floor(diff / (1000 * 60));
-                return `${minutes}m ago`;
-            }
-            return `${hours}h ago`;
-        }
-
-        function isNewProduct(postedAt) {
-            const diff = new Date() - postedAt;
-            return diff < (3 * 60 * 60 * 1000); // Less than 3 hours
-        }
-
-        function showLoading() {
-            const grid = document.getElementById('productsGrid');
-            grid.innerHTML = Array(4).fill('<div class="skeleton skeleton-card"></div>').join('');
-        }
-
-        function hideLoading() {
-            // Loading is replaced by renderProducts
-        }
-
-        // ============================================
-        // FILTERING & SEARCH
-        // ============================================
+        // ==========================================
+        // FILTERS
+        // ==========================================
         function setupEventListeners() {
-            // Category filters
             document.querySelectorAll('.filter-btn').forEach(btn => {
                 btn.addEventListener('click', (e) => {
-                    document.querySelectorAll('.filter-btn').forEach(b => {
-                        b.classList.remove('active');
-                        b.setAttribute('aria-pressed', 'false');
-                    });
+                    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
                     e.target.classList.add('active');
-                    e.target.setAttribute('aria-pressed', 'true');
                     currentFilter = e.target.dataset.category;
                     applyFilters();
                 });
             });
-
-            // Search input
-            document.getElementById('searchInput').addEventListener('input', debounce(() => {
-                applyFilters();
-            }, 300));
-
-            // Price range
-            document.getElementById('minPrice').addEventListener('input', debounce(() => {
-                applyFilters();
-            }, 300));
-            document.getElementById('maxPrice').addEventListener('input', debounce(() => {
-                applyFilters();
-            }, 300));
-
-            // Sort
-            document.getElementById('sortSelect').addEventListener('change', () => {
-                applyFilters();
-            });
-
-            // Star rating in modal
-            document.querySelectorAll('#starRating .star').forEach(star => {
-                star.addEventListener('click', () => {
-                    currentRating = parseInt(star.dataset.rating);
-                    updateStarDisplay(currentRating);
-                });
-                star.addEventListener('mouseenter', () => {
-                    updateStarDisplay(parseInt(star.dataset.rating));
-                });
-            });
-            document.getElementById('starRating').addEventListener('mouseleave', () => {
-                updateStarDisplay(currentRating);
-            });
+            
+            document.getElementById('searchInput').addEventListener('input', debounce(applyFilters, 300));
+            document.getElementById('minPrice').addEventListener('input', debounce(applyFilters, 300));
+            document.getElementById('maxPrice').addEventListener('input', debounce(applyFilters, 300));
+            document.getElementById('sortSelect').addEventListener('change', applyFilters);
         }
 
         function applyFilters() {
-            const searchQuery = document.getElementById('searchInput').value.toLowerCase();
-            const minPrice = parseInt(document.getElementById('minPrice').value) || 0;
-            const maxPrice = parseInt(document.getElementById('maxPrice').value) || Infinity;
-            const sortBy = document.getElementById('sortSelect').value;
-
-            let filtered = products.filter(product => {
-                // Category filter
-                if (currentFilter !== 'all' && product.category !== currentFilter) {
-                    return false;
-                }
-
-                // Search filter
-                if (searchQuery && !(
-                    product.title.toLowerCase().includes(searchQuery) ||
-                    product.seller.toLowerCase().includes(searchQuery) ||
-                    product.category.toLowerCase().includes(searchQuery)
-                )) {
-                    return false;
-                }
-
-                // Price filter
-                if (product.price < minPrice || product.price > maxPrice) {
-                    return false;
-                }
-
+            const search = document.getElementById('searchInput').value.toLowerCase();
+            const min = parseInt(document.getElementById('minPrice').value) || 0;
+            const max = parseInt(document.getElementById('maxPrice').value) || Infinity;
+            const sort = document.getElementById('sortSelect').value;
+            
+            let filtered = products.filter(p => {
+                if (currentFilter !== 'all' && p.category !== currentFilter) return false;
+                if (search && !p.title.toLowerCase().includes(search)) return false;
+                if (!p.isDemo && (p.price < min || p.price > max)) return false;
                 return true;
             });
-
-            // Sort
-            filtered.sort((a, b) => {
-                switch(sortBy) {
-                    case 'price-low': return a.price - b.price;
-                    case 'price-high': return b.price - a.price;
-                    case 'popular': return b.views - a.views;
-                    case 'rated': return b.rating - a.rating;
-                    case 'newest': default: return b.postedAt - a.postedAt;
-                }
-            });
-
+            
+            if (sort === 'price-low') filtered.sort((a, b) => a.price - b.price);
+            if (sort === 'price-high') filtered.sort((a, b) => b.price - a.price);
+            
             renderProducts(filtered);
-
-            // Track filter usage
-            gtag('event', 'filter_applied', {
-                category: currentFilter,
-                search: searchQuery,
-                min_price: minPrice,
-                max_price: maxPrice,
-                sort: sortBy
-            });
         }
 
         function clearFilters() {
@@ -1361,455 +795,207 @@
             document.getElementById('minPrice').value = '';
             document.getElementById('maxPrice').value = '';
             document.getElementById('sortSelect').value = 'newest';
-            
-            document.querySelectorAll('.filter-btn').forEach(b => {
-                b.classList.remove('active');
-                b.setAttribute('aria-pressed', 'false');
-            });
+            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
             document.querySelector('[data-category="all"]').classList.add('active');
-            document.querySelector('[data-category="all"]').setAttribute('aria-pressed', 'true');
-            
             currentFilter = 'all';
             renderProducts(products);
-            
-            showToast('Filters cleared', 'info');
         }
 
-        function debounce(func, wait) {
+        function debounce(fn, ms) {
             let timeout;
-            return function executedFunction(...args) {
-                const later = () => {
-                    clearTimeout(timeout);
-                    func(...args);
-                };
+            return (...args) => {
                 clearTimeout(timeout);
-                timeout = setTimeout(later, wait);
+                timeout = setTimeout(() => fn(...args), ms);
             };
         }
 
-        // ============================================
-        // ORDER & WHATSAPP INTEGRATION
-        // ============================================
+        // ==========================================
+        // ORDERS
+        // ==========================================
         function handleOrder(productId) {
             const product = products.find(p => p.id === productId);
-            if (!product) return;
-
-            // Add to wishlist (local reservation)
-            if (!wishlist.includes(productId)) {
-                wishlist.push(productId);
-                localStorage.setItem('wishlist', JSON.stringify(wishlist));
+            if (!product || product.isDemo) {
+                showToast('This is an example item', 'warning');
+                return;
             }
-
-            // Increment view count (Firebase)
-            incrementProductViews(productId);
-
-            // Create WhatsApp message
-            const message = `Hi, I'm interested in buying:
-
-*Item:* ${product.title}
-*ID:* ${product.id}
-*Price:* KES ${product.price.toLocaleString()}
-*Size:* ${product.size}
-*Seller:* ${product.seller}
-
-Is this still available? Please confirm before I send payment.`;
-
-            const encodedMessage = encodeURIComponent(message);
-            window.open(`https://wa.me/254736906440?text=${encodedMessage}`, '_blank');
-
-            // Track conversion
-            gtag('event', 'begin_checkout', {
-                items: [{
-                    item_id: product.id,
-                    item_name: product.title,
-                    price: product.price,
-                    quantity: 1
-                }]
-            });
-
+            
+            if (!confirm(`⚠️ Have you confirmed this item is available with ${product.seller}?\n\nNever pay before receiving proof of item.`)) {
+                return;
+            }
+            
+            product.views++;
+            const msg = encodeURIComponent(`Hi ${product.seller}, I'm interested in:\n\n*Item:* ${product.title}\n*ID:* ${product.id}\n*Price:* KES ${product.price}\n\nIs this still available? Please confirm before I send payment.`);
+            window.open(`https://wa.me/${SUPPORT_WHATSAPP}?text=${msg}`, '_blank');
             showToast('Opening WhatsApp...', 'success');
         }
 
-        async function incrementProductViews(productId) {
-            // TODO: Update Firebase
-            // await db.collection('products').doc(productId).update({
-            //     views: firebase.firestore.FieldValue.increment(1)
-            // });
+        function openProductModal(id) {
+            const p = products.find(x => x.id === id);
+            if (!p) return;
             
-            // Update local
-            const product = products.find(p => p.id === productId);
-            if (product) {
-                product.views++;
-            }
-        }
-
-        // ============================================
-        // RATING SYSTEM
-        // ============================================
-        function openRatingModal(productId) {
-            currentRatingProduct = productId;
-            currentRating = 0;
-            updateStarDisplay(0);
-            document.getElementById('ratingComment').value = '';
-            openModal('ratingModal');
-        }
-
-        function updateStarDisplay(rating) {
-            document.querySelectorAll('#starRating .star').forEach((star, index) => {
-                if (index < rating) {
-                    star.classList.add('active');
-                } else {
-                    star.classList.remove('active');
-                }
-            });
-        }
-
-        async function submitRating() {
-            if (currentRating === 0) {
-                showToast('Please select a rating', 'error');
-                return;
-            }
-
-            const comment = document.getElementById('ratingComment').value;
+            document.getElementById('productModalTitle').textContent = p.title;
+            document.getElementById('productModalBody').innerHTML = `
+                ${p.isDemo ? '<div style="background: #fff3cd; color: #856404; padding: 1rem; border-radius: 8px; margin-bottom: 1rem; font-weight: 600; text-align: center;">⚠️ EXAMPLE LISTING - Not for sale</div>' : ''}
+                <img src="${p.image}" style="width: 100%; border-radius: 8px; margin-bottom: 1rem;">
+                <p><strong>Size:</strong> ${p.size}</p>
+                <p><strong>Condition:</strong> ${p.conditionNote}</p>
+                <p><strong>Seller:</strong> ${p.seller} ${p.sellerVerified ? '✓' : ''}</p>
+                <div class="price-row" style="margin-top: 1rem;">
+                    <span class="product-price">KES ${p.price.toLocaleString()}</span>
+                </div>
+            `;
             
-            // TODO: Save to Firebase
-            // await db.collection('ratings').add({
-            //     productId: currentRatingProduct,
-            //     rating: currentRating,
-            //     comment: comment,
-            //     createdAt: firebase.firestore.FieldValue.serverTimestamp()
-            // });
-
-            showToast('Thank you for your rating!', 'success');
-            closeModal('ratingModal');
-
-            // Track rating
-            gtag('event', 'submit_rating', {
-                product_id: currentRatingProduct,
-                rating: currentRating
-            });
-        }
-
-        // ============================================
-        // SELLER NOTIFICATIONS
-        // ============================================
-        function toggleSellerNotification(sellerId, sellerName) {
-            if (subscribedSellers.includes(sellerId)) {
-                // Already subscribed - show message
-                showToast(`You're already subscribed to ${sellerName}`, 'info');
+            const btn = document.getElementById('productModalAction');
+            if (p.isDemo) {
+                btn.textContent = 'Example Item';
+                btn.disabled = true;
+                btn.onclick = null;
             } else {
-                // Show subscription modal
-                document.getElementById('notificationSellerId').value = sellerId;
-                document.getElementById('notificationSellerName').textContent = sellerName;
-                openModal('notificationModal');
+                btn.textContent = 'Order via WhatsApp';
+                btn.disabled = false;
+                btn.onclick = () => { closeModal('productModal'); handleOrder(id); };
             }
-        }
-
-        async function subscribeToSeller() {
-            const sellerId = document.getElementById('notificationSellerId').value;
-            const email = document.getElementById('notificationEmail').value;
             
-            if (!email || !email.includes('@')) {
-                showToast('Please enter a valid email', 'error');
-                return;
-            }
-
-            // TODO: Save to Firebase
-            // await db.collection('subscriptions').add({
-            //     sellerId: sellerId,
-            //     email: email,
-            //     subscribedAt: firebase.firestore.FieldValue.serverTimestamp()
-            // });
-
-            subscribedSellers.push(sellerId);
-            localStorage.setItem('subscribedSellers', JSON.stringify(subscribedSellers));
-
-            showToast('Subscribed successfully! You\'ll be notified of new items.', 'success');
-            closeModal('notificationModal');
-            applyFilters(); // Re-render to update button state
-
-            // Track subscription
-            gtag('event', 'subscribe_seller', {
-                seller_id: sellerId
-            });
+            openModal('productModal');
         }
 
-        // ============================================
+        // ==========================================
         // SELLER REGISTRATION
-        // ============================================
-        function openSellerModal() {
-            openModal('sellerModal');
-        }
-
-        async function submitSellerApplication() {
+        // ==========================================
+        function openSellerModal() { openModal('sellerModal'); }
+        
+        function submitSellerApplication() {
             const form = document.getElementById('sellerForm');
+            const btn = document.getElementById('submitBtn');
             
             if (!form.checkValidity()) {
                 form.reportValidity();
                 return;
             }
-
-            const sellerData = {
+            
+            btn.disabled = true;
+            btn.textContent = 'Submitting...';
+            
+            const seller = {
+                id: 'REF_' + Math.random().toString(36).substr(2, 6).toUpperCase(),
                 name: document.getElementById('sellerName').value,
                 email: document.getElementById('sellerEmail').value,
                 phone: document.getElementById('sellerPhone').value,
-                stallLocation: document.getElementById('sellerStall').value,
+                stall: document.getElementById('sellerStall').value,
+                idNumber: document.getElementById('sellerId').value,
                 categories: Array.from(document.getElementById('sellerCategories').selectedOptions).map(o => o.value),
-                status: 'pending',
-                createdAt: new Date(),
-                verified: false,
-                sales: 0,
-                rating: 0,
-                reviewCount: 0
+                status: 'pending_verification',
+                appliedAt: new Date().toISOString()
             };
-
-            // TODO: Save to Firebase and send verification email
-            // await db.collection('sellers').add(sellerData);
-            // await sendVerificationEmail(sellerData.email);
-
-            showToast('Application submitted! Check your email for verification.', 'success');
-            closeModal('sellerModal');
-            form.reset();
-
-            // Track seller signup
-            gtag('event', 'seller_signup', {
-                categories: sellerData.categories.join(',')
-            });
+            
+            sellers.push(seller);
+            localStorage.setItem('gikomba_sellers', JSON.stringify(sellers));
+            
+            document.getElementById('appRef').textContent = seller.id;
+            
+            setTimeout(() => {
+                closeModal('sellerModal');
+                openModal('successModal');
+                form.reset();
+                btn.disabled = false;
+                btn.textContent = 'Apply';
+            }, 1000);
         }
 
-        // ============================================
-        // SELLER PROFILE
-        // ============================================
-        function openSellerProfile(sellerId) {
-            const sellerProducts = products.filter(p => p.sellerId === sellerId);
-            if (sellerProducts.length === 0) return;
+        // ==========================================
+        // ADMIN DASHBOARD
+        // ==========================================
+        function renderAdmin() {
+            document.getElementById('adminPending').textContent = sellers.filter(s => s.status === 'pending_verification').length;
+            document.getElementById('adminTotal').textContent = sellers.length;
             
-            const seller = sellerProducts[0];
+            const list = document.getElementById('adminList');
+            if (sellers.length === 0) {
+                list.innerHTML = '<p style="color: var(--gray-600); text-align: center;">No applications yet.</p>';
+                return;
+            }
             
-            document.getElementById('sellerProfileBody').innerHTML = `
-                <div class="seller-profile-header">
-                    <div class="seller-avatar">${seller.seller.charAt(0)}</div>
-                    <div class="seller-profile-info">
-                        <h4>${seller.seller}</h4>
-                        <div class="stars">${renderStars(seller.sellerRating)}</div>
-                        <span style="font-size: 0.85rem; color: var(--gray-600);">${seller.sellerReviewCount} reviews</span>
-                        ${seller.sellerVerified ? '<span class="badge badge-verified" style="margin-top: 0.5rem;">✓ Verified Seller</span>' : ''}
-                    </div>
-                </div>
-                <div class="seller-profile-stats">
-                    <div class="stat">
-                        <div class="stat-value">${seller.sellerSales}</div>
-                        <div class="stat-label">Sales</div>
-                    </div>
-                    <div class="stat">
-                        <div class="stat-value">${sellerProducts.length}</div>
-                        <div class="stat-label">Active Items</div>
-                    </div>
-                    <div class="stat">
-                        <div class="stat-value">${seller.sellerJoined}</div>
-                        <div class="stat-label">Member Since</div>
-                    </div>
-                </div>
-                <h4 style="margin-top: 1.5rem; margin-bottom: 1rem;">Items from this seller</h4>
-                <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 1rem;">
-                    ${sellerProducts.map(p => `
-                        <div style="cursor: pointer;" onclick="closeModal('sellerProfileModal'); openProductModal('${p.id}')">
-                            <img src="${p.image}" style="width: 100%; height: 120px; object-fit: cover; border-radius: 8px;">
-                            <p style="font-size: 0.8rem; margin-top: 0.5rem;">KES ${p.price.toLocaleString()}</p>
+            list.innerHTML = sellers.map((s, idx) => `
+                <div class="application-card">
+                    <div class="application-header">
+                        <div>
+                            <h4 style="margin: 0;">${s.name}</h4>
+                            <p style="margin: 0.25rem 0; font-size: 0.85rem; color: var(--gray-600);">Ref: ${s.id}</p>
                         </div>
-                    `).join('')}
+                        <span class="status-badge status-${s.status}">${s.status === 'pending_verification' ? '⏳ Pending' : '✓ Approved'}</span>
+                    </div>
+                    <div style="font-size: 0.9rem; margin: 0.5rem 0;">
+                        <p>📱 ${s.phone}</p>
+                        <p>📧 ${s.email}</p>
+                        <p>📍 ${s.stall}</p>
+                        <p>🏷 ${s.categories.join(', ')}</p>
+                    </div>
+                    <div style="display: flex; gap: 0.5rem; margin-top: 1rem;">
+                        <a href="https://wa.me/${s.phone}?text=Hi%20${encodeURIComponent(s.name)},%20your%20application%20is%20approved!" class="btn btn-success" style="font-size: 0.85rem; text-decoration: none;">Approve</a>
+                        <button onclick="deleteApp(${idx})" class="btn btn-secondary" style="font-size: 0.85rem;">Delete</button>
+                    </div>
                 </div>
-            `;
-            
-            openModal('sellerProfileModal');
+            `).join('');
         }
 
-        // ============================================
-        // PRODUCT MODAL
-        // ============================================
-        function openProductModal(productId) {
-            const product = products.find(p => p.id === productId);
-            if (!product) return;
+        function deleteApp(idx) {
+            if (!confirm('Delete this application?')) return;
+            sellers.splice(idx, 1);
+            localStorage.setItem('gikomba_sellers', JSON.stringify(sellers));
+            renderAdmin();
+        }
 
-            document.getElementById('productModalTitle').textContent = product.title;
-            document.getElementById('productModalBody').innerHTML = `
-                <img src="${product.image}" style="width: 100%; border-radius: 8px; margin-bottom: 1rem;">
-                <p>${product.description}</p>
-                <div style="margin-top: 1rem;">
-                    <p><strong>Size:</strong> ${product.size}</p>
-                    <p><strong>Condition:</strong> ${product.conditionNote}</p>
-                    <p><strong>Seller:</strong> ${product.seller} ${product.sellerVerified ? '✓' : ''}</p>
-                </div>
-                <div class="price-row" style="margin-top: 1rem;">
-                    <span class="product-price">KES ${product.price.toLocaleString()}</span>
-                    <span class="original-price">KES ${product.originalPrice.toLocaleString()}</span>
-                </div>
-                <div class="rating-row">
-                    <span class="stars">${renderStars(product.rating)}</span>
-                    <span class="rating-count">(${product.ratingCount} reviews)</span>
-                </div>
-                <button class="btn btn-secondary" onclick="openRatingModal('${product.id}')" style="margin-top: 1rem;">
-                    Rate this item
-                </button>
-            `;
-            
-            document.getElementById('productModalAction').onclick = () => {
-                closeModal('productModal');
-                handleOrder(productId);
-            };
-            
-            openModal('productModal');
-
-            // Track product view
-            gtag('event', 'view_item', {
-                items: [{
-                    item_id: product.id,
-                    item_name: product.title,
-                    price: product.price
-                }]
+        function exportData() {
+            if (sellers.length === 0) { alert('No data'); return; }
+            let csv = 'Name,Phone,Email,Stall,ID,Categories,Date,Status\n';
+            sellers.forEach(s => {
+                csv += `"${s.name}","${s.phone}","${s.email}","${s.stall}","${s.idNumber}","${s.categories.join(';')}","${s.appliedAt}","${s.status}"\n`;
             });
+            const blob = new Blob([csv], { type: 'text/csv' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `sellers_${new Date().toISOString().split('T')[0]}.csv`;
+            a.click();
         }
 
-        // ============================================
-        // MODAL UTILITIES
-        // ============================================
-        function openModal(modalId) {
-            document.getElementById(modalId).classList.add('active');
+        // ==========================================
+        // UTILITIES
+        // ==========================================
+        function openModal(id) {
+            document.getElementById(id).classList.add('active');
             document.body.style.overflow = 'hidden';
         }
-
-        function closeModal(modalId) {
-            document.getElementById(modalId).classList.remove('active');
+        
+        function closeModal(id) {
+            document.getElementById(id).classList.remove('active');
             document.body.style.overflow = '';
         }
-
-        // Close modal on overlay click
-        document.querySelectorAll('.modal-overlay').forEach(overlay => {
-            overlay.addEventListener('click', (e) => {
-                if (e.target === overlay) {
-                    overlay.classList.remove('active');
-                    document.body.style.overflow = '';
-                }
-            });
-        });
-
-        // Close modal on Escape key
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') {
-                document.querySelectorAll('.modal-overlay.active').forEach(modal => {
-                    modal.classList.remove('active');
-                });
-                document.body.style.overflow = '';
-            }
-        });
-
-        // ============================================
-        // TOAST NOTIFICATIONS
-        // ============================================
-        function showToast(message, type = 'info') {
+        
+        function toggleMenu() {
+            document.getElementById('mobileNav').classList.toggle('active');
+        }
+        
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        function showSafety() {
+            alert('🔒 SAFETY TIPS:\n\n1. Confirm availability before payment\n2. Request live photos\n3. Meet in public places\n4. Use MPESA Paybill when possible\n5. Report scams immediately');
+        }
+        
+        function showToast(msg, type = 'info') {
             const container = document.getElementById('toastContainer');
             const toast = document.createElement('div');
             toast.className = `toast ${type}`;
-            
-            const icons = {
-                success: '✓',
-                error: '✗',
-                warning: '⚠',
-                info: 'ℹ'
-            };
-            
-            toast.innerHTML = `
-                <span>${icons[type]}</span>
-                <span>${message}</span>
-            `;
-            
+            const icons = { success: '✓', error: '✗', warning: '⚠', info: 'ℹ' };
+            toast.innerHTML = `<span>${icons[type]}</span><span>${msg}</span>`;
             container.appendChild(toast);
-            
             setTimeout(() => {
                 toast.style.animation = 'slideOut 0.3s ease forwards';
                 setTimeout(() => toast.remove(), 300);
             }, 4000);
         }
-
-        // ============================================
-        // MOBILE MENU
-        // ============================================
-        function toggleMenu() {
-            document.getElementById('mobileNav').classList.toggle('active');
-        }
-
-        // ============================================
-        // BACK TO TOP
-        // ============================================
-        function setupBackToTop() {
-            const btn = document.getElementById('backToTop');
-            
-            window.addEventListener('scroll', () => {
-                if (window.scrollY > 500) {
-                    btn.classList.add('visible');
-                } else {
-                    btn.classList.remove('visible');
-                }
-            });
-        }
-
-        function scrollToTop() {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-
-        // ============================================
-        // INFO MODALS
-        // ============================================
-        function showBuyerProtection() {
-            showToast('Pay only after confirming item availability. Report issues within 24 hours via WhatsApp.', 'info');
-        }
-
-        function showDeliveryInfo() {
-            showToast('Nairobi same-day delivery. Countrywide 1-3 days via Wells Fargo or G4S.', 'info');
-        }
-
-        function showSellerGuidelines() {
-            showToast('Sellers must complete email verification and maintain consistent ratings.', 'info');
-        }
-
-        function showCommissionInfo() {
-            showToast('Currently FREE for all sellers during launch period!', 'success');
-        }
-
-        // ============================================
-        // REAL-TIME UPDATES (Simulated)
-        // ============================================
-        setInterval(() => {
-            // Simulate view count changes
-            products.forEach(p => {
-                if (Math.random() > 0.7) {
-                    p.views += Math.floor(Math.random() * 3) - 1;
-                    if (p.views < 1) p.views = 1;
-                }
-            });
-            
-            // Update view counters without full re-render
-            document.querySelectorAll('.view-counter').forEach((counter, index) => {
-                if (products[index]) {
-                    counter.innerHTML = `👁 ${products[index].views} viewing`;
-                }
-            });
-        }, 10000);
-
-        // Update time left every minute
-        setInterval(() => {
-            document.querySelectorAll('.stock-info').forEach((info, index) => {
-                if (products[index]) {
-                    const timeLeft = getTimeLeft(products[index].expiresAt);
-                    const postedTime = getTimeAgo(products[index].postedAt);
-                    info.innerHTML = `
-                        <span>⏱ ${postedTime}</span>
-                        <span class="time-left">⏳ ${timeLeft}</span>
-                    `;
-                }
-            });
-        }, 60000);
-
     </script>
 </body>
 </html>
