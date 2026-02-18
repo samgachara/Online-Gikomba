@@ -255,8 +255,10 @@
         #adminPanel { background: #f5f5f5; padding: 3rem 1.5rem; margin-top: 3rem; border-top: 3px solid var(--accent); display: none; }
         .admin-card { background: white; padding: 1.5rem; border-radius: 8px; box-shadow: var(--shadow); margin-bottom: 2rem; }
         .admin-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; flex-wrap: wrap; gap: 1rem; }
+        .admin-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-bottom: 2rem; }
         .stat-box { background: var(--gray-100); padding: 1.5rem; border-radius: 8px; text-align: center; }
-        .stat-value { font-size: 2rem; font-weight: 800; color: var(--accent-dark); }
+        .stat-value { font-size: 2.5rem; font-weight: 800; color: var(--accent-dark); }
+        .stat-label { color: var(--gray-600); font-size: 0.9rem; margin-top: 0.5rem; }
         .application-card { border: 1px solid var(--gray-300); border-radius: 8px; padding: 1rem; margin-bottom: 1rem; background: white; }
         .application-header { display: flex; justify-content: space-between; align-items: start; margin-bottom: 0.5rem; }
         .status-badge { padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.75rem; font-weight: 600; }
@@ -285,6 +287,7 @@
             .mobile-nav { top: 100px; }
         }
     </style>
+<base target="_blank">
 <base target="_blank">
 </head>
 <body>
@@ -403,7 +406,7 @@
     <section class="seller-section" id="sell">
         <div class="container">
             <h2 style="font-size: 2.5rem; margin-bottom: 1rem;">Sell With Us</h2>
-            <p style="color: var(--gray-300); max-width: 600px; margin: 0 auto 2rem;">Join verified sellers. Free photography, delivery support, zero commission for 3 months.</p>
+            <p style="color: var(--gray-300); max-width: 600px; margin: 0 auto 2rem;">Join verified sellers. Zero commission for 3 months.</p>
             <div class="seller-benefits">
                 <div class="benefit"><span class="benefit-icon">📸</span><div><h4>Free Photos</h4><p style="color: var(--gray-300); font-size: 0.9rem;">We come to your stall</p></div></div>
                 <div class="benefit"><span class="benefit-icon">🚚</span><div><h4>Delivery Help</h4><p style="color: var(--gray-300); font-size: 0.9rem;">Wells Fargo/G4S</p></div></div>
@@ -459,7 +462,7 @@
         </div>
     </div>
 
-    <!-- Seller Modal -->
+    <!-- Seller Modal - Simplified without ID -->
     <div class="modal-overlay" id="sellerModal">
         <div class="modal">
             <div class="modal-header">
@@ -470,39 +473,32 @@
                 <form id="sellerForm">
                     <div class="form-group">
                         <label>Business Name *</label>
-                        <input type="text" id="sellerName" required placeholder="Mama Kevo Collections">
-                    </div>
-                    <div class="form-group">
-                        <label>Email *</label>
-                        <input type="email" id="sellerEmail" required placeholder="you@email.com">
+                        <input type="text" id="bizName" required placeholder="Your shop name">
                     </div>
                     <div class="form-group">
                         <label>WhatsApp Number *</label>
-                        <input type="tel" id="sellerPhone" required placeholder="254712345678" pattern="254[0-9]{9}">
+                        <input type="tel" id="bizPhone" required placeholder="254712345678" pattern="254[0-9]{9}">
                         <small>Format: 254712345678</small>
                     </div>
                     <div class="form-group">
-                        <label>Stall Location *</label>
-                        <input type="text" id="sellerStall" required placeholder="Section A, Stall 45">
+                        <label>Email *</label>
+                        <input type="email" id="bizEmail" required placeholder="you@email.com">
                     </div>
                     <div class="form-group">
-                        <label>ID Number *</label>
-                        <input type="text" id="sellerId" required placeholder="National ID">
-                    </div>
-                    <div class="form-group">
-                        <label>Categories (Hold Ctrl to select multiple) *</label>
-                        <select id="sellerCategories" multiple required size="4">
-                            <option value="men">Men</option>
-                            <option value="women">Women</option>
+                        <label>What do you sell? *</label>
+                        <select id="bizCategory" required>
+                            <option value="">Select category</option>
+                            <option value="men">Men's Wear</option>
+                            <option value="women">Women's Wear</option>
                             <option value="kids">Kids</option>
-                            <option value="shoes">Shoes</option>
+                            <option value="shoes">Shoes & Accessories</option>
                         </select>
                     </div>
                 </form>
             </div>
             <div class="modal-footer">
                 <button class="btn btn-secondary" onclick="closeModal('sellerModal')">Cancel</button>
-                <button class="btn btn-primary" onclick="submitSellerApplication()" id="submitBtn">Apply</button>
+                <button class="btn btn-primary" onclick="submitApplication()" id="submitBtn">Submit Application</button>
             </div>
         </div>
     </div>
@@ -510,57 +506,75 @@
     <!-- Success Modal -->
     <div class="modal-overlay" id="successModal">
         <div class="modal" style="text-align: center; padding: 2rem;">
-            <div style="font-size: 4rem; margin-bottom: 1rem;">🎉</div>
+            <div style="font-size: 3rem; margin-bottom: 1rem;">✅</div>
             <h3 style="margin-bottom: 1rem;">Application Received!</h3>
-            <p style="color: var(--gray-600); margin-bottom: 1.5rem;">We will visit your stall within 48 hours.</p>
-            <p style="background: var(--gray-100); padding: 1rem; border-radius: 8px; font-size: 0.9rem; margin-bottom: 1.5rem;">
-                <strong>Reference:</strong> <span id="appRef"></span>
+            <p style="color: var(--gray-600); margin-bottom: 1rem;">
+                Reference: <strong id="refNum" style="color: var(--accent-dark); font-size: 1.2rem;"></strong>
             </p>
-            <button class="btn btn-primary" onclick="closeModal('successModal')">Got It</button>
+            <p style="font-size: 0.9rem; color: var(--gray-600); margin-bottom: 1.5rem;">
+                We'll contact you via WhatsApp within 24 hours to set up your account.
+            </p>
+            <button class="btn btn-primary" onclick="closeModal('successModal')">Done</button>
         </div>
     </div>
 
-    <!-- ADMIN DASHBOARD -->
+    <!-- ADMIN DASHBOARD - Analytics & Applications -->
     <div id="adminPanel">
         <div class="container">
             <h2 style="margin-bottom: 2rem;">🔐 Admin Dashboard</h2>
             
+            <!-- Analytics Grid -->
+            <div class="admin-grid">
+                <div class="stat-box">
+                    <div class="stat-value" id="statViews">0</div>
+                    <div class="stat-label">Total Page Views</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-value" id="statApplications">0</div>
+                    <div class="stat-label">Seller Applications</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-value" id="statPending">0</div>
+                    <div class="stat-label">Pending Review</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-value" id="statToday">0</div>
+                    <div class="stat-label">Applications Today</div>
+                </div>
+            </div>
+
             <div class="admin-card">
                 <div class="admin-header">
-                    <h3>Seller Applications</h3>
-                    <button onclick="exportData()" class="btn btn-primary" style="font-size: 0.9rem;">Export CSV</button>
+                    <h3>Recent Applications</h3>
+                    <button onclick="exportCSV()" class="btn btn-primary" style="font-size: 0.9rem;">Export CSV</button>
                 </div>
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; margin-bottom: 2rem;">
-                    <div class="stat-box">
-                        <div class="stat-value" id="adminPending">0</div>
-                        <div style="font-size: 0.9rem; color: var(--gray-600);">Pending</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-value" id="adminTotal">0</div>
-                        <div style="font-size: 0.9rem; color: var(--gray-600);">Total</div>
-                    </div>
+                <div id="applicationsList">
+                    <p style="color: var(--gray-600); text-align: center; padding: 2rem;">No applications yet</p>
                 </div>
-                <div id="adminList"></div>
             </div>
         </div>
     </div>
 
     <script>
         // ==========================================
-        // CONFIGURATION - CHANGE THESE
+        // CONFIGURATION
         // ==========================================
-        const ADMIN_PASSWORD = "isaacsam254"; // ⚠️ CHANGE THIS
+        const ADMIN_PASSWORD = "isaacsam254"; // Your password
         const SUPPORT_WHATSAPP = "254736906440";
         
         // ==========================================
-        // STATE
+        // DATA STORAGE (Using localStorage)
         // ==========================================
+        let applications = JSON.parse(localStorage.getItem('gikomba_applications') || '[]');
+        let analytics = JSON.parse(localStorage.getItem('gikomba_analytics') || '{"views": 0, "applications": 0}');
         let products = [];
-        let sellers = JSON.parse(localStorage.getItem('gikomba_sellers') || '[]');
-        let currentFilter = 'all';
+        
+        // Track page view
+        analytics.views++;
+        localStorage.setItem('gikomba_analytics', JSON.stringify(analytics));
         
         // ==========================================
-        // DEMO PRODUCTS (Clearly Marked)
+        // DEMO PRODUCTS
         // ==========================================
         const demoProducts = [
             {
@@ -671,7 +685,7 @@
                     document.getElementById('adminPanel').style.display = 'block';
                     renderAdmin();
                     window.scrollTo(0, document.body.scrollHeight);
-                } else {
+                } else if (pass !== null) {
                     alert('Wrong password');
                 }
             }
@@ -760,45 +774,17 @@
                 btn.addEventListener('click', (e) => {
                     document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
                     e.target.classList.add('active');
-                    currentFilter = e.target.dataset.category;
-                    applyFilters();
+                    const category = e.target.dataset.category;
+                    const filtered = category === 'all' ? products : products.filter(p => p.category === category);
+                    renderProducts(filtered);
                 });
             });
             
-            document.getElementById('searchInput').addEventListener('input', debounce(applyFilters, 300));
-            document.getElementById('minPrice').addEventListener('input', debounce(applyFilters, 300));
-            document.getElementById('maxPrice').addEventListener('input', debounce(applyFilters, 300));
-            document.getElementById('sortSelect').addEventListener('change', applyFilters);
-        }
-
-        function applyFilters() {
-            const search = document.getElementById('searchInput').value.toLowerCase();
-            const min = parseInt(document.getElementById('minPrice').value) || 0;
-            const max = parseInt(document.getElementById('maxPrice').value) || Infinity;
-            const sort = document.getElementById('sortSelect').value;
-            
-            let filtered = products.filter(p => {
-                if (currentFilter !== 'all' && p.category !== currentFilter) return false;
-                if (search && !p.title.toLowerCase().includes(search)) return false;
-                if (!p.isDemo && (p.price < min || p.price > max)) return false;
-                return true;
-            });
-            
-            if (sort === 'price-low') filtered.sort((a, b) => a.price - b.price);
-            if (sort === 'price-high') filtered.sort((a, b) => b.price - a.price);
-            
-            renderProducts(filtered);
-        }
-
-        function clearFilters() {
-            document.getElementById('searchInput').value = '';
-            document.getElementById('minPrice').value = '';
-            document.getElementById('maxPrice').value = '';
-            document.getElementById('sortSelect').value = 'newest';
-            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-            document.querySelector('[data-category="all"]').classList.add('active');
-            currentFilter = 'all';
-            renderProducts(products);
+            document.getElementById('searchInput').addEventListener('input', debounce(() => {
+                const search = document.getElementById('searchInput').value.toLowerCase();
+                const filtered = products.filter(p => p.title.toLowerCase().includes(search));
+                renderProducts(filtered);
+            }, 300));
         }
 
         function debounce(fn, ms) {
@@ -807,6 +793,13 @@
                 clearTimeout(timeout);
                 timeout = setTimeout(() => fn(...args), ms);
             };
+        }
+
+        function clearFilters() {
+            document.getElementById('searchInput').value = '';
+            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+            document.querySelector('[data-category="all"]').classList.add('active');
+            renderProducts(products);
         }
 
         // ==========================================
@@ -860,11 +853,13 @@
         }
 
         // ==========================================
-        // SELLER REGISTRATION
+        // SELLER REGISTRATION (Simplified)
         // ==========================================
-        function openSellerModal() { openModal('sellerModal'); }
+        function openSellerModal() { 
+            openModal('sellerModal'); 
+        }
         
-        function submitSellerApplication() {
+        function submitApplication() {
             const form = document.getElementById('sellerForm');
             const btn = document.getElementById('submitBtn');
             
@@ -876,87 +871,118 @@
             btn.disabled = true;
             btn.textContent = 'Submitting...';
             
-            const seller = {
-                id: 'REF_' + Math.random().toString(36).substr(2, 6).toUpperCase(),
-                name: document.getElementById('sellerName').value,
-                email: document.getElementById('sellerEmail').value,
-                phone: document.getElementById('sellerPhone').value,
-                stall: document.getElementById('sellerStall').value,
-                idNumber: document.getElementById('sellerId').value,
-                categories: Array.from(document.getElementById('sellerCategories').selectedOptions).map(o => o.value),
-                status: 'pending_verification',
-                appliedAt: new Date().toISOString()
+            const application = {
+                id: 'GK' + Math.random().toString(36).substr(2, 6).toUpperCase(),
+                name: document.getElementById('bizName').value,
+                phone: document.getElementById('bizPhone').value,
+                email: document.getElementById('bizEmail').value,
+                category: document.getElementById('bizCategory').value,
+                date: new Date().toISOString(),
+                status: 'pending'
             };
             
-            sellers.push(seller);
-            localStorage.setItem('gikomba_sellers', JSON.stringify(sellers));
+            // Save to localStorage
+            applications.push(application);
+            localStorage.setItem('gikomba_applications', JSON.stringify(applications));
             
-            document.getElementById('appRef').textContent = seller.id;
+            // Update analytics
+            analytics.applications++;
+            localStorage.setItem('gikomba_analytics', JSON.stringify(analytics));
             
-            setTimeout(() => {
-                closeModal('sellerModal');
-                openModal('successModal');
-                form.reset();
-                btn.disabled = false;
-                btn.textContent = 'Apply';
-            }, 1000);
+            // Show success
+            document.getElementById('refNum').textContent = application.id;
+            closeModal('sellerModal');
+            openModal('successModal');
+            
+            // Reset
+            form.reset();
+            btn.disabled = false;
+            btn.textContent = 'Submit Application';
+            
+            showToast('Application submitted successfully!', 'success');
         }
 
         // ==========================================
-        // ADMIN DASHBOARD
+        // ADMIN DASHBOARD (Analytics + Applications)
         // ==========================================
         function renderAdmin() {
-            document.getElementById('adminPending').textContent = sellers.filter(s => s.status === 'pending_verification').length;
-            document.getElementById('adminTotal').textContent = sellers.length;
+            // Update analytics
+            document.getElementById('statViews').textContent = analytics.views;
+            document.getElementById('statApplications').textContent = applications.length;
+            document.getElementById('statPending').textContent = applications.filter(a => a.status === 'pending').length;
             
-            const list = document.getElementById('adminList');
-            if (sellers.length === 0) {
-                list.innerHTML = '<p style="color: var(--gray-600); text-align: center;">No applications yet.</p>';
+            const today = new Date().toDateString();
+            document.getElementById('statToday').textContent = applications.filter(a => 
+                new Date(a.date).toDateString() === today
+            ).length;
+            
+            // Render applications list
+            const list = document.getElementById('applicationsList');
+            if (applications.length === 0) {
+                list.innerHTML = '<p style="color: var(--gray-600); text-align: center;">No applications yet</p>';
                 return;
             }
             
-            list.innerHTML = sellers.map((s, idx) => `
+            // Sort by date (newest first)
+            const sorted = [...applications].sort((a, b) => new Date(b.date) - new Date(a.date));
+            
+            list.innerHTML = sorted.map((app, idx) => `
                 <div class="application-card">
                     <div class="application-header">
                         <div>
-                            <h4 style="margin: 0;">${s.name}</h4>
-                            <p style="margin: 0.25rem 0; font-size: 0.85rem; color: var(--gray-600);">Ref: ${s.id}</p>
+                            <h4 style="margin: 0;">${app.name}</h4>
+                            <p style="margin: 0.25rem 0; font-size: 0.85rem; color: var(--gray-600);">Ref: ${app.id}</p>
                         </div>
-                        <span class="status-badge status-${s.status}">${s.status === 'pending_verification' ? '⏳ Pending' : '✓ Approved'}</span>
+                        <span class="status-badge status-${app.status}">${app.status === 'pending' ? '⏳ Pending' : '✓ Approved'}</span>
                     </div>
                     <div style="font-size: 0.9rem; margin: 0.5rem 0;">
-                        <p>📱 ${s.phone}</p>
-                        <p>📧 ${s.email}</p>
-                        <p>📍 ${s.stall}</p>
-                        <p>🏷 ${s.categories.join(', ')}</p>
+                        <p>📱 ${app.phone}</p>
+                        <p>📧 ${app.email}</p>
+                        <p>🏷 ${app.category}</p>
+                        <p style="color: var(--gray-600); font-size: 0.8rem; margin-top: 0.5rem;">
+                            Applied: ${new Date(app.date).toLocaleString()}
+                        </p>
                     </div>
                     <div style="display: flex; gap: 0.5rem; margin-top: 1rem;">
-                        <a href="https://wa.me/${s.phone}?text=Hi%20${encodeURIComponent(s.name)},%20your%20application%20is%20approved!" class="btn btn-success" style="font-size: 0.85rem; text-decoration: none;">Approve</a>
-                        <button onclick="deleteApp(${idx})" class="btn btn-secondary" style="font-size: 0.85rem;">Delete</button>
+                        <a href="https://wa.me/${app.phone}?text=Hi%20${encodeURIComponent(app.name)},%20your%20application%20to%20sell%20on%20Gikomba.shop%20has%20been%20approved!%20Reference:%20${app.id}" 
+                           class="btn btn-success" style="font-size: 0.85rem; text-decoration: none; padding: 0.5rem 1rem;">
+                            Approve via WhatsApp
+                        </a>
+                        <button onclick="deleteApplication(${idx})" class="btn btn-secondary" style="font-size: 0.85rem; padding: 0.5rem 1rem;">
+                            Delete
+                        </button>
                     </div>
                 </div>
             `).join('');
         }
 
-        function deleteApp(idx) {
+        function deleteApplication(idx) {
             if (!confirm('Delete this application?')) return;
-            sellers.splice(idx, 1);
-            localStorage.setItem('gikomba_sellers', JSON.stringify(sellers));
+            applications.splice(idx, 1);
+            localStorage.setItem('gikomba_applications', JSON.stringify(applications));
             renderAdmin();
+            showToast('Application deleted', 'success');
         }
 
-        function exportData() {
-            if (sellers.length === 0) { alert('No data'); return; }
-            let csv = 'Name,Phone,Email,Stall,ID,Categories,Date,Status\n';
-            sellers.forEach(s => {
-                csv += `"${s.name}","${s.phone}","${s.email}","${s.stall}","${s.idNumber}","${s.categories.join(';')}","${s.appliedAt}","${s.status}"\n`;
+        function exportCSV() {
+            if (applications.length === 0) {
+                alert('No data to export');
+                return;
+            }
+            
+            let csv = 'Reference,Name,Phone,Email,Category,Date,Status\n';
+            applications.forEach(a => {
+                csv += `${a.id},"${a.name}",${a.phone},${a.email},${a.category},${a.date},${a.status}\n`;
             });
+            
             const blob = new Blob([csv], { type: 'text/csv' });
             const url = URL.createObjectURL(blob);
             const a = document.createElement('a');
             a.href = url;
-            a.download = `sellers_${new Date().toISOString().split('T')[0]}.csv`;
+            a.download = `gikomba_sellers_${new Date().toISOString().split('T')[0]}.csv`;
             a.click();
+            
+            showToast('CSV downloaded!', 'success');
         }
 
         // ==========================================
